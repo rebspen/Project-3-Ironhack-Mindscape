@@ -32,7 +32,7 @@ class HomeView extends Component {
       <button type="button" class="btn btn-light"><Link to= "/" >Sign In</Link></button>
       <button type="button" class="btn btn-light"><Link to= "/" >Sign Up</Link></button>
       <button type="button" class="btn btn-light"><Link to= "/" >Profile</Link></button>
-      <button type="button" class="btn btn-light"><Link to= "/" >Understand our process</Link></button>
+      <button type="button" class="btn btn-light"><Link to= "/info" >Understand our process</Link></button>
       </main>
     );
   }

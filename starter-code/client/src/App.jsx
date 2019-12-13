@@ -12,6 +12,8 @@ import { render } from "react-dom";
 import HomeView from "./views/Homeview";
 import SearchView from "./views/SearchView";
 import ThemeView from "./views/ThemeView";
+import SingleView from "./views/SingleView";
+import InfoView from "./views/InfoView";
 
 class App extends Component {
   constructor() {
@@ -38,6 +40,8 @@ class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
+          <Route path="/info" exact component={InfoView} />
+          <Route path="/book/:id" exact component={SingleView} />
           <Route path="/search/:id" exact component={SearchView} />
           <Route path="/themes" exact component={ThemeView} />
           <Route path="/" exact component={HomeView} />

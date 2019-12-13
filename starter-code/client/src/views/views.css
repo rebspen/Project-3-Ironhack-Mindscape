@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-content: center;
+  margin: 1em 3em;
 }
 
 button{
