@@ -22,3 +22,7 @@ img{
   flex-wrap: wrap;
   margin: 5% 20%;
 }
+
+.box-shadow {
+  box-shadow: 10px 10px 5px #e2e2e5;
+}

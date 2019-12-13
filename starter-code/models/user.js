@@ -16,7 +16,10 @@ const schema = new mongoose.Schema({
   passwordHash: {
     type: String
   },
-  image: String,
+  image: {
+    type: String,
+    default: "https://www.sackettwaconia.com/wp-content/uploads/default-profile.png"
+  },
   books: [{
     type: mongoose.Types.ObjectId,
     ref: 'Book'

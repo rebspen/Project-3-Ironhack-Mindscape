@@ -36,7 +36,7 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-router.patch("/edit", async (req, res, next) => {
+router.patch("/edit-profile", async (req, res, next) => {
   const { username, email} = req.body;
   const userId = req.session.user;
   try {
