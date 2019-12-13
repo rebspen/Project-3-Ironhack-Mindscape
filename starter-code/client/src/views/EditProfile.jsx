@@ -39,6 +39,10 @@ class EditProfile extends Component {
     }
   };
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  };
+
   handleInputChange(event) {
     const nameOfState = event.target.name;
     const valueOfInput = event.target.value;
@@ -55,7 +59,7 @@ class EditProfile extends Component {
       <div className=' d-flex justify-content-center align-items-center w-100'>
 
       <div className='w-50 d-flex flex-column ml-5'>
-      <img src={user.image} alt="profile picture" className='w-50' style={{"maxWidth": "80%"}}/>
+      <img src={user.image} alt="profile picture" className='w-80 img-fluid' style={{"maxWidth": "80%"}}/>
       <div className='custom-file mt-3 w-50'>
       <label className="custom-file-label" htmlFor="customFileLang">Upload your picture</label>
       <input type="file" className="custom-file-input" id="customFileLang" lang="en" onChange={this.handleFileChange}/>

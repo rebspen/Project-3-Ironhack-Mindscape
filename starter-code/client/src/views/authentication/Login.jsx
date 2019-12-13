@@ -36,13 +36,14 @@ this.props.history.push(`/profile`);
   render() {
     console.log('test');
     return (
-      <div className='container text-center box-shadow p-3'>
+      <div className='container mt-5 p-3 box-shadow text-center' style={{"minHeight": '500px'}, {"backgroundColor": 'white'}}>
        <form onSubmit={this.handleSubmissionLogIn} className='text-center d-flex flex-column align-items-center w-100'>
        <h3 className="text-center mb-3">Sign in</h3>
         <label htmlFor="username">Username</label> <input type="text" name="username" className='w-50 form-control' onChange={this.handleInputChange} value={this.state.username}/>
         <br/>
          <label htmlFor="password w-50">Password</label><input type="password" name="password" className='w-50 form-control' onChange={this.handleInputChange} value={this.state.password}/>
-         <button className="btn m-3 text-white p-2" style={{"backgroundColor":"#444A6C"}}>Log in</button>
+         <Link to=''>Forgot your password?</Link>
+         <button className="btn m-3 text-white p-2 w-50" style={{"backgroundColor":"#444A6C"}}>Log in</button>
          <Link to='/signup'>Register</Link>
        </form> 
       </div>

@@ -58,7 +58,7 @@ function SearchView(props) {
   }, []);
 
   return (
-    <main className="App-layers">
+    <main className="App-layers text-center">
       <h1>Search Results</h1>
       <div>
         {result.map(val => {

@@ -12,7 +12,7 @@ cloudinary.config({
 
 const storage = storageCloudinary({
   cloudinary,
-  folder: 'lab-profile-app-react',
+  folder: 'project-3-ironhack',
   allowedFormats: ['jpg', 'png']
 });
 

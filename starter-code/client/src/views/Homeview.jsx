@@ -26,10 +26,9 @@ class HomeView extends Component {
 
   render() {
     return (
-      <main className = "App-layers m-3">
-      <h1>Mindspan</h1>
-      <button type="button" class="btn btn-light m-2"><Link to= "/themes" > Begin a new journey...</Link></button>
-      <button type="button" class="btn btn-light m-2"><Link to= "/info" >Understand our process</Link></button>
+      <main className = "App-layers m-3 text-center w-100">
+      <button type="button" className="btn btn-light m-2 w-60 box-shadow" style={{"minHeight":"250px"}}><Link to= "/themes" className='display-4' style={{"color":"#444A6C"}}> Begin a new journey...</Link></button>
+      <button type="button" className="btn btn-light m-2 w-60 box-shadow" style={{"minHeight":"250px"}}><Link to= "/info" className='display-4' style={{"color":"#444A6C"}}>Understand our process</Link></button>
       </main>
     );
   }
