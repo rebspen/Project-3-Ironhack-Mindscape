@@ -46,7 +46,7 @@ class Signup extends Component {
         <h1>Sign Up</h1>
         <form onSubmit={this.handleSubmissionEvent} className='d-flex flex-column'>
          <label htmlFor="username">Username</label> <input onChange={this.handleInputChange} type="text" className="form-control" name='username' placeholder='Username' value={this.state.username}/>
-          <label htmlFor="password">Password</label> <input onChange={this.handleInputChange} required type="text" className="form-control" name='password' placeholder='Password' value={this.state.password}/>
+          <label htmlFor="password">Password</label> <input onChange={this.handleInputChange} required type="password" className="form-control" name='password' placeholder='Password' value={this.state.password}/>
           <label htmlFor="emal">E-mail</label> <input type="text" name="email" onChange={this.handleInputChange} className="form-control" placeholder='Email' value={this.state.email}/>
           <button className="btn m-3 text-white p-2" style={{"backgroundColor":"#444A6C"}}>Sign up</button>
         </form>

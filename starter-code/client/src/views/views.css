@@ -8,14 +8,13 @@
 
 button{
   margin: 5% 20%;
-  box-shadow: 10px 10px 5px #e2e2e5;
+  box-shadow: 5px 5px 2.5px #f7f8fa;
 }
 
 img{
   width : 30%;
   margin: 1em;
-  box-shadow: 10px 10px 5px #e2e2e5;
-  border-radius: 10px;
+  box-shadow: 5px 5px 2.5px #f7f8fa;
 }
 
 .theme {
@@ -25,5 +24,5 @@ img{
 }
 
 .box-shadow {
-  box-shadow: 10px 10px 5px #e2e2e5;
+  box-shadow: 5px 5px 2.5px #f7f8fa;
 }
