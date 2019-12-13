@@ -68,7 +68,7 @@ class ThemeView extends Component {
       <main className="App-layers">
         <h1>Themes</h1>
         <p>choose one and begin your literary jorney...</p>
-        <button><Link to={`/search/${themes[luckyNum].id}`}>I feel lucky...</Link></button>
+        <button className="btn m-3 p-2" style={{"backgroundColor":"#444A6C"}}><Link to={`/search/${themes[luckyNum].id}`} className='text-white'>I feel lucky...</Link></button>
         <br></br>
         <div ClassName = "theme">
           {themes.map((val)=>{

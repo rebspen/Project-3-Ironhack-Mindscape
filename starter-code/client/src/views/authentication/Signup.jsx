@@ -42,7 +42,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className='container m-3 text-center box-shadow p-3'>
+      <div className='container text-center box-shadow p-3'>
         <h1>Sign Up</h1>
         <form onSubmit={this.handleSubmissionEvent} className='d-flex flex-column'>
          <label htmlFor="username">Username</label> <input onChange={this.handleInputChange} type="text" className="form-control" name='username' placeholder='Username' value={this.state.username}/>
