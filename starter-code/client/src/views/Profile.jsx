@@ -12,12 +12,12 @@ class Profile extends Component {
     //We get the user data from App.jsx.
 
     return(
-       <div class='container m-3 p-3 d-flex flex-column justify-content-center align-items-center box-shadow' style={{"minHeight": '500px'}, {"backgroundColor": 'white'}}>
+       <div class='container p-3 d-flex flex-column justify-content-center align-items-center box-shadow' style={{"minHeight": '500px'}, {"backgroundColor": 'white'}}>
       {user && 
       <Fragment>
        <h1>Welcome back {user.username} ! </h1> 
        <img src={user.image} alt={user.username}/>
-       <Link to='/profile/edit'>Update your Profile</Link>
+       <Link to='/profile-edit'>Update your Profile</Link>
        <div>Your BookShelf</div>
       <div>Following</div>
       </Fragment>

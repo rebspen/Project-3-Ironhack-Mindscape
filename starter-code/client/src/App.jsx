@@ -59,6 +59,13 @@ class App extends Component {
           <Route path="/signup" render={(props) => <SignUp {...props} loadUserInformation={this.loadUserInformation}/>} />
           <Route path="/login" render={(props) => <Login {...props} loadUserInformation={this.loadUserInformation}/>} />
           <ProtectedRoute
+                path="/profile-edit"
+                exact
+                render={props => <EditProfile {...props} user={this.state.user} loadUserInformation={this.loadUserInformation} />}
+                verify={this.verifyAuthentication}
+                redirect="/"
+              />
+          <ProtectedRoute
                 path="/profile"
                 exact
                 render={props => <Profile {...props} user={this.state.user} />}
@@ -66,7 +73,7 @@ class App extends Component {
                 redirect="/"
               />
           <Route path="/info" exact component={InfoView} />
-          <Route path="/book/:id" exact component={SingleView} />
+          <Route path="/book/:id" render={(props) => <SingleView {...props} loadUserInformation={this.loadUserInformation}/>} />
           <Route path="/search/:id" exact component={SearchView} />
           <Route path="/themes" exact component={ThemeView} />
           <Route path="/" exact component={HomeView} />
@@ -82,7 +89,7 @@ export default App;
 
 /*
     <ProtectedRoute
-                path="/profile/edit"
+                path="/profile-edit"
                 render={props => <EditProfile {...props} user={this.state.user} loadUserInformation={this.loadUserInformation} />}
                 verify={this.verifyAuthentication}
                 redirect="/"
