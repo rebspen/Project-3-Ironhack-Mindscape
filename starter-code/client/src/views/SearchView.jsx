@@ -31,7 +31,9 @@ function SearchView(props) {
   const [result, setResults] = useState([]);
   function handleSearchSubmission() {
     const id = props.match.params.id;
-    const bookArr = shuffle(themes[id].titles);
+    const titles = themes[id].titles
+    console.log("titles", titles)
+    const bookArr = shuffle(titles);
     const book1 = bookArr[0];
     const book2 = bookArr[1];
     axios
