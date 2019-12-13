@@ -1,0 +1,24 @@
+.App-layers{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+}
+
+button{
+  margin: 5% 20%;
+  box-shadow: 10px 10px 5px #e2e2e5;
+}
+
+img{
+  width : 30%;
+  margin: 1em;
+  box-shadow: 10px 10px 5px #e2e2e5;
+  border-radius: 10px;
+}
+
+.theme {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5% 20%;
+}

@@ -44,7 +44,7 @@ app.use(bindUserToViewLocals);
 
 app.use('/', indexRouter);
 app.use('/api/auth', authenticationRouter);
-app.use('/api/books', authenticationRouter);
+app.use('/api/books', booksRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
