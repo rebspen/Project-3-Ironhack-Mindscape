@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Switch, Route, Link, Redirect } from "react-router-dom";
 import { render } from "react-dom";
@@ -8,18 +7,14 @@ import SignUp from './views/authentication/Signup';
 import Profile from './views/Profile';
 import EditProfile from './views/EditProfile';
 import Navbar from './components/Navbar';
-import ProtectedRoute from './services/ProtectedRoute'
-
-// when we want to add this
-// import ProtectedRoute from './components/ProtectedRoute';
-
-// import { loadUser as loadUser } from './services/authentication';
-
+import ProtectedRoute from './services/ProtectedRoute';
 import HomeView from "./views/Homeview";
 import SearchView from "./views/SearchView";
 import ThemeView from "./views/ThemeView";
 import { loadUserInformation as loadUserInformationService } from './services/authentication';
 
+import SingleView from "./views/SingleView";
+import InfoView from "./views/InfoView";
 
 class App extends Component {
   constructor() {
@@ -70,6 +65,9 @@ class App extends Component {
                 verify={this.verifyAuthentication}
                 redirect="/"
               />
+          <Route path="/info" exact component={InfoView} />
+          <Route path="/book/:id" exact component={SingleView} />
+          <Route path="/search/:id" exact component={SearchView} />
           <Route path="/themes" exact component={ThemeView} />
           <Route path="/" exact component={HomeView} />
           <Redirect to="/" />
