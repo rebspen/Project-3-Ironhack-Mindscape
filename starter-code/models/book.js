@@ -3,24 +3,21 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-  username: {
+  title: {
     type: String,
     trim: true
   },
-  email: {
+  author: {
     type: String,
-  //  required: true,
-    lowercase: true,
-    trim: true
   },
-  passwordHash: {
+  description: {
     type: String
   },
   image: String,
-  books: [{
+  users: [{
     type: mongoose.Types.ObjectId,
-    ref: 'Book'
+    ref: 'User'
   }]
 });
 
-module.exports = mongoose.model('User', schema);
+module.exports = mongoose.model('Book', schema);
