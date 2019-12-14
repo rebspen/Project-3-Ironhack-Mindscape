@@ -37,8 +37,6 @@ function SearchView(props) {
     const titles = category[0].titles
     const image = category[0].imageURL
     setImage(image)
-    console.log("themes", themes)
-    console.log("titles", titles)
     const bookArr = shuffle(titles);
     const book1 = bookArr[0];
     const book2 = bookArr[1];
@@ -65,7 +63,7 @@ function SearchView(props) {
 
   return (
     <main className="App-layers text-center">
-      <img src = {image}/>
+      <img style={{width:"30%"}}  src = {image} />
       <div>
         {result.map(val => {
           return (

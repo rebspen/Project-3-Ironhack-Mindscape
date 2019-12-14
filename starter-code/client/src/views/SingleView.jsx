@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { Link } from "react-router-dom";
+import {createBook as addBookToShelf} from './../services/books'
 import axios from 'axios';
 
 import "./views.css";
@@ -43,10 +44,29 @@ function SingleView (props) {
     },[]);
 
     //Add the book to the users' profile and book model
-    function addBookToUsersProfile() {
-      const bookObject = result;
-      console.log(bookObject);
-    }
+    // function addBookToUsersProfile() {
+    //   const bookObject = result;
+    //   console.log("button clicked",bookObject);
+    //   try {
+    //     const book = addBookToShelf(bookObject);
+    //     this.props.history.push(`/profile`);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
+      
+      async function addBookToUsersProfile(event) {
+        event.preventDefault();
+        const bookObject = result;
+        console.log(bookObject);
+        try {
+          const book = await addBookToShelf(bookObject)
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      
+      
 
     return (
       <main className='p-3 container d-flex flex-column box-shadow justify-content-center align-items-center' style={{"backgroundColor":"white"}}>

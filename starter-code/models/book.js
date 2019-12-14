@@ -8,16 +8,17 @@ const schema = new mongoose.Schema({
     trim: true
   },
   author: {
-    type: String,
+    type: String
   },
   description: {
     type: String
   },
   image: String,
-  users: [{
+  users: {
     type: mongoose.Types.ObjectId,
+    required: true,
     ref: 'User'
-  }]
+  }
 });
 
 module.exports = mongoose.model('Book', schema);
