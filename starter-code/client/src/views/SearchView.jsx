@@ -29,9 +29,15 @@ function shuffle(array) {
 function SearchView(props) {
   const id = Number(props.match.params.id);
   const [result, setResults] = useState([]);
+  const [image, setImage] = useState([]);
+
   function handleSearchSubmission() {
     const id = props.match.params.id;
-    const titles = themes[id].titles
+    const category = themes.filter((val) => { if(val.id === parseInt(id)) {return val}})
+    const titles = category[0].titles
+    const image = category[0].imageURL
+    setImage(image)
+    console.log("themes", themes)
     console.log("titles", titles)
     const bookArr = shuffle(titles);
     const book1 = bookArr[0];
@@ -54,14 +60,12 @@ function SearchView(props) {
   }
 
   useEffect(() => {
-    console.log("IDDDDD", id);
-    console.log(themes[id].imageURL);
     return handleSearchSubmission();
   }, []);
 
   return (
     <main className="App-layers">
-      <h1>Search Results</h1>
+      <img src = {image}/>
       <div>
         {result.map(val => {
           return (
