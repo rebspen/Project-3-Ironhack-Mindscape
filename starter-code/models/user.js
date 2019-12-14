@@ -18,7 +18,7 @@ const schema = new mongoose.Schema({
   },
   image: {
     type: String,
-    default: "https://www.sackettwaconia.com/wp-content/uploads/default-profile.png"
+    default: "https://res.cloudinary.com/dgmvfq29c/image/upload/v1576260656/project-3-ironhack/default_picture_qtbqve.png"
   },
   books: [{
     type: mongoose.Types.ObjectId,

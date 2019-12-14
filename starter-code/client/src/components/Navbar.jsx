@@ -22,19 +22,26 @@ class Navbar extends Component {
   render() {
     const user=this.props.user;
     return (
-      <div className='navbar' style={{"backgroundColor":"#788FAD"}}>
+      <div className='navbar d-flex justify-content-between' style={{"backgroundColor":"#788FAD"}}>
+      <div><Link to='/' className='text-dark'> MindSpan</Link></div>
        {user && 
        <Fragment>
-       <button className="btn btn-link text-white" onClick={this.handleSignOut} style={{"boxShadow":"none"}}>Sign Out</button>
-       <Link className="nav-link text-white" to='/profile'>Your Profile</Link>
-       <Link className="nav-link text-white" to='/'>Home</Link>
+       <div>
+       <ul className="navbar-nav mr-auto d-flex flex-row">
+       <li className="nav-item"> <button className="btn btn-link text-white" onClick={this.handleSignOut} style={{"boxShadow":"none"}}>Sign Out</button></li>
+       <li className="nav-item"><Link className="nav-link text-white mr-2" to='/profile'>Your Profile</Link></li>
+       </ul>
+       </div>
        </Fragment>
        } 
        {!user &&
        <Fragment>
-        <Link className="nav-link text-white" to='/login'>Sign In</Link>
-        <Link className="nav-link text-white" to='/signup'>Sign Up</Link>
-        <Link className="nav-link text-white" to='/'>Home</Link>
+       <div>
+       <ul className="navbar-nav mr-auto d-flex flex-row">
+       <li className="nav-item"><Link className="nav-link text-white mr-2" to='/login'>Sign In</Link></li>
+       <li className="nav-item"><Link className="nav-link text-white mr-2" to='/signup'>Sign Up</Link></li>
+      </ul>
+        </div>
         </Fragment>
        }
       </div>

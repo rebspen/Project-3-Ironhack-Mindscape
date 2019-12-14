@@ -12,6 +12,9 @@ function SingleView (props) {
 
     //Getting book name from url
     const id = props.match.params.id;
+    
+    //Getting the user, check if he is signed in;
+    const user=props.user;
 
     //Setting states
     let [book, setBook] = useState("");
@@ -34,10 +37,12 @@ function SingleView (props) {
     //Calls the axios function to get the API after this page was mounted
     useEffect(() => {
       setBook(book = id);
+      window.scrollTo(0, 0);
+      //to scroll to the top of the page after loading the info.
       return handleBookSearch()
     },[]);
 
-    //Adds the book to the users' profile
+    //Add the book to the users' profile and book model
     function addBookToUsersProfile() {
       const bookObject = result;
       console.log(bookObject);
@@ -52,10 +57,12 @@ function SingleView (props) {
        <ul className='text-left'>
        <li key='1'><div>Title: {result.volumeInfo.title} </div></li>
        <li key='2'><div>Author: {result.volumeInfo.authors.map(author => author + ',')}</div></li>
-      {result.volumeInfo.description && <li key='3'><div>Description: {result.volumeInfo.description}</div></li>}
-      {result.volumeInfo.averageRating && <li key='4'><div>Rate: {result.volumeInfo.averageRating}</div></li>}
-      {result.saleInfo.buyLink && <li key='5'><div>Sales Link: {result.saleInfo.buyLink}</div></li> }
-       <button className="btn m-3 text-white p-2" style={{"backgroundColor":"#444A6C"}} onClick={addBookToUsersProfile}>Add to your book shelf!</button>
+          {result.volumeInfo.description && <li key='3'><div>Description: {result.volumeInfo.description}</div></li>}
+          {result.volumeInfo.averageRating && <li key='4'><div>Rate: {result.volumeInfo.averageRating}</div></li>}
+          {result.saleInfo.buyLink && <li key='5'><div>Sales Link: {result.saleInfo.buyLink}</div></li> }
+       
+          {user && <button className="btn m-3 mt-5 text-white p-2" style={{"backgroundColor":"#444A6C"}} onClick={addBookToUsersProfile}>Add to your book shelf!</button> }
+          {!user && <span className='mt-5 text-right d-flex'><Link to='/login'>Log in</Link> or <Link to='/signup'>Sign Up</Link> to continue your journey!</span>}
        </ul>
        </Fragment>
        }

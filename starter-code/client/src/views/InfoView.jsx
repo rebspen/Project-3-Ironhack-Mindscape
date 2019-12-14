@@ -8,7 +8,7 @@ import "./views.css";
 function InfoView () {
  
     return (
-    <div ClassName= "App-layers">
+    <div className= "container p-3">
     <h1>Our concept explained...</h1>
     <br></br>
     <h5>We are bored of echo-chamber recommendation tools, so we decided to break the trend.</h5>
@@ -17,7 +17,7 @@ function InfoView () {
     <br></br>
     <h5>We use leading cultural experts to curate thought provoking themes. So just kick back, pick a theme that catches your eye and start your adventure...</h5>
     <br></br>
-    <button type="button" class="btn btn-light"><Link to= "/themes" > Begin a new journey...</Link></button>
+    <button type="button" className="btn m-3 text-white p-2 text-right" style={{"backgroundColor":"#444A6C"}}><Link to= "/themes" className='text-white'> Begin a new journey...</Link></button>
     </div>
     )
   

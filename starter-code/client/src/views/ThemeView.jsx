@@ -35,14 +35,13 @@ class ThemeView extends Component {
 
   render() {
     return (
-      <main className="App-layers">
-        <h1>Themes</h1>
-        <p>choose one and begin your literary jorney...</p>
-        <button className="btn m-3 p-2" style={{"backgroundColor":"#444A6C"}}><Link to={`/search/${this.state.themes[luckyNum].id}`}  className='text-white'>I feel lucky...</Link></button>
-        <br></br>
-        <div ClassName = "theme">
+      <main className="App-layers justify-content-center align-items-center">
+        <h1 className=''>Themes</h1>
+        <p className='m-1'>Choose one theme and begin your literary Journey...</p>
+        <button className="btn p-2 w-50 mt-3" style={{"backgroundColor":"#444A6C"}}><Link to={`/search/${this.state.themes[luckyNum].id}`}  className='text-white'>I feel lucky...</Link></button>
+        <div className = "d-flex flex-row mt-5 text-center justify-content-center">
           {this.state.themes.map((val)=>{
-            return <Link to={`/search/${val.id}`}><img src= {val.imageURL}/></Link>
+            return <Link to={`/search/${val.id}`} key={Math.random()}><img src= {val.imageURL} className='img-fluid' style={{"width":"40%"}}/></Link>
           })}
         </div>   
       </main>

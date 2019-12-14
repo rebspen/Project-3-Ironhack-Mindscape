@@ -64,7 +64,7 @@ function SearchView(props) {
   }, []);
 
   return (
-    <main className="App-layers">
+    <main className="App-layers text-center">
       <img src = {image}/>
       <div>
         {result.map(val => {

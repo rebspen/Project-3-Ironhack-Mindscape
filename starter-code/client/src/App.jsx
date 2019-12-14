@@ -73,7 +73,7 @@ class App extends Component {
                 redirect="/"
               />
           <Route path="/info" exact component={InfoView} />
-          <Route path="/book/:id" render={(props) => <SingleView {...props} loadUserInformation={this.loadUserInformation}/>} />
+          <Route path="/book/:id" render={(props) => <SingleView {...props} user={this.state.user} loadUserInformation={this.loadUserInformation}/>} />
           <Route path="/search/:id" exact component={SearchView} />
           <Route path="/themes" exact component={ThemeView} />
           <Route path="/" exact component={HomeView} />

@@ -42,13 +42,13 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className='container text-center box-shadow p-3'>
+      <div className='container mt-5 p-3 box-shadow text-center' style={{"minHeight": '500px'}, {"backgroundColor": 'white'}}>
         <h1>Sign Up</h1>
-        <form onSubmit={this.handleSubmissionEvent} className='d-flex flex-column'>
-         <label htmlFor="username">Username</label> <input onChange={this.handleInputChange} type="text" className="form-control" name='username' placeholder='Username' value={this.state.username}/>
-          <label htmlFor="password">Password</label> <input onChange={this.handleInputChange} required type="password" className="form-control" name='password' placeholder='Password' value={this.state.password}/>
-          <label htmlFor="emal">E-mail</label> <input type="text" name="email" onChange={this.handleInputChange} className="form-control" placeholder='Email' value={this.state.email}/>
-          <button className="btn m-3 text-white p-2" style={{"backgroundColor":"#444A6C"}}>Sign up</button>
+        <form onSubmit={this.handleSubmissionEvent} className='d-flex flex-column w-100 justify-content-center align-items-center'>
+         <label htmlFor="username">Username</label> <input onChange={this.handleInputChange} type="text" className="form-control w-50" name='username' placeholder='Username' value={this.state.username}/>
+          <label htmlFor="password">Password</label> <input onChange={this.handleInputChange} required type="password" className="w-50 form-control" name='password' placeholder='Password' value={this.state.password}/>
+          <label htmlFor="emal">E-mail</label> <input type="email" name="email" onChange={this.handleInputChange} className="w-50 form-control" placeholder='Email' value={this.state.email}/>
+          <button className="btn m-3 text-white p-2 w-50" style={{"backgroundColor":"#444A6C"}}>Sign up</button>
         </form>
       </div>
     )
