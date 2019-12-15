@@ -8,16 +8,16 @@ import "./views.css";
 function InfoView () {
  
     return (
-    <div className= "container p-3">
-    <h1>Our concept explained...</h1>
+    <div className= "container p-3 App-layers">
+    <h1 style= {{textAlign: "center", color: "#788FAD"}} >Our concept explained...</h1>
     <br></br>
-    <h5>We are bored of echo-chamber recommendation tools, so we decided to break the trend.</h5>
+    <h5 style= {{textAlign: "center", color: "#788FAD"}} >We are bored of echo-chamber recommendation tools, so we decided to break the trend.</h5>
     <br></br>
-    <h5>Mindscape is designed to help you discover ideas, and encourage interdisciplinary thinking.</h5>
+    <h5 style= {{textAlign: "center", color: "#788FAD"}} >Mindscape is designed to help you discover ideas, and encourage interdisciplinary thinking.</h5>
     <br></br>
-    <h5>We use leading cultural experts to curate thought provoking themes. So just kick back, pick a theme that catches your eye and start your adventure...</h5>
+    <h5 style= {{textAlign: "center", color: "#788FAD"}} >We use leading cultural experts to curate thought provoking themes. So just kick back, pick a theme that catches your eye and start your adventure...</h5>
     <br></br>
-    <button type="button" className="btn m-3 text-white p-2 text-right" style={{"backgroundColor":"#444A6C"}}><Link to= "/themes" className='text-white'> Begin a new journey...</Link></button>
+    <button type="button" className="btn m-3 text-white p-2 text-right" style={{ border: "2px solid #788FAD", backgroundColor: "#f0f0f2"}} ><Link to= "/themes" className='' style={{"color":"#788FAD"}}> Begin a new journey...</Link></button>
     </div>
     )
   

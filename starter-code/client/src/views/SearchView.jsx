@@ -68,7 +68,7 @@ function SearchView(props) {
         {result.map(val => {
           return (
             <Link to={`/book/${val.Name}`}>
-              <div class="card">
+              <div class="card mb-2" style={{border: "1px solid #788FAD", backgroundColor: "#f0f0f2"}}>
                 {" "}
                 <div class="card-body p-1">
                   <h6 className="m-0">{val.Name}</h6>

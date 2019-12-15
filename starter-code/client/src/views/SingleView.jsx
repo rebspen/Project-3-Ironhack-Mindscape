@@ -70,16 +70,15 @@ function SingleView (props) {
 
     return (
       <main className='p-3 container d-flex flex-column box-shadow justify-content-center align-items-center' style={{"backgroundColor":"white"}}>
-       <h1> {id} </h1>
+       <h2> {id} </h2>
        {loaded && 
        <Fragment>
        <img src={result.volumeInfo.imageLinks.thumbnail} alt="test"/>
        <ul className='text-left'>
-       <li key='1'><div>Title: {result.volumeInfo.title} </div></li>
        <li key='2'><div>Author: {result.volumeInfo.authors.map(author => author + ',')}</div></li>
-          {result.volumeInfo.description && <li key='3'><div>Description: {result.volumeInfo.description}</div></li>}
-          {result.volumeInfo.averageRating && <li key='4'><div>Rate: {result.volumeInfo.averageRating}</div></li>}
-          {result.saleInfo.buyLink && <li key='5'><div>Sales Link: {result.saleInfo.buyLink}</div></li> }
+          {result.volumeInfo.averageRating && <li key='4'><div>Rating: {result.volumeInfo.averageRating}/5</div></li>}
+          {result.volumeInfo.description && <li key='3'><div>Description: {(result.volumeInfo.description).substring(0, 250) + "..."}</div></li>}
+          {result.saleInfo.buyLink && <li key='5'><div><a href = {result.saleInfo.buyLink}>Read more</a> </div></li> }
        
           {user && <button className="btn m-3 mt-5 text-white p-2" style={{"backgroundColor":"#444A6C"}} onClick={addBookToUsersProfile}>Add to your book shelf!</button> }
           {!user && <span className='mt-5 text-right d-flex'><Link to='/login'>Log in</Link> or <Link to='/signup'>Sign Up</Link> to continue your journey!</span>}

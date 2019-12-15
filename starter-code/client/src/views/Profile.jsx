@@ -23,17 +23,17 @@ class Profile extends Component {
 
     return(
       <div>
-       <div className='container mt-2 p-3 d-flex flex-column justify-content-center align-items-center box-shadow' style={{"minHeight": '500px'}, {"backgroundColor": 'white'}}>
+       <div className='container mt-2 p-3 d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}>
       {user && 
       <Fragment>
-       <h1>Welcome back {user.username} ! </h1> 
-       <img src={imageURLTransformed} alt={user.username} className='img-fluid'/>
-       <Link to='/profile-edit'>Update your Profile</Link>
+       <h1 style={{color: "#788FAD"}}>Welcome back {user.username} ! </h1> 
+       <img src={imageURLTransformed} alt={user.username} className='img-fluid' style={{width: "10%", border: "2px solid #E3D353", borderRadius: "90px" }}/>
+       <Link to='/profile-edit' style={{color: "#444A6C"}}>Update your Profile</Link>
       </Fragment>
        }
       </div>
-      <div className='container mt-2 p-3 d-flex flex-column justify-content-center align-items-center box-shadow' style={{"minHeight": '500px'}, {"backgroundColor": 'white'}}>Your BookShelf</div>
-      <div className='container mt-2 p-3 d-flex flex-column justify-content-center align-items-center box-shadow' style={{"minHeight": '500px'}, {"backgroundColor": 'white'}}>Following</div>
+      <div className='container mt-2 p-3 d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}><img src = "../bookshelf.png"/></div>
+      <div className='container mt-2 p-3 d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}>Following</div>
       </div>
       )
   }
