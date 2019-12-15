@@ -14,6 +14,7 @@ import ThemeView from "./views/ThemeView";
 import { loadUserInformation as loadUserInformationService } from './services/authentication';
 
 import SingleView from "./views/SingleView";
+import Bookshelf from "./views/Bookshelf";
 import InfoView from "./views/InfoView";
 
 class App extends Component {
@@ -69,6 +70,13 @@ class App extends Component {
                 path="/profile"
                 exact
                 render={props => <Profile {...props} user={this.state.user} />}
+                verify={this.verifyAuthentication}
+                redirect="/"
+              />
+          <ProtectedRoute
+                path="/bookshelf"
+                exact
+                render={props => <Bookshelf {...props} user={this.state.user} />}
                 verify={this.verifyAuthentication}
                 redirect="/"
               />

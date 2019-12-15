@@ -21,9 +21,13 @@
     "name": "Utopia",
     "imageURL": "../9.png",
     "titles": [
-      "1985",
-       "the power", 
-       "never let me go"
+      "1985", 
+       "never let me go",
+       "hothouse",
+       "The Drowned World",
+       "A Clockwork Orange",
+       "Do Androids Dream of Electric Sheep?",
+       "this changes everything"
       ]
   },
   {
@@ -33,7 +37,86 @@
     "titles": [
       "the absolutely true diary of a part-time indian",
       "the catcher in the rye",
-      "memoirs of a geisha"
+      "memoirs of a geisha",
+      "widow basquiat: a love story"
+      ]
+  },
+  {
+    "id": 3,
+    "name": "Enchantment",
+    "imageURL": "../2.png",
+    "titles": [
+      "love in the time of cholera",
+      "kafka on the shore",
+      "east of eden",
+      "madness and civilization: a history of instnity in the age of reason"
+      ]
+  },
+  {
+    "id": 4,
+    "name": "Mind",
+    "imageURL": "../8.png",
+    "titles": [
+      "madness and civilization: a history of insanity in the age of reason",
+      "the psychedelic experience: a manual based on the tibetan book of the dead",
+      "DESCARTES' ERROR: EMOTION, REASON AND THE HUMAN BRAIN",
+      "HOW TO CREATE A MIND: THE SECRET OF HUMAN THOUGHT REVEALED"
+      ]
+  },
+  {
+    "id": 5,
+    "name": "Dark",
+    "imageURL": "../1.png",
+    "titles": [
+      "the brothers karamazov",
+      "dispatches",
+      "Last Exit to Brooklyn"
+      ]
+  },
+  {
+    "id": 6,
+    "name": "Seeing",
+    "imageURL": "../3.png",
+    "titles": [
+      "ways of seeing",
+      "coventry",
+      "on photography"
+      ]
+  },
+  {
+    "id": 7,
+    "name": "Time",
+    "imageURL": "../5.png",
+    "titles": [
+      "the left hand of darkness",
+      "the order of time",
+      "roadside picnic",
+      "a brief history of time"
+      ]
+  },
+  {
+    "id": 8,
+    "name": "Wunderlust",
+    "imageURL": "../10.png",
+    "titles": [
+      "in patagonia",
+      "travels with My aunt",
+      "homage to catalonia",
+      "the places in between"
+      ]
+  },
+  {
+    "id": 9,
+    "name": "xmas",
+    "imageURL": "../7.png",
+    "titles": [
+      "a christmas carol",
+      "twas the night shift before christmas",
+      "hogfather",
+      "how the Grinch stole christmas",
+      "the twelve terrors of christmas"
       ]
   }
+
+
 ]
