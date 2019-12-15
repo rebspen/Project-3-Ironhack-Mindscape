@@ -68,11 +68,11 @@ function SearchView(props) {
         {result.map(val => {
           return (
             <Link to={`/book/${val.Name}`}>
-              <div class="card mb-2" style={{border: "1px solid #788FAD", backgroundColor: "#f0f0f2"}}>
+              <div class="card mb-2" style={{border: "#f0f0f2", backgroundColor: "#f0f0f2"}}>
                 {" "}
                 <div class="card-body p-1">
-                  <h6 className="m-0">{val.Name}</h6>
-                  <p className="mt-1 mb-0">{val.Type}</p>
+                  <h6 className="m-0" style={{color: "#788FAD"}}>{val.Name}</h6>
+                  <p className="mt-1 mb-0" style={{color: "#444A6C"}}>{val.Type}</p>
                 </div>
               </div>{" "}
             </Link>

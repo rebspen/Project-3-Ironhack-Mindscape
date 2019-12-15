@@ -38,8 +38,8 @@ class Navbar extends Component {
        <Fragment>
        <div>
        <ul className="navbar-nav mr-auto d-flex flex-row">
-       <li className="nav-item"><Link className="nav-link text-white mr-2" to='/login'>Sign In</Link></li>
-       <li className="nav-item"><Link className="nav-link text-white mr-2" to='/signup'>Sign Up</Link></li>
+       <li className="nav-item"><Link className="nav-link mr-2" to='/login' style={{color:"#788FAD"}}>Sign In</Link></li>
+       <li className="nav-item"><Link className="nav-link mr-2" to='/signup' style={{color:"#788FAD"}}>Sign Up</Link></li>
       </ul>
         </div>
         </Fragment>

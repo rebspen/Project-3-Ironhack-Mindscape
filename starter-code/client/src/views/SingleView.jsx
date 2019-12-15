@@ -69,18 +69,18 @@ function SingleView (props) {
       
 
     return (
-      <main className='p-3 container d-flex flex-column box-shadow justify-content-center align-items-center' style={{"backgroundColor":"white"}}>
-       <h2> {id} </h2>
+      <main className='p-3 container d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}>
+       <h2 style= {{color: "#788FAD"}}>{id}</h2>
        {loaded && 
        <Fragment>
        <img src={result.volumeInfo.imageLinks.thumbnail} alt="test"/>
-       <ul className='text-left'>
-       <li key='2'><div>Author: {result.volumeInfo.authors.map(author => author + ',')}</div></li>
-          {result.volumeInfo.averageRating && <li key='4'><div>Rating: {result.volumeInfo.averageRating}/5</div></li>}
-          {result.volumeInfo.description && <li key='3'><div>Description: {(result.volumeInfo.description).substring(0, 250) + "..."}</div></li>}
-          {result.saleInfo.buyLink && <li key='5'><div><a href = {result.saleInfo.buyLink}>Read more</a> </div></li> }
+       <ul className='text-left App-layers' style= {{color: "#788FAD"}}>
+       <li key='2'><div >Author: {result.volumeInfo.authors.map(author => author + ',')}</div></li>
+          {result.volumeInfo.averageRating && <li key='4'><div >Rating: {result.volumeInfo.averageRating}/5</div></li>}
+          {result.volumeInfo.description && <li key='3'><div style= {{textAlign: "center"}} >Description: {(result.volumeInfo.description).substring(0, 250) + "..."}</div></li>}
+          {result.saleInfo.buyLink && <li key='5'><div><a href = {result.saleInfo.buyLink} style= {{color:"#E3D353"}} >Read more</a> </div></li> }
        
-          {user && <button className="btn m-3 mt-5 text-white p-2" style={{"backgroundColor":"#444A6C"}} onClick={addBookToUsersProfile}>Add to your book shelf!</button> }
+          {user && <button className="btn m-3 mt-5 p-2" style={{"backgroundColor":"#f0f0f2", border: "2px solid #E3D353", color:"#E3D353"}} onClick={addBookToUsersProfile}>Add to your book shelf!</button> }
           {!user && <span className='mt-5 text-right d-flex'><Link to='/login'>Log in</Link> or <Link to='/signup'>Sign Up</Link> to continue your journey!</span>}
        </ul>
        </Fragment>
