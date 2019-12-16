@@ -28,6 +28,7 @@ class Navbar extends Component {
        <div>
        <ul className="navbar-nav mr-auto d-flex flex-row">
        <li className="nav-item"> <button className="btn btn-link " onClick={this.handleSignOut} style={{"boxShadow":"none", color:"#788FAD"}}>Sign Out</button></li>
+       <li className="nav-item"><Link className="nav-link mr-2" to={`/user-list`} style={{color:"#788FAD"}}>Find a Friend</Link></li>
        <li className="nav-item"><Link className="nav-link mr-2" to={`/profile/${user._id}`} style={{color:"#788FAD"}}>Your Profile</Link></li>
        </ul>
        </div>
