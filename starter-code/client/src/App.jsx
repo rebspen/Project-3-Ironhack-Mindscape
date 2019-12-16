@@ -14,8 +14,9 @@ import ThemeView from "./views/ThemeView";
 import { loadUserInformation as loadUserInformationService } from './services/authentication';
 
 import SingleView from "./views/SingleView";
-import Bookshelf from "./views/Bookshelf";
+import Bookshelf from './views/Bookshelf';
 import InfoView from "./views/InfoView";
+
 
 class App extends Component {
   constructor() {
@@ -57,8 +58,11 @@ class App extends Component {
             user={this.state.user}
             loadUserInformation={this.loadUserInformation}
           />
+          {this.state.loaded && 
+          <Switch>
           <Route path="/signup" render={(props) => <SignUp {...props} loadUserInformation={this.loadUserInformation}/>} />
           <Route path="/login" render={(props) => <Login {...props} loadUserInformation={this.loadUserInformation}/>} />
+          <Route path='/hello' exact component={Hello} />
           <ProtectedRoute
                 path="/profile-edit"
                 exact
@@ -80,12 +84,14 @@ class App extends Component {
                 verify={this.verifyAuthentication}
                 redirect="/"
               />
+          <Route path='/bookshelf' component= {Bookshelf}/>
           <Route path="/info" exact component={InfoView} />
           <Route path="/book/:id" render={(props) => <SingleView {...props} user={this.state.user} loadUserInformation={this.loadUserInformation}/>} />
           <Route path="/search/:id" exact component={SearchView} />
           <Route path="/themes" exact component={ThemeView} />
           <Route path="/" exact component={HomeView} />
-          <Redirect to="/" />
+          </Switch>
+          }
         </BrowserRouter>
       </div>
     );
