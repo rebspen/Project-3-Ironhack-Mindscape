@@ -24,9 +24,17 @@ handleInputChange(event) {
 async handleSubmissionLogIn(event) {
 event.preventDefault();
 try {
+let userId;
 await signInService(this.state);
-this.props.loadUserInformation();  //this is repeating the step above
-this.props.history.push(`/profile`);
+this.props.loadUserInformation()
+.then(result => {
+  userId =  result._id;
+  //After the promise is resolved, the result is the user that it was loaded. This way, after sign in it redirects to his profile.
+  this.props.history.push(`/profile/${userId}`);
+})
+.catch(err => {
+  console.log('couldnt get user id due to', err);
+});
 } catch (error) {
   console.log(error);
   //create a redirect to error page
@@ -34,7 +42,6 @@ this.props.history.push(`/profile`);
 }
 
   render() {
-    console.log('test');
     return (
       <div className='container mt-5 p-3 box-shadow text-center' style={{"minHeight": '500px'}, {"backgroundColor": 'white'}}>
        <form onSubmit={this.handleSubmissionLogIn} className='text-center d-flex flex-column align-items-center w-100'>

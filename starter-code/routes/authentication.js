@@ -57,12 +57,27 @@ router.post("/logout", (req, res, next) => {
 
 router.get("/user-information", async (req, res, next) => {
   const userId = req.session.user;
-  console.log('I am in the server, the user id is', req.session.user);
+  //console.log('I am in the server, the user id is', req.session.user);
   if (!userId) {
     res.json({});
   } else {
     try {
       const user = await User.findById(userId);
+      if (!user) throw new Error('Signed in user not found');
+      res.json({ user });
+    } catch (error) {
+      next(error);
+    }
+  }
+});
+
+router.get("/user-information-for-profiles/:id", async (req, res, next) => {
+  const userId = req.params.id;
+  if (!userId) {
+    res.json({});
+  } else {
+    try {
+      const user = await User.findById(userId).populate('followingUsers');
       if (!user) throw new Error('Signed in user not found');
       res.json({ user });
     } catch (error) {

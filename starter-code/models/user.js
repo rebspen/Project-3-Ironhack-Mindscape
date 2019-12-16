@@ -23,6 +23,18 @@ const schema = new mongoose.Schema({
   books: [{
     type: mongoose.Types.ObjectId,
     ref: 'Book'
+  }],
+  bookstoread: [{
+    type: mongoose.Types.ObjectId,
+    ref: 'Book'
+  }],
+  followingUsers: [{
+    type: mongoose.Types.ObjectId,
+    ref: 'User'
+  }],
+  beingFollowedUsers: [{
+    type: mongoose.Types.ObjectId,
+    ref: 'User'
   }]
 });
 
