@@ -37,6 +37,8 @@ function SingleView (props) {
   
     //Calls the axios function to get the API after this page was mounted
     useEffect(() => {
+      const $alert = document.getElementById("alert")
+      $alert.style.visibility = 'hidden'
       setBook(book = id);
       window.scrollTo(0, 0);
       //to scroll to the top of the page after loading the info.
@@ -58,35 +60,41 @@ function SingleView (props) {
       async function addBookToUsersProfile(event) {
         event.preventDefault();
         const bookObject = result;
+        const $alert = document.getElementById("alert")
+        console.log("alert", $alert)
+        $alert.style.visibility = 'visible'; 
         console.log(bookObject);
         try {
-          const book = await addBookToShelf(bookObject)
+          const book = await addBookToShelf(bookObject) 
         } catch (error) {
           console.log(error);
         }
       }
       
       
-
-    return (
-      <main className='p-3 container d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}>
-       <h2 style= {{color: "#788FAD"}}>{id}</h2>
-       {loaded && 
-       <Fragment>
-       <img src={result.volumeInfo.imageLinks.thumbnail} alt="test"/>
-       <ul className='text-left App-layers' style= {{color: "#788FAD"}}>
-       <li key='2'><div >Author: {result.volumeInfo.authors.map(author => author + ',')}</div></li>
-          {result.volumeInfo.averageRating && <li key='4'><div >Rating: {result.volumeInfo.averageRating}/5</div></li>}
-          {result.volumeInfo.description && <li key='3'><div style= {{textAlign: "center"}} >Description: {(result.volumeInfo.description).substring(0, 250) + "..."}</div></li>}
-          {result.saleInfo.buyLink && <li key='5'><div><a href = {result.saleInfo.buyLink} style= {{color:"#E3D353"}} >Read more</a> </div></li> }
-       
-          {user && <button className="btn m-3 mt-5 p-2" style={{"backgroundColor":"#f0f0f2", border: "2px solid #E3D353", color:"#E3D353"}} onClick={addBookToUsersProfile}>Add to your book shelf!</button> }
+      
+      return (
+        <main className='p-3 container d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}>
+        <h2 style= {{color: "#788FAD", textAlign: "center"}}>{id}</h2>
+        {loaded && 
+          <Fragment>
+          <img src={result.volumeInfo.imageLinks.thumbnail} alt="test"/>
+          <div className='text-left App-layers p-auto mb-0' style= {{color: "#788FAD"}}>
+          <div >Author: {result.volumeInfo.authors.map(author => author + ',')}</div>
+          {result.volumeInfo.averageRating && <div >Rating: {result.volumeInfo.averageRating}/5</div>}
+          {result.volumeInfo.description &&<div style= {{textAlign: "center"}} >Description: {(result.volumeInfo.description).substring(0, 250) + "..."}</div>}
+          {result.saleInfo.buyLink && <div><a href = {result.saleInfo.buyLink} style= {{color:"#E3D353"}} >Read more</a> </div>}
+          {user && <button className="btn m-1 mt-2 p-2" style={{"backgroundColor":"#f0f0f2", border: "2px solid #E3D353", color:"#E3D353"}} onClick={addBookToUsersProfile}>Add to your bookshelf!</button> }
           {!user && <span className='mt-5 text-right d-flex'><Link to='/login'>Log in</Link> or <Link to='/signup'>Sign Up</Link> to continue your journey!</span>}
-       </ul>
-       </Fragment>
-       }
-      </main>
-    );
+          </div>
+          </Fragment>
+        }
+        <div id="alert" className="alert alert-success mt-0" role="alert">
+        Saved!
+        </div>
+        
+        </main>
+        );
 }
 
 export default SingleView;

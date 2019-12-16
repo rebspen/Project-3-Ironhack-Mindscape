@@ -17,6 +17,7 @@ import SingleView from "./views/SingleView";
 import Bookshelf from './views/Bookshelf';
 import ShelfSingleBook from './views/ShelfSingleBook';
 import InfoView from "./views/InfoView";
+import SingleSearch from "./views/SingleSearch";
 
 
 class App extends Component {
@@ -88,6 +89,13 @@ class App extends Component {
                 path="/shelf/:id"
                 exact
                 render={props => <ShelfSingleBook {...props} user={this.state.user} />}
+                verify={this.verifyAuthentication}
+                redirect="/"
+              />
+          <ProtectedRoute
+                path="/single/:title"
+                exact
+                render={props => <SingleSearch {...props} user={this.state.user} />}
                 verify={this.verifyAuthentication}
                 redirect="/"
               />

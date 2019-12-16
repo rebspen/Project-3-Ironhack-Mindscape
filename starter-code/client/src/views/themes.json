@@ -27,7 +27,8 @@
        "The Drowned World",
        "A Clockwork Orange",
        "Do Androids Dream of Electric Sheep?",
-       "this changes everything"
+       "this changes everything",
+       "The Giver"
       ]
   },
   {
@@ -38,22 +39,30 @@
       "the absolutely true diary of a part-time indian",
       "the catcher in the rye",
       "memoirs of a geisha",
-      "widow basquiat: a love story"
+      "widow basquiat: a love story",
+      "The Buddha of Suburbia",
+      "The Metamorphosis",
+      "Austerlitz",
+      "Everything is Illuminated"
       ]
   },
   {
     "id": 3,
     "name": "Enchantment",
-    "imageURL": "../2.png",
+    "imageURL": "../enchant.png",
     "titles": [
       "love in the time of cholera",
-      "kafka on the shore"
+      "kafka on the shore",
+      "Breakfast at Tiffany's",
+      "Against Nature",
+      "Just Kids",
+      "Fear and Loathing in Las Vegas"
       ]
   },
   {
     "id": 4,
     "name": "Mind",
-    "imageURL": "../8.png",
+    "imageURL": "../mind.png",
     "titles": [
       "madness and civilization: a history of insanity in the age of reason",
       "the psychedelic experience: a manual based on the tibetan book of the dead",
@@ -68,7 +77,12 @@
     "titles": [
       "the brothers karamazov",
       "dispatches",
-      "Last Exit to Brooklyn"
+      "Last Exit to Brooklyn",
+      "Heart of Darkness",
+      "American Psycho",
+      "The Secret History",
+      "a little life",
+      "the beach"
       ]
   },
   {
@@ -78,7 +92,10 @@
     "titles": [
       "ways of seeing",
       "coventry",
-      "on photography"
+      "on photography",
+      "The Marriage Of Heaven And Hell",
+      "The Picture of Dorian Gray",
+      "The Goldfinch"
       ]
   },
   {
@@ -89,7 +106,14 @@
       "the left hand of darkness",
       "the order of time",
       "roadside picnic",
-      "a brief history of time"
+      "a brief history of time",
+      "Solaris",
+      "War and Peace",
+      "The Poisonwood Bible",
+      "The Museum of Innocence",
+      "Orlando",
+      "a little life"
+
       ]
   },
   {
@@ -100,7 +124,12 @@
       "in patagonia",
       "travels with My aunt",
       "homage to catalonia",
-      "the places in between"
+      "the places in between",
+      "On the Road",
+      "the beach",
+      "Into the Wild",
+      "wild"
+
       ]
   },
   {
@@ -111,7 +140,8 @@
       "a christmas carol",
       "twas the night shift before christmas",
       "hogfather",
-      "the twelve terrors of christmas"
+      "the twelve terrors of christmas",
+      "If on a Winter's Night a Traveller"
       ]
   }
 
