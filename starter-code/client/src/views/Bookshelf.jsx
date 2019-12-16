@@ -6,24 +6,25 @@ class Bookshelf extends Component {
   constructor(props) {
     super(props);
     this.setState = {
-      user: this.props.user,
+      user: this.props.user._id,
       books: null
     }
   }
 
-  async componentDidMount() {
-    try {
-      const books = await getUsersBooks(this.state.user);
-      this.setState({
-        books: books
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // async componentDidMount() {
+  //   try {
+  //     const books = await getUsersBooks(this.state.user);
+  //     this.setState({
+  //       books: books
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
   
   render() {
     //We get the user data from App.jsx.
+    console.log("state", this.props.user._id);
     
     return(
       <div>

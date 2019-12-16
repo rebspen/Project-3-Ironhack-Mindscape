@@ -14,7 +14,12 @@ const schema = new mongoose.Schema({
     type: String
   },
   image: String,
-  users: {
+  status: {
+    type: String,
+    enum: ["Saved", "Reading", "Finished"],
+    default: "Saved"
+  },
+  user: {
     type: mongoose.Types.ObjectId,
     required: true,
     ref: 'User'

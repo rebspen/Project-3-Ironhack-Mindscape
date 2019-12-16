@@ -23,6 +23,14 @@ const schema = new mongoose.Schema({
   books: [{
     type: mongoose.Types.ObjectId,
     ref: 'Book'
+  }],
+  following: [{
+    type: mongoose.Types.ObjectId,
+    ref: 'Book'
+  }],
+  followers: [{
+    type: mongoose.Types.ObjectId,
+    ref: 'Book'
   }]
 });
 
