@@ -85,7 +85,7 @@ class App extends Component {
           <Route path="/search/:id" exact component={SearchView} />
           <Route path="/themes" exact component={ThemeView} />
           <Route path="/" exact component={HomeView} />
-          <Redirect to="/" />
+          {/* <Redirect to="/" /> */}
         </BrowserRouter>
       </div>
     );

@@ -27,7 +27,7 @@ class Profile extends Component {
       {user && 
       <Fragment>
        <h1 style={{color: "#788FAD", textAlign: "center"}}>Welcome back {user.username} </h1> 
-       <img src={imageURLTransformed} alt={user.username} className='img-fluid' style={{width: "20%", border: "2px solid #444A6C", borderRadius: "90px" }}/>
+       <img src={imageURLTransformed} alt={user.username} className='img-fluid' style={{width: "20%", border: "3px solid white", borderRadius: "180px" }}/>
        <Link to='/profile-edit' style={{color: "#444A6C"}}><small>Update your details</small></Link>
       </Fragment>
        }
