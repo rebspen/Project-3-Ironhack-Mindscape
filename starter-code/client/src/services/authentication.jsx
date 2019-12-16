@@ -47,6 +47,15 @@ export const loadUserInformation = async () => {
   }
 };
 
+export const loadUserInformationForProfiles = async data => {
+  try {
+    const response = await apiAuthenticationService.get(`/user-information-for-profiles/${data}`);
+    return response.data.user;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const loadUserPicture = async data => {
   const datas = new FormData();
   datas.append('image', data);

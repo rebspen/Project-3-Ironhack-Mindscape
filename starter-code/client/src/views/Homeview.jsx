@@ -25,7 +25,6 @@ class HomeView extends Component {
   // }
 
   render() {
-    console.log('home view');
     return (
       <main className = "App-layers m-3 text-center w-100" style={{"height":"500px"}}>
       <button type="button" className="btn btn-light m-2 p-3 w-60" style={{"minHeight":"10%", border: "2px solid #788FAD", backgroundColor: "#f0f0f2"}}><Link to= "/themes" className='display-4' style={{"color":"#788FAD"}}> <h3>Begin a new journey</h3></Link></button>

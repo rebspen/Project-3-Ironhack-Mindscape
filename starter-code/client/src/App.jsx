@@ -37,7 +37,7 @@ class App extends Component {
         user,
         loaded: true
       });
-      console.log('I loaded the user information', user);
+      return user
     } catch (error) {
       console.log('couldnt load user information in App.jsx due to', error);
     }
@@ -61,8 +61,8 @@ class App extends Component {
           />
           {this.state.loaded && 
           <Switch>
-          <Route path="/signup" render={(props) => <SignUp {...props} loadUserInformation={this.loadUserInformation}/>} />
-          <Route path="/login" render={(props) => <Login {...props} loadUserInformation={this.loadUserInformation}/>} />
+          <Route path="/signup" render={(props) => <SignUp {...props}  loadUserInformation={this.loadUserInformation}/>} />
+          <Route path="/login" render={(props) => <Login {...props} user={this.state.user} loadUserInformation={this.loadUserInformation}/>} />
           <ProtectedRoute
                 path="/profile-edit"
                 exact
@@ -71,8 +71,8 @@ class App extends Component {
                 redirect="/"
               />
           <ProtectedRoute
-                path="/profile"
-                exact
+                path="/profile/:id"
+               // exact
                 render={props => <Profile {...props} user={this.state.user} />}
                 verify={this.verifyAuthentication}
                 redirect="/"
