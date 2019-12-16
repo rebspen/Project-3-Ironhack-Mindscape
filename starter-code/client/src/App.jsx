@@ -11,6 +11,7 @@ import ProtectedRoute from './services/ProtectedRoute';
 import HomeView from "./views/Homeview";
 import SearchView from "./views/SearchView";
 import ThemeView from "./views/ThemeView";
+import UserList from "./views/UserList";
 import { loadUserInformation as loadUserInformationService } from './services/authentication';
 
 import SingleView from "./views/SingleView";
@@ -75,6 +76,13 @@ class App extends Component {
                 path="/profile/:id"
                // exact
                 render={props => <Profile {...props} user={this.state.user} />}
+                verify={this.verifyAuthentication}
+                redirect="/"
+              />
+          <ProtectedRoute
+                path="/user-list"
+                exact
+                render={props => <UserList {...props} user={this.state.user} loadUserInformation={this.loadUserInformation} />}
                 verify={this.verifyAuthentication}
                 redirect="/"
               />

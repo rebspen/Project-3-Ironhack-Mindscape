@@ -34,4 +34,15 @@ User.findByIdAndUpdate(userLoggedIn, {
 }
 });
 
+socialRouter.get('/user-list', async (req, res, next) => {
+  try {
+    const users = await User.find();
+    res.json({ users });
+  }
+catch (error) {
+  console.log('not possible to find list of users', error);
+  next(error);
+}
+});
+
 module.exports = socialRouter;

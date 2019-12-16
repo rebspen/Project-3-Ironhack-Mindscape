@@ -2,6 +2,10 @@ import React, { Component, Fragment } from 'react';
 import { Link } from "react-router-dom";
 import {loadUserInformationForProfiles as loadUserInformationForProfilesService} from './../services/authentication';
 import {FollowUser as FollowUserService} from './../services/social-network';
+import FollowedUsersCarousel from '../components/FollowedUsersCarousel';
+import {roundPicture as roundPictureService} from './../services/PicturesCloudinary'
+
+
 
 class Profile extends Component {
   constructor(props) {
@@ -15,16 +19,31 @@ class Profile extends Component {
 
 async componentDidMount() {
 const profileId = this.props.match.params.id;
+const loaded = this.state.loaderUserInfo;
 try {
 const user = await loadUserInformationForProfilesService(profileId);
 this.setState({
   user:user,
-  loaderUserInfo: true
+  loaderUserInfo: !loaded
 });
 }
 catch(error) {
 console.log('Couldnt get the user information to render it in profile due to : ', error);
 }
+}
+
+async componentDidUpdate () {
+  if (this.state.user._id !== this.props.match.params.id ) {
+  const profileId = this.props.match.params.id;
+  try {
+  const user = await loadUserInformationForProfilesService(profileId);
+  this.setState({
+    user:user,
+  });
+  }
+  catch(error) {
+  console.log('Couldnt get the user information to render it in profile due to : ', error);
+  }}
 }
 
 async handleFollowButton() {
@@ -48,23 +67,6 @@ try {
     //the user from this profile
     const user = this.state.user;
 
-    //variables from user that I will render in profile:
-    let imageURLTransformed;
-
-    if (user) {
-    const image = user.image;
-    const imageURL = {
-      firstPart: image.substring(0, image.indexOf('upload/') + 7), 
-      //7 is the number of characters in upload/, so it will include it
-      middle: 'w_400,h_400,c_crop,g_face,r_max',
-      lastPart: image.split('upload').pop()
-      // same result than image.replace('http://res.cloudinary.com/dgmvfq29c/image/upload/', '')
-    };
-    imageURLTransformed = imageURL.firstPart + imageURL.middle + imageURL.lastPart;
-
-  };
-
-
     return(
       <div>
        <div className='container mt-2 p-3 d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}>
@@ -77,12 +79,13 @@ try {
        Welcome back 
        </Fragment>
        } {user.username} </h1> 
-       <img src={imageURLTransformed} alt={user.username} className='img-fluid' style={{width: "20%", border: "2px solid white", borderRadius: "180px" }}/>
+       <img src={roundPictureService(user.image)} alt={user.username} className='img-fluid' style={{width: "20%", border: "2px solid #444A6C", borderRadius: "90px" }}/>
       {isThisMyProfile && <Link to='/profile-edit' style={{color: "#444A6C"}}><small>Update your details</small></Link> } 
-      <button className="btn w-80 mt-3" style ={{border: "2px solid #E3D353" }} onClick={this.handleFollowButton}>Follow</button>
-      <div className='container mt-2 p-3 d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}><Link to = "/bookshelf"><img src = "../bookshelf-color.png"/></Link></div>
+      {!isThisMyProfile &&  <button className="btn w-80 mt-3" style ={{border: "2px solid #E3D353" }} onClick={this.handleFollowButton}>Follow</button> }
+      <div className='container mt-2 p-3 d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}><Link to='/bookshelf'><img src = "../bookshelf.png"/></Link></div>
       <div className='container mt-2 p-3 d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}>Following</div>
-      {user.followingUsers && user.followingUsers.map(following => <img src={following.image} alt='test' key={following._id} style={{width: "20%"}}/>)}
+      {user.followingUsers && <FollowedUsersCarousel data = {user.followingUsers}/>}
+      
       </Fragment>
        }
       </div>
