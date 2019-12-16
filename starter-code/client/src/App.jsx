@@ -15,6 +15,7 @@ import { loadUserInformation as loadUserInformationService } from './services/au
 
 import SingleView from "./views/SingleView";
 import Bookshelf from './views/Bookshelf';
+import ShelfSingleBook from './views/ShelfSingleBook';
 import InfoView from "./views/InfoView";
 
 
@@ -80,6 +81,13 @@ class App extends Component {
                 path="/bookshelf"
                 exact
                 render={props => <Bookshelf {...props} user={this.state.user} />}
+                verify={this.verifyAuthentication}
+                redirect="/"
+              />
+          <ProtectedRoute
+                path="/shelf/:id"
+                exact
+                render={props => <ShelfSingleBook {...props} user={this.state.user} />}
                 verify={this.verifyAuthentication}
                 redirect="/"
               />

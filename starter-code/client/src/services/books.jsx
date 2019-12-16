@@ -14,11 +14,12 @@ export const createBook = async book => {
   }
 };
 
-export const getUsersBooks = async user => {
-  console.log("I am at the post request", user) 
+export const getUsersBooks = async () => {
+  console.log("I am at the books get request") 
   try {
-    const response = await apiBookService.post(`/get-books`, user);
-    return response.data.user;
+    const response = await apiBookService.post(`/get-books`);
+    console.log(response.data.user.books)
+    return response.data.user.books;
   } catch (error) {
     throw error;
   }

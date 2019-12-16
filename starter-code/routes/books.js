@@ -40,18 +40,18 @@ booksRouter.post('/add-book', async (req, res, next) => {
 
 booksRouter.post('/get-books', async (req, res, next) => {
   console.log("I am at the get books route");
-  console.log("req-body", req.body);
   const userId = req.session.user;
+  console.log("id", userId);
   try {
-    const book = await Book.find({
-      users : userId 
-    })
-    .sort({ createdAt: -1 });
-    res.json({ book });
+    const user = await User.findById(userId)
+    .populate('books');
+    console.log("books", user.books);
+    res.json({ user });
   } catch (error) {
     next(error);
   }
 });
+
 
 //find book 
 

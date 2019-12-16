@@ -1,72 +1,61 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from "react-router-dom";
 import { getUsersBooks as getUsersBooks } from './../services/books';
+import BookCarousel from '../components/Carousel';
 
 class Bookshelf extends Component {
   constructor(props) {
     super(props);
-    this.setState = {
-      user: this.props.user._id,
+    this.state = {
       books: null
     }
   }
 
-  // async componentDidMount() {
-  //   try {
-  //     const books = await getUsersBooks(this.state.user);
-  //     this.setState({
-  //       books: books
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+  async componentDidMount() {
+    console.log("component mounted - I am getting the books..")
+    try {
+      const books = await getUsersBooks();
+      console.log("back in bookshelf", books)
+      this.setState({
+        books
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
   
   render() {
-    //We get the user data from App.jsx.
-    console.log("state", this.props.user._id);
-    
+    let saved = []
+    let reading = []
+    let finished = []
+
+    if(this.state.books){
+      saved = this.state.books.filter((val) => {if(val.status === "Saved"){ return val}})
+      reading =  this.state.books.filter((val) => {if(val.status === "Reading"){ return val}})
+      finished = this.state.books.filter((val) => {if(val.status === "Finished"){ return val}});
+    }
+
+    if(saved.length < 2){
+      saved.push({ image : "../mindmap.png", _id: 0 })
+    }
+    if(reading.length < 2){
+      reading.push({ image : "../mindmap.png", _id: 0 })
+    }
+
+    if(finished.length < 2){
+      finished.push({ image : "../mindmap.png", _id: 0 })
+    }
+
+    console.log("C SPlIT", saved,reading,finished)
     return(
-      <div>
-      <h1>Bookshelf</h1>
-      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-      <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="..."/>
-      <div class="carousel-caption d-none d-md-block">
-      <h5>First Book</h5>
-      <p>Author</p>
-      </div>
-      </div>
-      <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="..."/>
-      <div class="carousel-caption d-none d-md-block">
-      <h5>Second Book</h5>
-      <p>Author</p>
-      </div>
-      </div>
-      <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="..."/>
-      <div class="carousel-caption d-none d-md-block">
-      <h5>Third Book</h5>
-      <p>Author</p>
-      </div>
-      </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-      </a>
-      </div>
+      <div className = "App-layers" style= {{color: "#788FAD"}}>
+      <h2>Bookshelf</h2>
+      <h5 className = "mt-4">Saved</h5>
+      {this.state.books && <BookCarousel data = {saved}/>}
+      <h5 className = "mt-4">Reading</h5>
+      {this.state.books && <BookCarousel data = {reading}/>}
+      <h5 className = "mt-4">Finished</h5>
+      {this.state.books && <BookCarousel data = {finished}/>}
       </div>
       )
     }
