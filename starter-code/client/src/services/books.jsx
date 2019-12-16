@@ -13,3 +13,13 @@ export const createBook = async book => {
     throw error;
   }
 };
+
+export const getUsersBooks = async user => {
+  console.log("I am at the post request", user) 
+  try {
+    const response = await apiBookService.post(`/get-books`, user);
+    return response.data.user;
+  } catch (error) {
+    throw error;
+  }
+};

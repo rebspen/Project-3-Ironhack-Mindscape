@@ -24,10 +24,6 @@ const schema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'Book'
   }],
-  bookstoread: [{
-    type: mongoose.Types.ObjectId,
-    ref: 'Book'
-  }],
   followingUsers: [{
     type: mongoose.Types.ObjectId,
     ref: 'User'

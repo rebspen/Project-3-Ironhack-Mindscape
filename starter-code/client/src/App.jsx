@@ -83,7 +83,6 @@ class App extends Component {
                 verify={this.verifyAuthentication}
                 redirect="/"
               />
-          <Route path='/bookshelf' component= {Bookshelf}/>
           <Route path="/info" exact component={InfoView} />
           <Route path="/book/:id" render={(props) => <SingleView {...props} user={this.state.user} loadUserInformation={this.loadUserInformation}/>} />
           <Route path="/search/:id" exact component={SearchView} />
