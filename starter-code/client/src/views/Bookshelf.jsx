@@ -7,14 +7,16 @@ class Bookshelf extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userId : this.props.match.params.id,
+      viewerId : this.props.user._id,
       books: null
     }
   }
 
   async componentDidMount() {
-    console.log("component mounted - I am getting the books..")
+    console.log("component mounted - I am getting the books..", "bookshelf ID", this.state.userId, "viewer Id", this.state.viewerId)
     try {
-      const books = await getUsersBooks();
+      const books = await getUsersBooks(this.state.userId);
       console.log("back in bookshelf", books)
       this.setState({
         books
@@ -25,6 +27,8 @@ class Bookshelf extends Component {
   }
   
   render() {
+    console.log("props" , this.props.user._id)
+
     let saved = []
     let reading = []
     let finished = []
@@ -36,14 +40,14 @@ class Bookshelf extends Component {
     }
 
     if(saved.length < 2){
-      saved.push({ image : "../mindmap.png", _id: 0 })
+      saved.unshift({ image : "../mindmap.png", _id: 0 })
     }
     if(reading.length < 2){
-      reading.push({ image : "../mindmap.png", _id: 0 })
+      reading.unshift({ image : "../mindmap.png", _id: 0 })
     }
 
     if(finished.length < 2){
-      finished.push({ image : "../mindmap.png", _id: 0 })
+      finished.unshift({ image : "../mindmap.png", _id: 0 })
     }
 
     console.log("C SPlIT", saved,reading,finished)
@@ -51,11 +55,17 @@ class Bookshelf extends Component {
       <div className = "App-layers" style= {{color: "#3043C8"}}>
       <h2>Bookshelf</h2>
       <h5 className = "mt-4">Saved</h5>
-      {this.state.books && <BookCarousel data = {saved}/>}
+      <div style= {{width: "40%"}} >
+      {this.state.books && <BookCarousel data = {saved.reverse()} profile = {this.state.userId} />}
+      </div>
       <h5 className = "mt-4">Reading</h5>
-      {this.state.books && <BookCarousel data = {reading}/>}
+      <div style= {{width: "40%"}}>
+      {this.state.books && <BookCarousel data = {reading.reverse()} profile = {this.state.userId} />}
+      </div>
       <h5 className = "mt-4">Finished</h5>
-      {this.state.books && <BookCarousel data = {finished}/>}
+      <div style= {{width: "40%"}}>
+      {this.state.books && <BookCarousel data = {finished.reverse()} profile = {this.state.userId} />}
+      </div>
       </div>
       )
     }

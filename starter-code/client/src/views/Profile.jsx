@@ -82,7 +82,7 @@ try {
        <img src={roundPictureService(user.image)} alt={user.username} className='img-fluid' style={{width: "20%", border: "2px solid white", borderRadius: "180px" }}/>
       {isThisMyProfile && <Link to='/profile-edit' style={{color: "#444A6C"}}><small>Update your details</small></Link> } 
       {!isThisMyProfile &&  <button className="btn w-80 mt-3" style ={{border: "2px solid #E3D353" }} onClick={this.handleFollowButton}>Follow</button> }
-      <div className='container mt-2 p-3 d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}><Link to='/bookshelf'><img src = "../bookshelf-color.png"/></Link></div>
+      <div className='container mt-2 p-3 d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}><Link to={`/bookshelf/${profileId}`}><img src = "../bookshelf-color.png"/></Link></div>
       <div className='container mt-2 p-3 d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}>Following</div>
       {user.followingUsers && <FollowedUsersCarousel data = {user.followingUsers}/>}
       

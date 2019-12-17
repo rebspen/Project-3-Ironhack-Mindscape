@@ -10,8 +10,9 @@
   color: #E3D353;
 }
 
-img{
-  margin: 1em;
+.theme-img{
+  margin: 0.5em;
+  border-radius: 12px;
 }
 
 .theme {

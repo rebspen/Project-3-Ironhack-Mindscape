@@ -38,10 +38,10 @@ class ThemeView extends Component {
       <main className="App-layers justify-content-center align-items-center">
         <h1 className='' style= {{color: "#3043C8"}}>Themes</h1>
         <p className='m-1' style= {{textAlign: "center", color: "#3043C8"}}>Choose a theme and begin your literary Journey...</p>
-        <button className="btn w-80 mt-3" style ={{border: "2px solid #E3D353" }} ><Link to={`/search/${this.state.themes[luckyNum].id}`}  className='lucky'>I feel lucky...</Link></button>
+        <button className="btn w-80 mt-3" style ={{border: "2px solid #E3D353" }} ><Link to={`/search/${this.state.themes[luckyNum].id}`} className='lucky'>I feel lucky...</Link></button>
         <div className = "theme mt-3">
           {this.state.themes.map((val)=>{
-            return <Link to={`/search/${val.id}`} key={Math.random()} style={{"width":"30%"}} ><img src= {val.imageURL} style={{"width":"90%"}}/></Link>
+            return <Link to={`/search/${val.id}`} key={Math.random()} style={{"width":"30%"}} ><img className = "theme-img" src= {val.imageURL} style={{"width":"90%"}}/></Link>
           })}
         </div>   
       </main>
