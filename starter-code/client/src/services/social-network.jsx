@@ -13,6 +13,15 @@ export const FollowUser = async data => {
 }
 };
 
+export const UnfollowUser = async data => {
+  try {
+  const response = await apiAuthenticationService.patch(`/remove-follower`, data);
+  return response.data.user;
+} catch (error) {
+  throw error;
+}
+};
+
 export const UserList = async () => {
   console.log('in front end');
   try {

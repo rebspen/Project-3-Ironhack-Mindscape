@@ -12,6 +12,7 @@ function rollUp() {
 }
 
 function FollowedUsersCarousel (props) {
+  console.log('data in props carousel', props.data);
       return (
         <Carousel className = "m-auto" showStatus= {false} emulateTouch = {true} showIndicators = {false} showThumbs = {false} width = {"100%"} style = {{backgroundColor: "#f0f0f2"}}>
         {props.data.map((val)=> {
