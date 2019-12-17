@@ -3,6 +3,9 @@ import {UserList as UserListService} from './../services/social-network.jsx';
 import {Link} from "react-router-dom";
 import {roundPicture as roundPictureService} from './../services/PicturesCloudinary';
 import './UserList.css';
+import { IconContext } from "react-icons";
+import { FaSearch } from 'react-icons/fa';
+
 
 //This function will exclude the logged in user's profile in the list of friends.
 function isTheSame (user, profile) {
@@ -18,15 +21,18 @@ class UserList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      usersList: []
-    }
+      usersList: [],
+      filteredList: []
+    };
+    this.handleSearchChange = this.handleSearchChange.bind(this)
   };
 
   async componentDidMount() {
     try {
       const usersList = await UserListService()
       this.setState({
-        usersList
+        usersList,
+        filteredList:usersList
       });  
     }
     catch (error) {
@@ -34,9 +40,47 @@ class UserList extends Component {
     }
   }
 
+  handleSearchChange(event) {
+    event.preventDefault();
+    let currentUsersList = this.state.usersList;
+    let newUsersList = [];
+
+    if (event.target.value !== "") {
+      newUsersList = currentUsersList.filter(item => {
+        const lc = item.username.toLowerCase();
+        const filter = event.target.value.toLowerCase();
+
+        return lc.includes(filter);
+      }).sort(function(a, b){return b.beingFollowedUsers.length-a.beingFollowedUsers.length})
+    } else {
+      newUsersList = currentUsersList;
+    }
+
+    this.setState({
+      filteredList: newUsersList 
+    });
+
+console.log('writing in search')
+  }
+
   render() {
     console.log('req user', this.props.user._id);
     return (
+      <div>
+      <div class="input-group md-form form-sm form-2 pl-0 w-50 ml-5">
+      <div class="input-group-prepend">
+    <span class="input-group-text lime lighten-2" id="basic-text1"><IconContext.Provider value={{ style: { width: "5em", color: "#E3D353" } }}>
+      <FaSearch/>
+      </IconContext.Provider></span>
+  </div>
+      <input
+        type="search"
+        className="form-control my-0 py-1"
+        placeholder="Search your friends by their username :) "
+        onChange={this.handleSearchChange}
+      />
+  </div>
+
       <div class="table-responsive mr-5 ml-5 text-center">
       <table class="table user-list" id="myTable">
       <thead>
@@ -47,7 +91,7 @@ class UserList extends Component {
       </tr>
       </thead>
       <tbody>
-      {this.state.usersList && this.state.usersList.map(user => 
+      {this.state.filteredList && this.state.filteredList.map(user => 
       !isTheSame(this.props.user, user) &&
       <tr key={user._id}>
       <td style={{width: "20%"}} className='align-middle'><img src={roundPictureService(user.image)} alt={user.username} className='img-fluid' style={{width: "50%"}}/></td>
@@ -57,6 +101,8 @@ class UserList extends Component {
       </tbody>
       </table>
       </div>
+      </div>
+
     )
   }
 }
