@@ -61,28 +61,12 @@ class App extends Component {
             user={this.state.user}
             loadUserInformation={this.loadUserInformation}
           />
-          {this.state.loaded && (
-            <Switch>
-              <Route
-                path="/signup"
-                render={props => (
-                  <SignUp
-                    {...props}
-                    loadUserInformation={this.loadUserInformation}
-                  />
-                )}
-              />
-              <Route
-                path="/login"
-                render={props => (
-                  <Login
-                    {...props}
-                    user={this.state.user}
-                    loadUserInformation={this.loadUserInformation}
-                  />
-                )}
-              />
-              <ProtectedRoute
+          {this.state.loaded && 
+          <Switch>
+          <Route path="/signup" render={(props) => <SignUp {...props}  loadUserInformation={this.loadUserInformation}/>} />
+          <Route path="/login" render={(props) => <Login {...props} user={this.state.user} loadUserInformation={this.loadUserInformation}/>} />
+          <Route path="/search/:id" exact component={SearchView} />
+          <ProtectedRoute
                 path="/profile-edit"
                 exact
                 render={props => (
@@ -120,50 +104,36 @@ class App extends Component {
                 )}
                 verify={this.verifyAuthentication}
                 redirect="/"
-              />
-              <ProtectedRoute
-                path="/bookshelf"
+                />
+                <Route path="/info" exact component={InfoView} />
+                <Route path="/book/:id" render={(props) => <SingleView {...props} user={this.state.user} loadUserInformation={this.loadUserInformation}/>} />
+                <Route path="/themes" exact component={ThemeView} />
+                <ProtectedRoute
+                path="/bookshelf/:id"
                 exact
                 render={props => (
                   <Bookshelf {...props} user={this.state.user} />
                 )}
                 verify={this.verifyAuthentication}
                 redirect="/"
-              />
-              <ProtectedRoute
-                path="/shelf/:id"
-                exact
-                render={props => (
-                  <ShelfSingleBook {...props} user={this.state.user} />
-                )}
-                verify={this.verifyAuthentication}
-                redirect="/"
-              />
-              <ProtectedRoute
+                />
+                <ProtectedRoute
                 path="/single/:title"
                 exact
-                render={props => (
-                  <SingleSearch {...props} user={this.state.user} />
-                )}
+                render={props => <SingleSearch {...props} user={this.state.user} />}
                 verify={this.verifyAuthentication}
                 redirect="/"
-              />
-              <Route path="/info" exact component={InfoView} />
-              <Route
-                path="/book/:id"
-                render={props => (
-                  <SingleView
-                    {...props}
-                    user={this.state.user}
-                    loadUserInformation={this.loadUserInformation}
-                  />
-                )}
-              />
-              <Route path="/search/:id" exact component={SearchView} />
-              <Route path="/themes" exact component={ThemeView} />
-              <Route path="/" exact component={HomeView} />
-            </Switch>
-          )}
+                />
+                <ProtectedRoute
+                path="/one/:profile/:id"
+                exact
+                render={props => <ShelfSingleBook {...props} user={this.state.user} />}
+                verify={this.verifyAuthentication}
+                redirect="/"
+                />
+                <Route path="/" exact component={HomeView} />
+                </Switch>
+              }
         </BrowserRouter>
       </div>
     );

@@ -114,7 +114,6 @@ class Profile extends Component {
     //the user from this profile
     const user = this.state.user;
 
-    console.log("user in state", user);
     return (
       <div>
         <div
@@ -139,6 +138,7 @@ class Profile extends Component {
                   borderRadius: "180px"
                 }}
               />
+
 
               {isThisMyProfile && (
                 <Link to="/profile-edit" style={{ color: "#444A6C" }}>
@@ -173,9 +173,10 @@ class Profile extends Component {
                 className="container mt-2 p-3 d-flex flex-column justify-content-center align-items-center"
                 style={{ backgroundColor: "#f0f0f2" }}
               >
-                <Link to="/bookshelf">
-                  <img src="../bookshelf-color.png" />
-                </Link>
+              
+                <Link to={`/bookshelf/${profileId}`}><img src = "../bookshelf-color.png"/></Link>
+
+
               </div>
 
               {user.followingUsers && (
@@ -192,7 +193,7 @@ class Profile extends Component {
             </Fragment>
           )}
         </div>
-      </div>
+        </div>
     );
   }
 }
