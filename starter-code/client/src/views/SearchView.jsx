@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { networkInterfaces } from "os";
 import { runInNewContext } from "vm";
+import ReactLoading from 'react-loading';
+
 
 import "./views.css";
 import themes from "./themes";
@@ -30,6 +32,7 @@ function SearchView(props) {
   const id = Number(props.match.params.id);
   const [result, setResults] = useState([]);
   const [image, setImage] = useState([]);
+  const [loaded, setLoaded] = useState(true);
 
   function handleSearchSubmission() {
     const id = props.match.params.id;
@@ -53,6 +56,7 @@ function SearchView(props) {
         final.unshift(data.data.Similar.Info[0]);
         final.unshift(data.data.Similar.Info[1]);
         setResults(final);
+        setLoaded(false);
       })
       .catch(err => {});
   }
@@ -64,6 +68,7 @@ function SearchView(props) {
   return (
     <main className="App-layers text-center">
       <img style={{width:"30%"}}  src = {image} />
+      {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
       <div>
         {result.map(val => {
           return (
