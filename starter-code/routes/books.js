@@ -8,10 +8,9 @@ const User = require("./../models/user");
 //add book
 
 booksRouter.post("/add-book", async (req, res, next) => {
-  console.log("I am at the add book route");
-  console.log("req-body", req.body);
   const userId = req.session.user;
   try {
+   // console.log('trying to add book in the backend');
     const book = await Book.create({
       title: req.body.volumeInfo.title,
       description: req.body.volumeInfo.description,
@@ -19,17 +18,21 @@ booksRouter.post("/add-book", async (req, res, next) => {
       author: req.body.volumeInfo.authors[0],
       user: userId
     }).then(book => {
+     // console.log('trying to add book in the backend-step 2');
       const bookId = book._id;
-      console.log("Book ID", bookId);
+      res.json({book});
       return User.findByIdAndUpdate(userId, {
         $push: {
           books: bookId
         }
+      }).then(user => {
+        //console.log('trying to add book in the backend-step 3', user);
       }).catch(err => {
         console.log("could not update the book id in the user", err);
       });
     });
   } catch (error) {
+    console.log('could add book to bookshelf due to ', error)
     next(error);
   }
 });

@@ -14,10 +14,10 @@ class Bookshelf extends Component {
   }
 
   async componentDidMount() {
-    console.log("component mounted - I am getting the books..", "bookshelf ID", this.state.userId, "viewer Id", this.state.viewerId)
+    //console.log("component mounted - I am getting the books..", "bookshelf ID", this.state.userId, "viewer Id", this.state.viewerId)
     try {
       const books = await getUsersBooks(this.state.userId);
-      console.log("back in bookshelf", books)
+      //console.log("back in bookshelf", books)
       this.setState({
         books
       });
@@ -27,7 +27,7 @@ class Bookshelf extends Component {
   }
   
   render() {
-    console.log("props" , this.props.user._id)
+    //console.log("props" , this.props.user._id)
 
     let saved = []
     let reading = []
@@ -50,7 +50,7 @@ class Bookshelf extends Component {
       finished.unshift({ image : "../mindmap.png", _id: 0 })
     }
 
-    console.log("C SPlIT", saved,reading,finished)
+   // console.log("C SPlIT", saved,reading,finished)
     return(
       <div className = "App-layers" style= {{color: "#3043C8"}}>
       <h2>Bookshelf</h2>

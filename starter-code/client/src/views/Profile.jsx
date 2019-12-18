@@ -62,9 +62,9 @@ class Profile extends Component {
     const profileId = this.props.match.params.id;
     const userLoggedIn = this.props.user._id;
     try {
-      console.log('in try');
+     // console.log('in try');
       const user = await FollowUserService({ userLoggedIn, profileId });
-      console.log("user follow", user);
+     // console.log("user follow", user);
       await this.props.loadUserInformation();
       this.setState({
         user: user

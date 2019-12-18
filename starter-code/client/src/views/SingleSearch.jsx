@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { networkInterfaces } from "os";
 import { runInNewContext } from "vm";
+import ReactLoading from 'react-loading';
+
 
 import "./views.css";
 import themes from "./themes";
@@ -11,6 +13,8 @@ function SingleSearch(props) {
   
   const [result, setResults] = useState([]);
   const [image, setImage] = useState([]);
+  const [loaded, setLoaded] = useState(true);
+
 
   function handleSearchSubmission() {
     const title = props.match.params.title;
@@ -24,6 +28,7 @@ function SingleSearch(props) {
       )
       .then(data => {
         setResults(data.data.Similar.Results);
+        setLoaded(false);
         console.log(result)
       })
       .catch(err => {});
@@ -37,6 +42,7 @@ function SingleSearch(props) {
     <main className="App-layers text-center">
     <h2 style={{color: "#788FAD"}} >Book Search : {props.match.params.title}</h2>
     <br></br>
+    {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
       <div>
         {result.map(val => {
           return (

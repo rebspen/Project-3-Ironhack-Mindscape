@@ -14,6 +14,8 @@ const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const booksRouter = require('./routes/books');
 const socialRouter = require('./routes/social-network');
+const postRouter = require('./routes/posts');
+
 
 
 const app = express();
@@ -47,6 +49,8 @@ app.use('/', indexRouter);
 app.use('/api/auth', authenticationRouter);
 app.use('/api/books', booksRouter);
 app.use('/api/social', socialRouter);
+app.use('/api/posts', postRouter);
+
 
 
 // Catch missing routes and forward to error handler
