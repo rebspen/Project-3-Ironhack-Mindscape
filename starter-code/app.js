@@ -20,6 +20,7 @@ const postRouter = require('./routes/posts');
 
 const app = express();
 
+app.use(express.static(join(__dirname, 'client/build')));
 app.use(logger('dev'));
 //app.use(express.urlencoded({ extended: true }));
 
@@ -34,8 +35,8 @@ app.use(
     cookie: {
       maxAge: 60 * 60 * 60 * 24 * 15,
       sameSite: 'lax',
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production'
+      httpOnly: true
+      // secure: process.env.NODE_ENV === 'production'
     },
     store: new (connectMongo(expressSession))({
       mongooseConnection: mongoose.connection,
@@ -50,6 +51,7 @@ app.use('/api/auth', authenticationRouter);
 app.use('/api/books', booksRouter);
 app.use('/api/social', socialRouter);
 app.use('/api/posts', postRouter);
+app.get("*", (req,res,next)=>{ res.sendFile(join(__dirname, 'client/build/index.html'))});
 
 
 
