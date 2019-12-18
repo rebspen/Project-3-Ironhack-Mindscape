@@ -40,7 +40,7 @@ booksRouter.post("/add-book", async (req, res, next) => {
 //delete book post and Id from book array in user
 
 booksRouter.post("/delete/:id", async (req, res, next) => {
-  console.log("I am at the book delete route");
+ // console.log("I am at the book delete route");
   const userId = req.session.user;
   const bookId = req.params.id;
   try {
@@ -59,8 +59,8 @@ booksRouter.post("/delete/:id", async (req, res, next) => {
 });
 
 booksRouter.post("/viewer-add-book", async (req, res, next) => {
-  console.log("I am at the add book route for viewer");
-  console.log("req-body", req.body);
+  //console.log("I am at the add book route for viewer");
+ // console.log("req-body", req.body);
   const userId = req.session.user;
   try {
     const book = await Book.create({
@@ -71,7 +71,7 @@ booksRouter.post("/viewer-add-book", async (req, res, next) => {
       user: userId
     }).then(book => {
       const bookId = book._id;
-      console.log("Book ID", bookId);
+    //  console.log("Book ID", bookId);
       return User.findByIdAndUpdate(userId, {
         $push: {
           books: bookId
@@ -88,9 +88,9 @@ booksRouter.post("/viewer-add-book", async (req, res, next) => {
 //find users book
 
 booksRouter.post("/get-books/:id", async (req, res, next) => {
-  console.log("I am at the get books route");
+ // console.log("I am at the get books route");
   const userId = req.params.id;
-  console.log("Id of the books we are pulling", userId);
+  //console.log("Id of the books we are pulling", userId);
   try {
     const user = await User.findById(userId).populate("books");
     res.json({ user });
@@ -102,12 +102,12 @@ booksRouter.post("/get-books/:id", async (req, res, next) => {
 //update book
 
 booksRouter.patch("/change-status/:id", async (req, res, next) => {
-  console.log("I am at the change status route", req.params.id);
+  //console.log("I am at the change status route", req.params.id);
   const bookId = req.params.id;
-  console.log("id", bookId);
+ // console.log("id", bookId);
   try {
     await Book.findById(bookId).then(book => {
-      console.log("the book we are changing status - ", book);
+    //  console.log("the book we are changing status - ", book);
       let result;
       if (book.status === "Saved") {
         result = "Reading";

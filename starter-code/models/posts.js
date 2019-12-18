@@ -11,13 +11,17 @@ const schema = new mongoose.Schema({
   },
   type: {
     type:String,
-    enum: ['book', 'podcast'],
+    enum: ['book', 'podcast', 'follow'],
     default: 'book'
   },
   user: {
     type: mongoose.Types.ObjectId,
     required: true,
     ref: 'User'
+  },
+  followingUser: {
+    type: mongoose.Types.ObjectId,
+    ref: 'User' 
   },
   time : { type : Date, default: Date.now }
 });

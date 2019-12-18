@@ -15,16 +15,16 @@ User.findByIdAndUpdate(userLoggedIn, {
 }
 }).exec()
 .then (user => {
-  console.log('You are now following a new user, check the array', user);
+ // console.log('You are now following a new user, check the array', user);
   return User.findByIdAndUpdate(profileId, {
     $push: {
       beingFollowedUsers: userLoggedIn
   }
   }).populate('followingUsers').exec()
   .then(user => {
-    console.log('user after adding following', user);
+    //console.log('user after adding following', user);
     res.json({ user });
-    console.log('You are now being followed by someone new, check the array', user)
+   // console.log('You are now being followed by someone new, check the array', user)
   });
 })
 .catch (err => {
@@ -47,16 +47,16 @@ socialRouter.patch('/remove-follower', async (req, res, next) => {
   }
   }).exec()
   .then (user => {
-    console.log('You are now following one less user, check the array', user);
+    //console.log('You are now following one less user, check the array', user);
     return User.findByIdAndUpdate(profileId, {
       $pull: {
         beingFollowedUsers: userLoggedIn
     }
     }).populate('followingUsers').exec()
     .then(user => {
-      console.log('user after remove following', user);
+     // console.log('user after remove following', user);
       res.json({ user });
-      console.log('You are now being followed by one less person, check the array', user)
+     // console.log('You are now being followed by one less person, check the array', user)
     });
   })
   .catch (err => {
@@ -69,8 +69,10 @@ socialRouter.patch('/remove-follower', async (req, res, next) => {
   });
 
 socialRouter.get('/user-list', async (req, res, next) => {
+ // console.log('i am in user list');
   try {
-    const users = await User.find();
+    const users = await User.find()
+    //console.log('users', users);
     res.json({ users });
   }
 catch (error) {

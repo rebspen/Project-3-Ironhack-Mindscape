@@ -75,12 +75,15 @@ postRouter.post("/add-post-remove-book", async (req, res, next) => {
 });
 
 postRouter.post("/get-posts", async (req, res, next) => {
+  const userLoggedIn = req.body.followingUsers;
+  //console.log(userLoggedIn);
 try {
-  await Post.find()
-  .populate('user')
+  await Post.find({'user': userLoggedIn[0]})
+  .populate('user followingUser')
   .sort({time: -1})
+  .exec()
   .then(posts => {
-    console.log('We got the posts');
+   // console.log('We got the posts');
     res.json({posts});
   })
   .catch (error =>{
@@ -91,6 +94,29 @@ try {
   console.log('Main error on getting the posts', error);
   next(error);
 }})
+
+postRouter.post("/add-following-post", async (req, res, next) => {
+  
+   const userId = req.session.user;
+  // console.log('req.body in add following-post', req.body);
+ 
+   try {
+     await Post.create({
+       content: req.body.content,
+       user: userId,
+       followingUser: req.body.data._id,
+       type: 'follow'
+         }).then(post => {
+      // console.log('post created', post);
+      // console.log('created post', post);
+       res.json({post})
+       }).catch(err => {
+         console.log("could not add post due to", err);
+       });
+   } catch (error) {
+     next(error);
+   } 
+ });
 
 
 
