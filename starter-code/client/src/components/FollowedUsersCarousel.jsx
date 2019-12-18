@@ -14,12 +14,11 @@ function rollUp() {
 function FollowedUsersCarousel (props) {
   console.log('data in props carousel', props.data);
       return (
-        <Carousel className = "m-auto" showStatus= {false} emulateTouch = {true} showIndicators = {false} showThumbs = {false} width = {"100%"} style = {{backgroundColor: "#f0f0f2"}}>
+        <Carousel className = "m-auto" centerMode = {true} emulateTouch = {true} centerSlidePercentage= {"30"} showStatus= {false} emulateTouch = {true} showIndicators = {false} showThumbs = {false} style = {{backgroundColor: "#f0f0f2"}}>
         {props.data.map((val)=> {
-            return  <div className = "" style = {{backgroundColor: "#DCE1EB", height : "100%"}}>
-                 <img src={roundPictureService(val.image)} style ={{ width: '50%'}} />
-                 <p className="legend"><Link to = {`/profile/${val._id}`} onClick={rollUp()}>{val.username}'s profile</Link></p>
-              </div>
+            return  <Link to = {`/profile/${val._id}`} onClick={rollUp()}><div style = {{backgroundColor: "#f0f0f2"}}>
+                 <img src={roundPictureService(val.image)} style ={{ width: '50%', backgroundColor: "#f0f0f2", borderRadius: "180px"}} />
+              </div></Link>
           })}
           </Carousel>
       );
