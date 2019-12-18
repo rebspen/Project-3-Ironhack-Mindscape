@@ -8,6 +8,9 @@ import { magnifier } from "./magnifier.png";
 import { FaSearch } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 import { AiOutlineDelete } from 'react-icons/fa'
+import {addPostReading as addPostReadingService} from './../services/posts';
+import {addPostRemoved as addPostRemovedService} from './../services/posts'
+
 
 class ShelfSingleBook extends Component {
   constructor(props) {
@@ -24,7 +27,7 @@ class ShelfSingleBook extends Component {
   }
 
   async componentDidMount() {
-    console.log("component mounted - I am getting the book..");
+    //console.log("component mounted - I am getting the book..");
     const $alert = document.getElementById("alert");
     $alert.style.visibility = "hidden";
     try {
@@ -49,6 +52,7 @@ class ShelfSingleBook extends Component {
     try {
       await changeBookStatus(this.state.id)
         .then(this.props.history.push(`/bookshelf/${this.state.profile}`))
+        .then(addPostReadingService(this.state.book))
         .catch(err => {
           console.log("couldnt change book status due to", err);
         });
@@ -62,9 +66,9 @@ class ShelfSingleBook extends Component {
     event.preventDefault();
     const bookObject = this.state.book;
     const $alert = document.getElementById("alert");
-    console.log("alert", $alert);
+    //console.log("alert", $alert);
     $alert.style.visibility = "visible";
-    console.log(bookObject);
+    //console.log(bookObject);
     try {
       const book = await addBookToViewerShelf(bookObject);
     } catch (error) {
@@ -78,6 +82,7 @@ class ShelfSingleBook extends Component {
     try {
       const book = await removeBook(bookId)
         .then(this.props.history.push(`/bookshelf/${this.state.profile}`))
+        .then(addPostRemovedService(this.state.book))
         .catch(err => {
           console.log("couldnt remove book due to", err);
         });

@@ -22,6 +22,8 @@ import ShelfSingleBook from "./views/ShelfSingleBook";
 import ShelfSinglePodcast from "./views/ShelfSinglePodcast";
 import InfoView from "./views/InfoView";
 import SingleSearch from "./views/SingleSearch";
+import NewsFeed from "./views/NewsFeed";
+
 
 class App extends Component {
   constructor() {
@@ -74,6 +76,19 @@ class App extends Component {
                 exact
                 render={props => (
                   <EditProfile
+                    {...props}
+                    user={this.state.user}
+                    loadUserInformation={this.loadUserInformation}
+                  />
+                )}
+                verify={this.verifyAuthentication}
+                redirect="/"
+              />
+                <ProtectedRoute
+                path="/newsfeed"
+                exact
+                render={props => (
+                  <NewsFeed
                     {...props}
                     user={this.state.user}
                     loadUserInformation={this.loadUserInformation}

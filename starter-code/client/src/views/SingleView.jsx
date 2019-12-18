@@ -4,6 +4,9 @@ import {createBook as addBookToShelf} from './../services/books'
 import axios from 'axios';
 import { FaSearch } from 'react-icons/fa';
 import { IconContext } from "react-icons";
+import ReactLoading from 'react-loading';
+import {addPost as addPostService} from './../services/posts'
+
 
 import "./views.css";
 
@@ -23,6 +26,8 @@ function SingleView (props) {
   let [book, setBook] = useState("");
   const [result, setResults] = useState({});
   let [loaded, setLoad] = useState('');
+  const [loadedPicture, setLoaded] = useState(true);
+
   
   //Getting book details from Google Books API
   function handleBookSearch () {
@@ -31,6 +36,7 @@ function SingleView (props) {
       const result = data.data.items[0];
       setResults(result);
       setLoad(true);
+      setLoaded(false);
     })
     .catch(err => {
       console.log('Couldnt reach API', err);
@@ -61,13 +67,16 @@ function SingleView (props) {
   
   async function addBookToUsersProfile(event) {
     event.preventDefault();
+    console.log('clicked in add book');
     const bookObject = result;
     const $alert = document.getElementById("alert")
-    console.log("alert", $alert)
+    //console.log("alert", $alert)
     $alert.style.visibility = 'visible'; 
-    console.log(bookObject);
+    //console.log(bookObject);
     try {
-      const book = await addBookToShelf(bookObject) 
+      const book = await addBookToShelf(bookObject);
+      //console.log('book added', book);
+      await addPostService(bookObject);
     } catch (error) {
       console.log(error);
     }
@@ -78,6 +87,7 @@ function SingleView (props) {
   return (
     <main className='p-3 container d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}>
     <h2 style= {{color: "#788FAD", textAlign: "center"}}>{id}</h2>
+    {loadedPicture && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
     {loaded && 
       <Fragment>
       <img src={result.volumeInfo.imageLinks.thumbnail} alt="test"/>

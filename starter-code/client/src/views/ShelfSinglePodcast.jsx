@@ -5,7 +5,6 @@ import { addPodcastToViewerShelf } from "./../services/books";
 import { removePodcast } from "./../services/books";
 import { FaSearch } from 'react-icons/fa';
 import { IconContext } from "react-icons";
-import { AiOutlineDelete } from 'react-icons/fa'
 import YouTube from 'react-youtube';
 
 class ShelfSingleBook extends Component {

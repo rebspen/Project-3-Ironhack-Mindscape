@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
 function BookCarousel (props) {
-    console.log("CAROUSLE PROPS", props)
+    //console.log("CAROUSLE PROPS", props)
       return (
           <Carousel className = "m-auto" showStatus= {false} emulateTouch = {true} showIndicators = {false} centerMode = {true}  centerSlidePercentage= {"70"} showThumbs = {false} style = {{backgroundColor: "#f0f0f2" }}>
           {props.data.map((val)=> {
