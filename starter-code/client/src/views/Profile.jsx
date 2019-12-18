@@ -5,6 +5,8 @@ import { FollowUser as FollowUserService } from "./../services/social-network";
 import { UnfollowUser as UnfollowUserService } from "./../services/social-network";
 import FollowedUsersCarousel from "../components/FollowedUsersCarousel";
 import { roundPicture as roundPictureService } from "./../services/PicturesCloudinary";
+import { addFollowingPost  as addFollowingPostService } from "./../services/posts";
+
 
 class Profile extends Component {
   constructor(props) {
@@ -36,8 +38,8 @@ class Profile extends Component {
   }
 
   async componentDidUpdate(prevProps, prevState) {
-    console.log("PREV STATE", prevState.user, "CURRENT STATE", this.state.user.beingFollowedUsers);
-    console.log("PREV PROPS", prevProps.user.followingUsers, "CURRENT PROPS", this.props.user.followingUsers);
+    //console.log("PREV STATE", prevState.user, "CURRENT STATE", this.state.user.beingFollowedUsers);
+    //console.log("PREV PROPS", prevProps.user.followingUsers, "CURRENT PROPS", this.props.user.followingUsers);
 
     if (this.state.user._id !== this.props.match.params.id) {
       const profileId = this.props.match.params.id;
@@ -58,7 +60,7 @@ class Profile extends Component {
   }
 
   async handleFollowButton() {
-    console.log('clicked in follow button');
+    //console.log('clicked in follow button');
     const profileId = this.props.match.params.id;
     const userLoggedIn = this.props.user._id;
     try {
@@ -69,13 +71,14 @@ class Profile extends Component {
       this.setState({
         user: user
       });
+      await addFollowingPostService(this.state.user);
     } catch (error) {
       console.log("Not possible to add user to your followers");
     }
   }
 
   async handleUnfollowButton() {
-    console.log('clicked in unfollow button');
+   // console.log('clicked in unfollow button');
 
     const profileId = this.props.match.params.id;
     const userLoggedIn = this.props.user._id;
@@ -188,11 +191,7 @@ class Profile extends Component {
                   {user.followingUsers.length && (
                     <FollowedUsersCarousel data={user.followingUsers} />
                   )}
-                </div>
-
-
-
-                
+                </div> 
               )}
             </Fragment>
           )}

@@ -29,7 +29,7 @@ class ThemeView extends Component {
     this.state = {
       themes: shuffle(themes)
     };
-    console.log(this.state)
+   // console.log(this.state)
   }
 
 

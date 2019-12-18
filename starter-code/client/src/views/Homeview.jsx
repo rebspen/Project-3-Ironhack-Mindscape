@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import ReactLoading from 'react-loading';
 
 import "./views.css"
 

@@ -23,7 +23,7 @@ export const UnfollowUser = async data => {
 };
 
 export const UserList = async () => {
-  console.log('in front end');
+ // console.log('in front end users list service');
   try {
   const response = await apiAuthenticationService.get(`/user-list`);
   return response.data.users;

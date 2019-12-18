@@ -4,10 +4,8 @@ import { getUsersBooks } from "./../services/books";
 import { changeBookStatus } from "./../services/books";
 import { addBookToViewerShelf } from "./../services/books";
 import { removeBook } from "./../services/books";
-import { magnifier } from "./magnifier.png";
 import { FaSearch } from 'react-icons/fa';
 import { IconContext } from "react-icons";
-import { AiOutlineDelete } from 'react-icons/fa'
 import {addPostReading as addPostReadingService} from './../services/posts';
 import {addPostRemoved as addPostRemovedService} from './../services/posts'
 
@@ -48,8 +46,9 @@ class ShelfSingleBook extends Component {
 
   async handleSubmission(event) {
     event.preventDefault();
-    console.log("I am at handle submission form", this.state.id);
+   // console.log("I am at handle submission form", this.state.id);
     try {
+      window.scroll(0,0);
       await changeBookStatus(this.state.id)
         .then(this.props.history.push(`/bookshelf/${this.state.profile}`))
         .then(addPostReadingService(this.state.book))

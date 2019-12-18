@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import "./App.css";
-import { BrowserRouter, Switch, Route, Link, Redirect } from "react-router-dom";
-import { render } from "react-dom";
+import { BrowserRouter, Switch, Route} from "react-router-dom";
 import Login from "./views/authentication/Login";
 import SignUp from "./views/authentication/Signup";
 import Profile from "./views/Profile";
@@ -34,7 +33,7 @@ class App extends Component {
   }
 
   async loadUserInformation() {
-    console.log("UPDATE USER FOLLOWER");
+   // console.log("UPDATE USER FOLLOWER");
     try {
       const user = await loadUserInformationService();
       this.setState({

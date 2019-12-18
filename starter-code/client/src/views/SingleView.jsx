@@ -52,22 +52,11 @@ function SingleView (props) {
     //to scroll to the top of the page after loading the info.
     return handleBookSearch()
   },[]);
-  
-  //Add the book to the users' profile and book model
-  // function addBookToUsersProfile() {
-  //   const bookObject = result;
-  //   console.log("button clicked",bookObject);
-  //   try {
-  //     const book = addBookToShelf(bookObject);
-  //     this.props.history.push(`/profile`);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+
   
   async function addBookToUsersProfile(event) {
     event.preventDefault();
-    console.log('clicked in add book');
+   // console.log('clicked in add book');
     const bookObject = result;
     const $alert = document.getElementById("alert")
     //console.log("alert", $alert)
