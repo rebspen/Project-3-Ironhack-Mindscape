@@ -189,6 +189,10 @@ class Profile extends Component {
                     <FollowedUsersCarousel data={user.followingUsers} />
                   )}
                 </div>
+
+
+
+                
               )}
             </Fragment>
           )}

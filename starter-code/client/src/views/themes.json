@@ -43,7 +43,10 @@
       "The Buddha of Suburbia",
       "The Metamorphosis",
       "Austerlitz",
-      "Everything is Illuminated"
+      "Everything is Illuminated",
+      "my year of rest and relaxation",
+      "normal people",
+      "conversations with friends"
     ]
   },
   {
@@ -56,7 +59,9 @@
       "Breakfast at Tiffany's",
       "Against Nature",
       "Just Kids",
-      "Fear and Loathing in Las Vegas"
+      "Fear and Loathing in Las Vegas",
+      "shantaram",
+      "A Thousand Splendid Suns"
     ]
   },
   {
@@ -70,7 +75,8 @@
       "Thinking Fast and Slow",
       "The Power of Habit: Why We Do What We Do in Life and Business",
       "How to Win Friends and Influence People",
-      "Think and Grow Rich"
+      "Think and Grow Rich",
+      "a little life"
     ]
   },
   {
@@ -131,8 +137,8 @@
       "On the Road",
       "the beach",
       "Into the Wild",
-      "wild",
-      "The Alchemist"
+      "The Alchemist",
+      "shantaram"
       
     ]
   },
@@ -142,34 +148,42 @@
     "imageURL": "../7.png",
     "titles": [
       "a christmas carol",
-      "twas the night shift before christmas",
       "hogfather",
       "the twelve terrors of christmas",
-      "If on a Winter's Night a Traveller"
+      "If on a Winter's Night a Traveller",
+      "Skipping Christmas"
     ]
   },
   {
     "id": 10,
-    "name": "xmas",
+    "name": "outliers",
     "imageURL": "../14.png",
     "titles": [
-      "a christmas carol",
-      "twas the night shift before christmas",
-      "hogfather",
-      "the twelve terrors of christmas",
-      "If on a Winter's Night a Traveller"
+      "Outliers: The Story of Success",
+      "The Arrival",
+      "Small Island",
+      "river town: two years on the yangtze",
+      "Puddle Jumping",
+      "The Inheritors",
+      "Jude the Obscure",
+      "Wonder",
+      "Titus Groan",
+      "a little life"
     ]
   },
   {
     "id": 11,
-    "name": "xmas",
+    "name": "power",
     "imageURL": "../15.png",
     "titles": [
-      "a christmas carol",
-      "twas the night shift before christmas",
-      "hogfather",
-      "the twelve terrors of christmas",
-      "If on a Winter's Night a Traveller"
+      "The prince",
+      "the psychopath whisperer: the science of those without conscience",
+      "emotional vampires: dealing with people who drain you dry",
+      "Wilder Girls",
+      "American Psycho",
+      "The Secret",
+      "The Power",
+      "a little life"
     ]
   }
 ]
