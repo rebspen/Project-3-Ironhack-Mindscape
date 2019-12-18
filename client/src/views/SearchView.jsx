@@ -37,6 +37,7 @@ function SearchView(props) {
     const category = themes.filter((val) => { if(val.id === parseInt(id)) {return val}})
     const titles = category[0].titles
     const image = category[0].imageURL
+    console.log("pod",category[0].podcasts)
     const podcast = category[0].podcasts[0]
     const podcast2 = category[0].podcasts[1]
     setImage(image)

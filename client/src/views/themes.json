@@ -33,6 +33,12 @@
       "Do Androids Dream of Electric Sheep?",
       "this changes everything",
       "The Giver"
+    ],
+    "podcasts": [
+      "Last Podcast On the Left",
+      "Dear Franklin Jones",
+      "Heaven's Gate",
+      "Cults"
     ]
   },
   {
@@ -51,6 +57,11 @@
       "my year of rest and relaxation",
       "normal people",
       "conversations with friends"
+    ],
+    "podcasts": [
+      "The Tim Ferriss Show",
+      "Invisibilia",
+      "The Moth"
     ]
   },
   {
@@ -66,6 +77,11 @@
       "Fear and Loathing in Las Vegas",
       "shantaram",
       "A Thousand Splendid Suns"
+    ],
+    "podcasts": [
+      "The Moth",
+      "Strangers",
+      "The Thrilling Adventure Hour Treasury"
     ]
   },
   {
@@ -81,6 +97,11 @@
       "How to Win Friends and Influence People",
       "Think and Grow Rich",
       "a little life"
+    ],
+    "podcasts": [
+      "The Tim Ferriss Show",
+      "Invisibilia",
+      "The Moth"
     ]
   },
   {
@@ -96,6 +117,11 @@
       "The Secret History",
       "a little life",
       "the beach"
+    ],
+    "podcasts": [
+      "Dirty John",
+      "Criminal",
+      "My Favorite Murder With Karen Kilgariff And Georgia Hardstark"
     ]
   },
   {
@@ -109,6 +135,11 @@
       "The Marriage Of Heaven And Hell",
       "The Picture of Dorian Gray",
       "The Goldfinch"
+    ],
+    "podcasts": [
+      "Radiolab",
+      "no such thing as a fish",
+      "Freakonomics Radio"
     ]
   },
   {
@@ -125,8 +156,12 @@
       "The Poisonwood Bible",
       "The Museum of Innocence",
       "Orlando",
-      "a little life"
-      
+      "a little life" 
+    ],
+    "podcasts": [
+      "Radiolab",
+      "Startalk Radio",
+      "Freakonomics Radio"
     ]
   },
   {
@@ -142,8 +177,12 @@
       "the beach",
       "Into the Wild",
       "The Alchemist",
-      "shantaram"
-      
+      "shantaram" 
+    ],
+    "podcasts": [
+      "Radiolab",
+      "Wild Ideas Worth Living Presented By Rei",
+      "Zero To Travel Podcast"
     ]
   },
   {
@@ -156,6 +195,10 @@
       "the twelve terrors of christmas",
       "If on a Winter's Night a Traveller",
       "Skipping Christmas"
+    ],
+    "podcasts": [
+      "Radiolab",
+      "Freakonomics Radio",
     ]
   },
   {
@@ -173,6 +216,10 @@
       "Wonder",
       "Titus Groan",
       "a little life"
+    ],
+    "podcasts": [
+      "Radiolab",
+      "Freakonomics Radio"
     ]
   },
   {
@@ -188,6 +235,11 @@
       "The Secret",
       "The Power",
       "a little life"
+    ],
+    "podcasts": [
+      "Radiolab",
+      "Freakonomics Radio",
+      "Pod Save The World"
     ]
   }
 ]
