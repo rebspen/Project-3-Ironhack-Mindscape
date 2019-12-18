@@ -173,11 +173,12 @@ class Profile extends Component {
               )}
 
               <div
-                className="container mt-2 p-3 d-flex flex-column justify-content-center align-items-center"
+                className="container mt-2 p-3 d-flex flex-row justify-content-center align-items-center"
                 style={{ backgroundColor: "#f0f0f2" }}
               >
               
-                <Link to={`/bookshelf/${profileId}`}><img src = "../bookshelf-color.png"/></Link>
+                <Link className="mr-3" to={`/bookshelf/${profileId}`}><img src = "../bookshelf-color.png"/></Link>
+                <Link className="ml-3"to={`/podshelf/${profileId}`}><img style = {{width: "60%"}} src = "../headphones.png"/></Link>
 
 
               </div>

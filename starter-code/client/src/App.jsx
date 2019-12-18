@@ -14,8 +14,11 @@ import UserList from "./views/UserList";
 import { loadUserInformation as loadUserInformationService } from "./services/authentication";
 
 import SingleView from "./views/SingleView";
+import PodcastView from "./views/PodcastView";
 import Bookshelf from "./views/Bookshelf";
+import Podshelf from "./views/Podshelf";
 import ShelfSingleBook from "./views/ShelfSingleBook";
+import ShelfSinglePodcast from "./views/ShelfSinglePodcast";
 import InfoView from "./views/InfoView";
 import SingleSearch from "./views/SingleSearch";
 import NewsFeed from "./views/NewsFeed";
@@ -121,12 +124,22 @@ class App extends Component {
                 />
                 <Route path="/info" exact component={InfoView} />
                 <Route path="/book/:id" render={(props) => <SingleView {...props} user={this.state.user} loadUserInformation={this.loadUserInformation}/>} />
+                <Route path="/podcast/:id" render={(props) => <PodcastView {...props} user={this.state.user} loadUserInformation={this.loadUserInformation}/>} />
                 <Route path="/themes" exact component={ThemeView} />
                 <ProtectedRoute
                 path="/bookshelf/:id"
                 exact
                 render={props => (
                   <Bookshelf {...props} user={this.state.user} />
+                )}
+                verify={this.verifyAuthentication}
+                redirect="/"
+                />
+                <ProtectedRoute
+                path="/podshelf/:id"
+                exact
+                render={props => (
+                  <Podshelf {...props} user={this.state.user} />
                 )}
                 verify={this.verifyAuthentication}
                 redirect="/"
@@ -142,6 +155,13 @@ class App extends Component {
                 path="/one/:profile/:id"
                 exact
                 render={props => <ShelfSingleBook {...props} user={this.state.user} />}
+                verify={this.verifyAuthentication}
+                redirect="/"
+                />
+                <ProtectedRoute
+                path="/alone/:profile/:id"
+                exact
+                render={props => <ShelfSinglePodcast {...props} user={this.state.user} />}
                 verify={this.verifyAuthentication}
                 redirect="/"
                 />

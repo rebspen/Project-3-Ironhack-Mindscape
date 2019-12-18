@@ -23,12 +23,17 @@ function SingleSearch(props) {
         "https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?q=" +
         title
         +
-        "&k=351127-cheeta-8Z5VDMQU&type=books"
+        "&k=351127-cheeta-8Z5VDMQU"
       )
       .then(data => {
-        setResults(data.data.Similar.Results);
+        const final = data.data.Similar.Results;
+        console.log(final)
+        const filtered = final.filter((val,index) => { if(val.Type === "book" || val.Type === "podcast"){ return val}})
+        if(filtered.length === 0){
+          filtered.push({Name: "Sorry no results - go back homie", Type: "..."})
+        }
+        setResults(filtered);
         setLoaded(false);
-     //   console.log(result)
       })
       .catch(err => {});
   }
@@ -39,7 +44,7 @@ function SingleSearch(props) {
 
   return (
     <main className="App-layers text-center">
-    <h2 style={{color: "#788FAD"}} >Book Search : {props.match.params.title}</h2>
+    <h2 style={{color: "#788FAD"}} > Search : {props.match.params.title}</h2>
     <br></br>
     {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
       <div>
