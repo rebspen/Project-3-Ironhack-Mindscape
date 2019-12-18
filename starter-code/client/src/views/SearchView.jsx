@@ -39,6 +39,8 @@ function SearchView(props) {
     const category = themes.filter((val) => { if(val.id === parseInt(id)) {return val}})
     const titles = category[0].titles
     const image = category[0].imageURL
+    const podcast = category[0].podcasts[0]
+    const podcast2 = category[0].podcasts[1]
     setImage(image)
     const bookArr = shuffle(titles);
     const book1 = bookArr[0];
@@ -49,13 +51,21 @@ function SearchView(props) {
           book1 +
           "," +
           book2 +
-          "&k=351127-cheeta-8Z5VDMQU&type=books"
+          "," +
+          podcast +
+          "," +
+          podcast2 +
+          "&k=351127-cheeta-8Z5VDMQU"
       )
       .then(data => {
         const final = data.data.Similar.Results;
+        final.unshift(data.data.Similar.Info[2]);
         final.unshift(data.data.Similar.Info[0]);
+        final.unshift(data.data.Similar.Info[3]);
         final.unshift(data.data.Similar.Info[1]);
-        setResults(final);
+        const filtered = final.filter((val,index) => { if(val.Type === "book" || val.Type === "podcast"){ return val}})
+        console.log("filtered", filtered)
+        setResults(filtered);
         setLoaded(false);
       })
       .catch(err => {});
@@ -72,7 +82,7 @@ function SearchView(props) {
       <div>
         {result.map(val => {
           return (
-            <Link to={`/book/${val.Name}`}>
+            <Link to={`/${val.Type}/${val.Name}`}>
               <div class="card mb-2" style={{border: "#f0f0f2", backgroundColor: "#f0f0f2"}}>
                 {" "}
                 <div class="card-body p-1">

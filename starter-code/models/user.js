@@ -24,6 +24,10 @@ const schema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'Book'
   }],
+  podcasts: [{
+    type: mongoose.Types.ObjectId,
+    ref: 'Podcast'
+  }],
   followingUsers: [{
     type: mongoose.Types.ObjectId,
     ref: 'User'
