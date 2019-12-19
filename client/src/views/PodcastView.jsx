@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ReactLoading from 'react-loading';
 import YouTube from 'react-youtube';
-import {addPodcastToPodlist} from './../services/books'
+import {addPodcastToPodlist} from './../services/books';
+import {addPodcastPost as addPodcastPostService} from './../services/posts'
 import { FaSearch } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 
@@ -32,8 +33,8 @@ function PodcastView(props) {
         const final = data.data.Similar.Info[0];
         const video = final.yUrl.split("/")[4].trim()
         setVideo(video)
-        console.log("video", video)
-        console.log("final", final)
+       // console.log("video", video)
+        //console.log("final", final)
         setResults(final);
         setLoaded(false);
         
@@ -62,11 +63,15 @@ function PodcastView(props) {
     event.preventDefault();
     const podObject = result;
     const $alert = document.getElementById("alert")
-    console.log("alert", $alert)
+    //console.log("alert", $alert)
     $alert.style.visibility = 'visible'; 
-    console.log(podObject);
+    //console.log(podObject);
     try {
-      const podcast = await addPodcastToPodlist(podObject) 
+     // console.log('in the try of adding podcast');
+     const podcast = await addPodcastToPodlist(podObject);
+      //console.log('in the try of adding podcast step2', podcast);
+      await addPodcastPostService({podcast, user});
+      //console.log('in the try of adding podcast step3')
     } catch (error) {
       console.log(error);
     }

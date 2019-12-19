@@ -6,6 +6,11 @@ import { UnfollowUser as UnfollowUserService } from "./../services/social-networ
 import FollowedUsersCarousel from "../components/FollowedUsersCarousel";
 import { roundPicture as roundPictureService } from "./../services/PicturesCloudinary";
 import { addFollowingPost  as addFollowingPostService } from "./../services/posts";
+import { IoMdContacts} from 'react-icons/io';
+import { FaUserFriends} from 'react-icons/fa';
+import { IconContext } from "react-icons";
+import { MdSettings} from 'react-icons/md';
+
 
 
 class Profile extends Component {
@@ -18,6 +23,7 @@ class Profile extends Component {
     this.handleFollowButton = this.handleFollowButton.bind(this);
     this.isFollowing = this.isFollowing.bind(this);
     this.handleUnfollowButton = this.handleUnfollowButton.bind(this);
+    this.hasLength = this.hasLength.bind(this);
   }
 
   async componentDidMount() {
@@ -85,8 +91,8 @@ class Profile extends Component {
 
     try {
       const user = await UnfollowUserService({ userLoggedIn, profileId });
-      console.log("user unfollow", user);
-      console.log('props', this.props);
+     // console.log("user unfollow", user);
+      //console.log('props', this.props);
       await this.props.loadUserInformation();
       this.setState({
         user: user
@@ -103,6 +109,14 @@ class Profile extends Component {
       return true;
     } else {
       return false;
+    }
+  }
+
+  hasLength(array) {
+    if (array.length > 0) {
+      return true
+    } else {
+      return false
     }
   }
 
@@ -130,7 +144,7 @@ class Profile extends Component {
                 {isThisMyProfile && <Fragment>Welcome back</Fragment>}{" "}
                 {user.username}{" "}
               </h1>
-              <span>Followers {user.beingFollowedUsers.length}</span>
+              <span className='border p-2 m-1 text-center'> <FaUserFriends/>Followers <br/> {user.beingFollowedUsers.length}</span>
 
               <img
                 src={roundPictureService(user.image)}
@@ -146,7 +160,7 @@ class Profile extends Component {
 
               {isThisMyProfile && (
                 <Link to="/profile-edit" style={{ color: "#444A6C" }}>
-                  <small>Update your details</small>
+                  <small><MdSettings/> Update Profile</small>
                 </Link>
               )}
 
@@ -177,24 +191,42 @@ class Profile extends Component {
                 className="container mt-2 p-3 d-flex flex-row justify-content-center align-items-center"
                 style={{ backgroundColor: "#f0f0f2" }}
               >
-              
                 <Link className="mr-3" to={`/bookshelf/${profileId}`}><img src = "../bookshelf-color.png"/></Link>
-                <Link className="ml-3"to={`/podshelf/${profileId}`}><img style = {{width: "60%"}} src = "../headphones.png"/></Link>
-
-
+                <Link className="ml-3" to={`/podshelf/${profileId}`}><img style = {{width: "60%"}} src = "../headphones.png"/></Link>
               </div>
 
-              {user.followingUsers && (
+              {!user.followingUsers.length && (
+                <div className='text-center'>
+
+             { isThisMyProfile && <div>
+              <IconContext.Provider value={{ color: "#E3D353", size:'5em'}}>
+              <IoMdContacts /> </IconContext.Provider>
+              You are not following any friend's journey.
+              <br/>
+              <Link to='/user-list'>Click here to find your friends!</Link>
+              </div>}
+
+             { !isThisMyProfile && <div>
+              <IconContext.Provider value={{ color: "#E3D353", size:'5em' }}>
+              <IoMdContacts /> </IconContext.Provider>
+               {this.state.user.username} is not following any friends' journey yet.
+              </div>
+             }
+             </div>
+              )
+             }       
+
+              {this.hasLength(user.followingUsers) && 
+
                 <div
                   className="container mt-2 p-3 d-flex flex-column justify-content-center align-items-center"
                   style={{ backgroundColor: "#f0f0f2" }}
                 >
                   <h4>Following</h4>
-                  {user.followingUsers.length && (
                     <FollowedUsersCarousel data={user.followingUsers} />
-                  )}
                 </div> 
-              )}
+
+              }
             </Fragment>
           )}
         </div>

@@ -77,4 +77,20 @@ export const addPostRemoved = async book => {
   }
 };
 
+export const addPodcastPost = async data => {
+ //console.log('in the podcast service frontend');
+ const title = data.podcast.title;
+ const user = data.user.username;
+ const content = `${user} added the podcast ${title} to PodShelf.`;
+ const type = 'podcast'
+  try {
+    const response = await apiPostService.post(`/add-post-podcast`, {content, user, type, title});
+   // console.log('I added the post in service')
+    return response.data.post;
+  } catch (error) {
+    console.log('I didnt add the post in service due to', error)
+    throw error;
+  }
+};
+
  

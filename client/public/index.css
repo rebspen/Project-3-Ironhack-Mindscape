@@ -1,8 +1,3 @@
-.App {
-  font-family: 'Ubuntu', sans-serif;
-  background-color: #F0F0F2;
-}
-
 html {
   background-color: #F0F0F2;
   min-height: 100%
@@ -12,11 +7,6 @@ body {
   background-color:  #F0F0F2;
 }
 
-
-
-
-
-
-
-
-
+#root {
+  background-color: #F0F0F2
+}

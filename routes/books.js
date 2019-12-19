@@ -52,11 +52,13 @@ booksRouter.post("/add-podcast", async (req, res, next) => {
       user: userId
     }).then(podcast => {
       const podId = podcast._id;
-      console.log("Book ID", podId);
+      //console.log("Book ID", podId);
       return User.findByIdAndUpdate(userId, {
         $push: {
           podcasts: podId
         }
+      }).then(() => {
+        res.json({podcast})
       }).catch(err => {
         console.log("could not update the book id in the user", err);
       });
@@ -75,11 +77,13 @@ booksRouter.post("/delete/:id", async (req, res, next) => {
   const userId = req.session.user;
   const bookId = req.params.id;
   try {
-    await Book.findByIdAndRemove(bookId).then(() => {
+    await Book.findByIdAndRemove(bookId).then(book => {
       User.findByIdAndUpdate(userId, {
         $pull: {
           books: bookId
         }
+      }).then(() => {
+        res.json({book})
       }).catch(err => {
         console.log("could not remove the book id from the user", err);
       });
@@ -90,15 +94,17 @@ booksRouter.post("/delete/:id", async (req, res, next) => {
 });
 
 booksRouter.post("/poddelete/:id", async (req, res, next) => {
-  console.log("I am at the podcast delete route");
+ // console.log("I am at the podcast delete route");
   const userId = req.session.user;
   const podId = req.params.id;
   try {
-    await Podcast.findByIdAndRemove(podId).then(() => {
-      User.findByIdAndUpdate(userId, {
+    await Podcast.findByIdAndRemove(podId).then(post => {
+      return User.findByIdAndUpdate(userId, {
         $pull: {
           podcasts: podId
         }
+      }).then(() => {
+        res.json(post);
       }).catch(err => {
         console.log("could not remove the pod id from the user", err);
       });
@@ -113,7 +119,7 @@ booksRouter.post("/viewer-add-book", async (req, res, next) => {
  // console.log("req-body", req.body);
   const userId = req.session.user;
   try {
-    const book = await Book.create({
+    await Book.create({
       title: req.body.title,
       description: req.body.description,
       image: req.body.image,
@@ -126,6 +132,8 @@ booksRouter.post("/viewer-add-book", async (req, res, next) => {
         $push: {
           books: bookId
         }
+      }).then(() =>{
+        res.json({book})
       }).catch(err => {
         console.log("could not update the book id in the user", err);
       });
@@ -148,11 +156,13 @@ booksRouter.post("/viewer-add-podcast", async (req, res, next) => {
       user: userId
     }).then(podcast => {
       const podId = podcast._id;
-      console.log("Pod ID", podId);
+     // console.log("Pod ID", podId);
       return User.findByIdAndUpdate(userId, {
         $push: {
           podcasts: podId
         }
+      }).then(() => {
+        res.json({podcast});
       }).catch(err => {
         console.log("could not update the pod id in the user", err);
       });
@@ -180,9 +190,9 @@ booksRouter.post("/get-books/:id", async (req, res, next) => {
 //find user podcasts
 
 booksRouter.post("/get-podcasts/:id", async (req, res, next) => {
-  console.log("I am at the get podcast route");
+ // console.log("I am at the get podcast route");
   const userId = req.params.id;
-  console.log("Id of the podcasts we are pulling", userId);
+  //console.log("Id of the podcasts we are pulling", userId);
   try {
     const user = await User.findById(userId).populate("podcasts");
     res.json({ user });
@@ -209,6 +219,8 @@ booksRouter.patch("/change-status/:id", async (req, res, next) => {
       }
       return Book.findByIdAndUpdate(book._id, {
         status: result
+      }).then(() => {
+        res.json({book});
       }).catch(err => {
         console.log("could not update the book id in the user", err);
       });

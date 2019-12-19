@@ -64,6 +64,7 @@ class App extends Component {
           <Navbar
             user={this.state.user}
             loadUserInformation={this.loadUserInformation}
+            props={this.props}
           />
           {this.state.loaded && 
           <Switch>
@@ -176,11 +177,3 @@ class App extends Component {
 
 export default App;
 
-/*
-    <ProtectedRoute
-                path="/profile-edit"
-                render={props => <EditProfile {...props} user={this.state.user} loadUserInformation={this.loadUserInformation} />}
-                verify={this.verifyAuthentication}
-                redirect="/"
-              />
-              */

@@ -15,6 +15,10 @@ class Signup extends Component {
     this.handleSubmissionEvent = this.handleSubmissionEvent.bind(this);
   }
 
+  componentDidMount() {
+    window.scroll(0,0);
+  }
+
   //To change state when we write on the sign-up form
   handleInputChange(event) {
     const nameOfState = event.target.name;

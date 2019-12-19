@@ -6,6 +6,8 @@ import { removePodcast } from "./../services/books";
 import { FaSearch } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 import YouTube from 'react-youtube';
+import {addPodcastPost as addPodcastPostService} from './../services/posts'
+
 
 import "./views.css";
 
@@ -23,7 +25,7 @@ class ShelfSingleBook extends Component {
   }
 
   async componentDidMount() {
-    console.log("component mounted - I am getting the book..");
+    //console.log("component mounted - I am getting the book..");
     const $alert = document.getElementById("alert");
     $alert.style.visibility = "hidden";
     try {
@@ -46,9 +48,13 @@ class ShelfSingleBook extends Component {
     event.preventDefault();
     const podObject = this.state.podcast;
     const $alert = document.getElementById("alert");
+    const user = this.props.user;
     $alert.style.visibility = "visible";
     try {
+     // console.log('in the try of add podcast');
       const podcast = await addPodcastToViewerShelf(podObject);
+      await addPodcastPostService({podcast, user});
+     // console.log('step2. in the try of add podcast');
     } catch (error) {
       console.log(error);
     }
@@ -58,11 +64,10 @@ class ShelfSingleBook extends Component {
     event.preventDefault();
     const podId = this.state.podcast._id;
     try {
-      const podcast = await removePodcast(podId)
-        .then(this.props.history.push(`podshef/${this.state.profile}`))
-        .catch(err => {
-          console.log("couldnt remove book due to", err);
-        });
+    await removePodcast(podId);
+    window.scroll(0,0);
+    this.props.history.push(`/podshelf/${this.state.profile}`);
+      
     } catch (error) {
       console.log(error);
     }
@@ -77,7 +82,7 @@ class ShelfSingleBook extends Component {
         autoplay: 0
       }
     };
-
+console.log('heyyy');
     return (
       <main
         className="p-3 container d-flex flex-column justify-content-center align-items-center"
