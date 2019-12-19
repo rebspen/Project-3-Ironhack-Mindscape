@@ -5,6 +5,7 @@ import { roundPicture as roundPictureService } from "./../services/PicturesCloud
 import "./UserList.css";
 import { IconContext } from "react-icons";
 import { FaSearch } from "react-icons/fa";
+import { MdFace } from "react-icons/md";
 
 //This function will exclude the logged in user's profile in the list of friends.
 function isTheSame(user, profile) {
@@ -69,12 +70,12 @@ class UserList extends Component {
   render() {
    // console.log("req user", this.props.user._id);
     return (
-      <div>
-        <div className="input-group md-form form-sm form-2 pl-0 w-50 ml-5">
-          <div className="input-group-prepend">
+      <div className='m-2'>
+        <div className="input-group md-form form-sm form-2 w-70 mb-2">
+          <div className="input-group-prepend w-10">
             <span className="input-group-text lime lighten-2" id="basic-text1">
               <IconContext.Provider
-                value={{ style: { width: "5em", color: "#E3D353" } }}
+                value={{ style: { width: "3em", color: "#E3D353" } }}
               >
                 <FaSearch />
               </IconContext.Provider>
@@ -82,23 +83,28 @@ class UserList extends Component {
           </div>
           <input
             type="search"
-            className="form-control my-0 py-1"
-            placeholder="Search your friends by their username :) "
+            className=" my-0 py-1 form-control w-90"
+           
+            placeholder="Search by username "
             onChange={this.handleSearchChange}
           />
         </div>
 
-        <div className="table-responsive mr-5 ml-5 text-center">
+        <div className="table-responsive w-80">
           <table className="table user-list" id="myTable">
             <thead>
               <tr>
-                <th>
-                  <span></span>
+                <th className='text-center'>
+                   <IconContext.Provider
+                value={{ style: { width: "1em", color: "#E3D353" } }}
+              >
+                <MdFace />
+              </IconContext.Provider>
                 </th>
-                <th>
+                <th className='text-center'>
                   <span>Username</span>
                 </th>
-                <th>
+                <th className='text-center'>
                   <span>Followers</span>
                 </th>
               </tr>
@@ -108,8 +114,8 @@ class UserList extends Component {
                 this.state.filteredList.map(
                   user =>
                     !isTheSame(this.props.user, user) && (
-                      <tr key={user._id}>
-                        <td style={{ width: "20%" }} className="align-middle">
+                      <tr key={user._id} >
+                        <td style={{ width: "20%" }} className='text-center'>
                           <img
                             src={roundPictureService(user.image)}
                             alt={user.username}
@@ -117,13 +123,13 @@ class UserList extends Component {
                             style={{ width: "50%" }}
                           />
                         </td>
-                        <td style={{ width: "30%" }} className="align-middle">
+                        <td style={{ width: "30%" }} className="align-middle text-center">
                           {" "}
-                          <Link to={`/profile/${user._id}`}>
+                          <Link to={`/profile/${user._id}`} className='text-center text-dark'>
                             {user.username}
                           </Link>
                         </td>
-                        <td style={{ width: "30%" }} className="align-middle">
+                        <td style={{ width: "30%" }} className="align-middle text-center">
                           {user.beingFollowedUsers.length}
                         </td>
                       </tr>

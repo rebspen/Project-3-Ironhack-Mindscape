@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import "./views.css";
+import "./Homeview.css";
 
-// import { listUser as listUser } from './../services/authentication';
 
 class HomeView extends Component {
   constructor(props) {
