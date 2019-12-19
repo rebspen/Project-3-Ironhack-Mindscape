@@ -33,11 +33,13 @@ function SearchView(props) {
   const [loaded, setLoaded] = useState(true);
 
   function handleSearchSubmission() {
-    const id = props.match.params.id;
+    console.log("i am at the handle submission")
+    const id = Number(props.match.params.id);
     const category = themes.filter((val) => { if(val.id === parseInt(id)) {return val}})
+    console.log("cat", category)
     const titles = category[0].titles
     const image = category[0].imageURL
-    console.log("pod",category[0].podcasts)
+    console.log("pod", category[0].podcasts)
     const podcast = category[0].podcasts[0]
     const podcast2 = category[0].podcasts[1]
     setImage(image)

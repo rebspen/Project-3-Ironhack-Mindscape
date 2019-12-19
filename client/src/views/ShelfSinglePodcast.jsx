@@ -57,7 +57,7 @@ class ShelfSingleBook extends Component {
     const podId = this.state.podcast._id;
     try {
       const podcast = await removePodcast(podId)
-        .then(this.props.history.push(`/bookshelf/${this.state.profile}`))
+        .then(this.props.history.push(`podshef/${this.state.profile}`))
         .catch(err => {
           console.log("couldnt remove book due to", err);
         });
