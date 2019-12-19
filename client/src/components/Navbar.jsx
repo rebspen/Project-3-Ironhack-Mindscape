@@ -30,7 +30,7 @@ class Navbar extends Component {
   render() {
     const user = this.props.user;
     return (
-      <div style = {{zIndex: "2000"}}>
+      <div>
         {user && (
           <div className="navbar mr-auto d-flex flex-row justify-content-around">
             <Fragment>
