@@ -54,13 +54,13 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className='container mt-5 p-3 box-shadow text-center' style={{"minHeight": '500px'}, {"backgroundColor": 'white'}}>
-        <h1>Sign Up</h1>
+      <div className='container mt-5 p-3 box-shadow text-center border rounded-lg' style={{"minHeight": '500px'}, {"backgroundColor": 'rgb(255,255,255, 0.7)'}}>
+        <h3>Let's begin your journey</h3>
         <form onSubmit={this.handleSubmissionEvent} className='d-flex flex-column w-100 justify-content-center align-items-center'>
-         <label htmlFor="username">Username</label> <input onChange={this.handleInputChange} type="text" className="form-control w-50" name='username' placeholder='Username' value={this.state.username}/>
-          <label htmlFor="password">Password</label> <input onChange={this.handleInputChange} required type="password" className="w-50 form-control" name='password' placeholder='Password' value={this.state.password}/>
+         <label htmlFor="username">Username</label> <input onChange={this.handleInputChange} type="text" className="form-control w-50 mb-1" name='username' placeholder='Username' value={this.state.username}/>
+          <label htmlFor="password">Password</label> <input onChange={this.handleInputChange} required type="password" className="mb-1 w-50 form-control" name='password' placeholder='Password' value={this.state.password}/>
           <label htmlFor="emal">E-mail</label> <input type="email" name="email" onChange={this.handleInputChange} className="w-50 form-control" placeholder='Email' value={this.state.email}/>
-          <button className="btn m-3 text-white p-2 w-50" style={{"backgroundColor":"#444A6C"}}>Sign up</button>
+          <button className="btn m-3 text-white p-2 w-50" style ={{width: '30%', border: "2px solid white", borderRadius: "90px", backgroundColor:"#E3D353" }}>Sign up</button>
         </form>
       </div>
     )

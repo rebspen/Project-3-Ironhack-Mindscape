@@ -5,13 +5,11 @@ import { FollowUser as FollowUserService } from "./../services/social-network";
 import { UnfollowUser as UnfollowUserService } from "./../services/social-network";
 import FollowedUsersCarousel from "../components/FollowedUsersCarousel";
 import { roundPicture as roundPictureService } from "./../services/PicturesCloudinary";
-import { addFollowingPost  as addFollowingPostService } from "./../services/posts";
-import { IoMdContacts} from 'react-icons/io';
-import { FaUserFriends} from 'react-icons/fa';
+import { addFollowingPost as addFollowingPostService } from "./../services/posts";
+import { IoMdContacts } from "react-icons/io";
+import { FaUserFriends } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import { MdSettings} from 'react-icons/md';
-
-
+import { MdSettings } from "react-icons/md";
 
 class Profile extends Component {
   constructor(props) {
@@ -70,9 +68,9 @@ class Profile extends Component {
     const profileId = this.props.match.params.id;
     const userLoggedIn = this.props.user._id;
     try {
-     // console.log('in try');
+      // console.log('in try');
       const user = await FollowUserService({ userLoggedIn, profileId });
-     // console.log("user follow", user);
+      // console.log("user follow", user);
       await this.props.loadUserInformation();
       this.setState({
         user: user
@@ -84,14 +82,14 @@ class Profile extends Component {
   }
 
   async handleUnfollowButton() {
-   // console.log('clicked in unfollow button');
+    // console.log('clicked in unfollow button');
 
     const profileId = this.props.match.params.id;
     const userLoggedIn = this.props.user._id;
 
     try {
       const user = await UnfollowUserService({ userLoggedIn, profileId });
-     // console.log("user unfollow", user);
+      // console.log("user unfollow", user);
       //console.log('props', this.props);
       await this.props.loadUserInformation();
       this.setState({
@@ -114,9 +112,9 @@ class Profile extends Component {
 
   hasLength(array) {
     if (array.length > 0) {
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
   }
 
@@ -139,36 +137,60 @@ class Profile extends Component {
         >
           {this.state.loaderUserInfo && (
             <Fragment>
-              <h1 style={{ color: "#3043C8", textAlign: "center" }}>
-                {isThisMyProfile && <Fragment>Welcome back</Fragment>}{" "}
-                {user.username}{" "}
-              </h1>
-              <span className='border p-2 m-1 text-center'> <FaUserFriends/>Followers <br/> {user.beingFollowedUsers.length}</span>
+              <div className="d-flex flex-row-reverse justify-content-around align-items-center w-100">
 
-              <img
-                src={roundPictureService(user.image)}
-                alt={user.username}
-                className="img-fluid"
-                style={{
-                  width: "20%",
-                  border: "2px solid white",
-                  borderRadius: "180px"
-                }}
-              />
+                <div className="d-flex flex-column align-items-center">
+                  <h1 style={{ color: "black", textAlign: "center" }}>
+                    {isThisMyProfile && <Fragment>Welcome back</Fragment>}{" "}
+                    {user.username}{" "}
+                  </h1>
+                  <div className="border p-2 m-1 text-center btn" style={{backgroundColor: 'rgb(255, 255, 255, 0.2)'}}>
+                    <FaUserFriends />
+                    Followers {user.beingFollowedUsers.length}
+                  </div>
+                </div>
+
+                <div className="d-flex flex-column align-items-center">
+                  <img
+                    src={roundPictureService(user.image)}
+                    alt={user.username}
+                    className="img-fluid"
+                    style={{
+                      width: "80%",
+                      border: "2px solid white",
+                      borderRadius: "180px"
+                    }}
+                  />
+                  {isThisMyProfile && (
+                    <Link to="/profile-edit" style={{ color: "#444A6C" }}>
+                      <small>
+                        <MdSettings /> Update Profile
+                      </small>
+                    </Link>
+                  )}
+                </div>
+             
+              </div>
 
 
-              {isThisMyProfile && (
-                <Link to="/profile-edit" style={{ color: "#444A6C" }}>
-                  <small><MdSettings/> Update Profile</small>
+              <div
+                className="container mt-2 p-3 d-flex flex-row justify-content-center align-items-center"
+                style={{ backgroundColor: "#f0f0f2" }}
+              >
+                <Link className="mr-3" to={`/bookshelf/${profileId}`}>
+                  <img src="../bookshelf-color.png" />
                 </Link>
-              )}
+                <Link className="ml-3" to={`/podshelf/${profileId}`}>
+                  <img style={{ width: "60%" }} src="../headphones.png" />
+                </Link>
+              </div>
 
               {!isThisMyProfile && (
                 <div>
                   {!this.isFollowing() && (
                     <button
                       className="btn w-80 mt-3"
-                      style={{ border: "2px solid #E3D353" }}
+                      style={{ border: "2px solid #E3D353"}}
                       onClick={this.handleFollowButton}
                     >
                       Follow
@@ -177,7 +199,7 @@ class Profile extends Component {
                   {this.isFollowing() && (
                     <button
                       className="btn w-80 mt-3 ml-2"
-                      style={{ border: "2px solid #E3D353" }}
+                      style={{ border: "2px solid #E3D353"}}
                       onClick={this.handleUnfollowButton}
                     >
                       Unfollow
@@ -186,50 +208,53 @@ class Profile extends Component {
                 </div>
               )}
 
-              <div
-                className="container mt-2 p-3 d-flex flex-row justify-content-center align-items-center"
-                style={{ backgroundColor: "#f0f0f2" }}
-              >
-                <Link className="mr-3" to={`/bookshelf/${profileId}`}><img src = "../bookshelf-color.png"/></Link>
-                <Link className="ml-3" to={`/podshelf/${profileId}`}><img style = {{width: "60%"}} src = "../headphones.png"/></Link>
-              </div>
-
               {!user.followingUsers.length && (
-                <div className='text-center'>
+                <div className="text-center">
+                  {isThisMyProfile && (
+                    <div>
+                      <IconContext.Provider
+                        value={{ color: "#E3D353", size: "5em" }}
+                      >
+                        <IoMdContacts />{" "}
+                      </IconContext.Provider>
+                      You are not following any friend's journey.
+                      <br />
+                      <Link to="/user-list">
+                        Click here to find your friends!
+                      </Link>
+                    </div>
+                  )}
 
-             { isThisMyProfile && <div>
-              <IconContext.Provider value={{ color: "#E3D353", size:'5em'}}>
-              <IoMdContacts /> </IconContext.Provider>
-              You are not following any friend's journey.
-              <br/>
-              <Link to='/user-list'>Click here to find your friends!</Link>
-              </div>}
+                  {!isThisMyProfile && (
+                    <div>
+                      <IconContext.Provider
+                        value={{ color: "#E3D353", size: "5em" }}
+                      >
+                        <IoMdContacts />{" "}
+                      </IconContext.Provider>
+                      {this.state.user.username} is not following any friends'
+                      journey yet.
+                    </div>
+                  )}
+                </div>
+              )}
 
-             { !isThisMyProfile && <div>
-              <IconContext.Provider value={{ color: "#E3D353", size:'5em' }}>
-              <IoMdContacts /> </IconContext.Provider>
-               {this.state.user.username} is not following any friends' journey yet.
-              </div>
-             }
-             </div>
-              )
-             }       
-
-              {this.hasLength(user.followingUsers) && 
-
+              {this.hasLength(user.followingUsers) && (
                 <div
                   className="container mt-2 p-3 d-flex flex-column justify-content-center align-items-center"
                   style={{ backgroundColor: "#f0f0f2" }}
                 >
                   <h4>Following</h4>
-                    <FollowedUsersCarousel data={user.followingUsers} />
-                </div> 
-
-              }
+                  <FollowedUsersCarousel
+                    data={user.followingUsers}
+                    user={user}
+                  />
+                </div>
+              )}
             </Fragment>
           )}
         </div>
-        </div>
+      </div>
     );
   }
 }

@@ -48,15 +48,14 @@ this.props.loadUserInformation()
 
   render() {
     return (
-      <div className='container mt-5 p-3 box-shadow text-center' style={{"minHeight": '500px'}, {"backgroundColor": 'white'}}>
+      <div className='container mt-5 p-3 box-shadow text-center border rounded-lg' style={{"minHeight": '500px'}, {"backgroundColor": '	rgb(255,255,255, 0.7)'}}>
        <form onSubmit={this.handleSubmissionLogIn} className='text-center d-flex flex-column align-items-center w-100'>
-       <h3 className="text-center mb-3">Sign in</h3>
+       <h3 className="text-center mb-3">Welcome</h3>
         <label htmlFor="username">Username</label> <input type="text" name="username" className='w-50 form-control' onChange={this.handleInputChange} value={this.state.username}/>
         <br/>
          <label htmlFor="password w-50">Password</label><input type="password" name="password" className='w-50 form-control' onChange={this.handleInputChange} value={this.state.password}/>
-         <Link to=''>Forgot your password?</Link>
-         <button className="btn m-3 text-white p-2 w-50" style={{"backgroundColor":"#444A6C"}}>Log in</button>
-         <Link to='/signup'>Register</Link>
+         <button className="btn m-3 text-white p-2" style ={{width: '30%', border: "2px solid white", borderRadius: "90px", backgroundColor:"#E3D353" }}>Sign in</button>
+       <Link to='/signup'><span className='text-dark'><small>Create an account</small> </span></Link>
        </form> 
       </div>
     )

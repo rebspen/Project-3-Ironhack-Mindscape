@@ -81,7 +81,7 @@ class NewsFeed extends Component {
   render() {
     return (
       <div className="my-3 text-center">
-        <h1>Check your friends' Journey</h1>
+        <h3>Check your friends' Journey</h3>
 
         {this.state.posts && !this.hasLength(this.state.posts) && (
           <div>
@@ -95,12 +95,14 @@ class NewsFeed extends Component {
         )}
 
         {this.state.notloaded && (
+          <div className='d-flex flex-row justify-content-center'>
           <ReactLoading
             type={"balls"}
             color={"#E3D353"}
             height={100}
             width={100}
           />
+          </div>
         )}
 
         {this.state.posts &&
@@ -109,9 +111,10 @@ class NewsFeed extends Component {
               <div
                 className="d-flex card flex-row align-items-center justify-content-between p-2 m-2"
                 key={post.id}
+                style={{backgroundColor:"rgb(255, 255, 255, 0.5)", border: "1px solid #E3D353"}}
               >
-                <div className="ml-2 p-2" style={{ width: "25%" }}>
-                  <Link to={`profile/${post.user._id}`}>
+                <div className="ml-2 p-2 text-dark" style={{ width: "25%" }}>
+                  <Link to={`profile/${post.user._id}`} className="text-dark">
                     <img
                       src={roundPictureService(post.user.image)}
                       alt={post.user.username}
@@ -131,16 +134,17 @@ class NewsFeed extends Component {
                   className="mr-2 ml-2 p-2 text-center"
                   style={{ width: "25%" }}
                 >
-                  <Link to={`/book/${post.title}`}>Check Book</Link>
+                  <Link to={`/book/${post.title}`} className="text-dark">Check Book</Link>
                 </div>
               </div>
             ) : checkPostIsFollow(post) ? (
               <div
                 className="d-flex card flex-row align-items-center justify-content-between p-2 m-2"
                 key={post.id}
+                style={{backgroundColor:"rgb(255, 255, 255, 0.5)", border: "1px solid #E3D353"}}
               >
                 <div className="ml-2 p-2" style={{ width: "25%" }}>
-                  <Link to={`profile/${post.user._id}`}>
+                  <Link to={`profile/${post.user._id}`} className='text-dark'>
                     <img
                       src={roundPictureService(post.user.image)}
                       alt={post.user.username}
@@ -157,7 +161,7 @@ class NewsFeed extends Component {
                   </div>
                 </div>
                 <div className="mr-2 p-2 text-center" style={{ width: "25%" }}>
-                  <Link to={`profile/${post.followingUser._id}`}>
+                  <Link to={`profile/${post.followingUser._id}`} className="text-dark">
                     <img
                       src={roundPictureService(post.followingUser.image)}
                       alt={post.followingUser.username}
@@ -172,9 +176,10 @@ class NewsFeed extends Component {
               <div
                 className="d-flex card flex-row align-items-center justify-content-between p-2 m-2"
                 key={post.id}
+                style={{backgroundColor:"rgb(255, 255, 255, 0.5)", border: "1px solid #E3D353"}}
               >
                 <div className="ml-2 p-2" style={{ width: "25%" }}>
-                  <Link to={`profile/${post.user._id}`}>
+                  <Link to={`profile/${post.user._id}`} className="text-dark">
                     <img
                       src={roundPictureService(post.user.image)}
                       alt={post.user.username}
@@ -194,7 +199,7 @@ class NewsFeed extends Component {
                   className="mr-2 ml-2 p-2 text-center"
                   style={{ width: "25%" }}
                 >
-                  <Link to={`/podcast/${post.title}`}>Check Post</Link>
+                  <Link to={`/podcast/${post.title}`} className="text-dark">Check Post</Link>
                 </div>
               </div>
             ) : (
@@ -205,15 +210,15 @@ class NewsFeed extends Component {
           <div>
             <button
               onClick={this.onLoadMore}
-              className="btn m-3 text-white p-2 w-20"
-              style={{ backgroundColor: "#444A6C" }}
+              className="btn w-80 mt-3 ml-2"
+              style={{ border: "2px solid #E3D353" }}
             >
               Load More
             </button>
             <button
               onClick={this.scrollUp}
-              className="btn m-3 text-white p-2 w-20"
-              style={{ backgroundColor: "#444A6C" }}
+              className="btn w-80 mt-3 ml-2"
+              style={{ border: "2px solid #E3D353" }}
             >
               Go Up
             </button>
