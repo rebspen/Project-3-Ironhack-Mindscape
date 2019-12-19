@@ -75,12 +75,13 @@ function SingleView (props) {
   
   return (
     <main className='p-3 container d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}>
-    <h2 style= {{color: "#788FAD", textAlign: "center"}}>{id}</h2>
+    <h2 style= {{color: "black", textAlign: "center"}}>{id}</h2>
+    <br></br>
     {loadedPicture && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
     {loaded && 
       <Fragment>
       <img src={result.volumeInfo.imageLinks.thumbnail} alt="test"/>
-      <div className='text-left App-layers p-auto mb-0' style= {{color: "#788FAD"}}>
+      <div className='text-left App-layers p-auto mb-0' style= {{color: "black"}}>
       <div >Author: {result.volumeInfo.authors.map(author => author + ',')}</div>
       <Link to={`/single/${id}`}>
       <IconContext.Provider value={{ style: { width: "5em", color: "#E3D353" } }}>
