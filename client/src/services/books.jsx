@@ -23,10 +23,10 @@ export const createBook = async book => {
 };
 
 export const addPodcastToPodlist = async podcast => {
-  console.log(
+  /*console.log(
     "I am at the postcast post request",
     podcast
-  );
+  );*/
   try {
     const response = await apiBookService.post(`/add-podcast`, podcast);
     return response.data.podcast;
@@ -95,7 +95,7 @@ export const removeBook = async (id) => {
  // console.log("I am at the change book status request", id);
   try {
     const response = await apiBookService.post(`/delete/${id}`);
-    console.log(response.data);
+    //console.log(response.data);
     return response.data;
   } catch (error) {
     throw error;
@@ -103,10 +103,10 @@ export const removeBook = async (id) => {
 };
 
 export const removePodcast = async (id) => {
-  console.log("I am at the change book status request", id);
+ // console.log("I am at the change podcast status request", id);
   try {
     const response = await apiBookService.post(`/poddelete/${id}`);
-    console.log(response.data);
+   // console.log('result from podcast remove', response.data);
     return response.data;
   } catch (error) {
     throw error;

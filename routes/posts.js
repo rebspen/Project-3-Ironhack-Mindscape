@@ -4,28 +4,6 @@ const { Router } = require("express");
 const postRouter = new Router();
 const Post = require("../models/posts");
 
-postRouter.post("/add-post", async (req, res, next) => {
-
- // console.log("I am at the add post route and this is my req body", req.body);
-
-  const userId = req.session.user;
-
-  try {
-    await Post.create({
-      title: req.body.title,
-      content: req.body.content,
-      user: userId,
-      type: req.body.type
-        }).then(post => {
-     // console.log('post created', post);
-      res.json({post})
-      }).catch(err => {
-        console.log("could not add post due to", err);
-      });
-  } catch (error) {
-    next(error);
-  }
-});
 
 
 postRouter.post("/add-post-reading", async (req, res, next) => {
@@ -117,6 +95,55 @@ postRouter.post("/add-following-post", async (req, res, next) => {
      next(error);
    } 
  });
+
+ postRouter.post("/add-post-podcast", async (req, res, next) => {
+
+ // console.log("I am at the add post podcast route and this is my req body", req.body);
+ 
+   const userId = req.session.user;
+ 
+   try {
+     await Post.create({
+       title: req.body.title,
+       content: req.body.content,
+       user: userId,
+       type: req.body.type
+         }).then(post => {
+      // console.log('post created', post);
+       res.json({post})
+       }).catch(err => {
+         console.log("could not add post due to", err);
+       });
+   } catch (error) {
+     next(error);
+   }
+ });
+ 
+
+
+ postRouter.post("/add-post", async (req, res, next) => {
+
+  // console.log("I am at the add post route and this is my req body", req.body);
+ 
+   const userId = req.session.user;
+ 
+   try {
+     await Post.create({
+       title: req.body.title,
+       content: req.body.content,
+       user: userId,
+       type: req.body.type
+         }).then(post => {
+      // console.log('post created', post);
+       res.json({post})
+       }).catch(err => {
+         console.log("could not add post due to", err);
+       });
+   } catch (error) {
+     next(error);
+   }
+ });
+ 
 
 
 

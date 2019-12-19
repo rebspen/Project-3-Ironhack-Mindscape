@@ -13,6 +13,11 @@ export class Login extends Component {
     this.handleSubmissionLogIn = this.handleSubmissionLogIn.bind(this);
   }
 
+
+  componentDidMount() {
+    window.scroll(0,0);
+  }
+ 
 handleInputChange(event) {
   const nameInput = event.target.name;
   const value = event.target.value;

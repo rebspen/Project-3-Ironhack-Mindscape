@@ -3,6 +3,8 @@ import {Link } from "react-router-dom";
 import {getPosts as getPostsService} from "./../services/posts";
 import {roundPicture as roundPictureService} from './../services/PicturesCloudinary';
 import ReactLoading from 'react-loading';
+import { IoMdContacts} from 'react-icons/io';
+import { IconContext } from "react-icons";
 
 
 //--------- conditional function to use in the render() of the class class -------//
@@ -13,6 +15,22 @@ if (post.type === 'follow') {
   return false
 }
 }
+
+function checkPostIsPodcast (post) {
+  if (post.type === 'podcast') {
+    return true
+  } else {
+    return false
+  }
+  }
+
+  function checkPostIsBook (post) {
+    if (post.type === 'book') {
+      return true
+    } else {
+      return false
+    }
+    }
 //--------------- CLASS --------------//
 
 class NewsFeed extends Component {
@@ -25,6 +43,7 @@ class NewsFeed extends Component {
     };
     this.onLoadMore = this.onLoadMore.bind(this);
     this.scrollUp = this.scrollUp.bind(this);
+    this.hasLength = this.hasLength.bind(this);
 
   }
   
@@ -53,13 +72,32 @@ scrollUp() {
   window.scroll(0,0)
 }
 
+hasLength(array) {
+  if (array.length > 0) {
+    return true
+  } else {
+    return false
+  }
+}
+
   render() {
     return  (
+
     <div className='m-3 text-center'>
+
       <h1>Check your friends' Journey</h1>
+
+      {this.state.posts && !this.hasLength(this.state.posts) && <div><IconContext.Provider value={{ color: "#E3D353", size:'5em'}}>
+              <IoMdContacts /> </IconContext.Provider>
+              There are no news from your friends journey.
+              <br/>
+              <Link to='/user-list'>Click here to find more friends!</Link></div>}
+
       {this.state.notloaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
+
       {this.state.posts && this.state.posts.slice(0,this.state.limit).map(post => 
-      !checkPostIsFollow(post) && (
+
+      checkPostIsBook(post) ? 
       <div className='d-flex card flex-row align-items-center justify-content-between p-2 m-2' key={post.id}>
       <div className='ml-2 p-2' style={{'width':'25%'}}><Link to={`profile/${post.user._id}`}>
       <img src={roundPictureService(post.user.image)} alt={post.user.username} style={{'width':'40px'}}/>
@@ -71,8 +109,10 @@ scrollUp() {
       <div className='small text-right'>On  {post.time.substr(0, 10)} at {post.time.substr(11, 5)}.</div>
       </div>
       <div className='mr-2 ml-2 p-2 text-center' style={{'width':'25%'}}><Link to={`/book/${post.title}`}>Check Book</Link></div>
-      </div>) || checkPostIsFollow(post) && (
-
+      </div> 
+      :
+      
+      checkPostIsFollow(post) ? 
         <div className='d-flex card flex-row align-items-center justify-content-between p-2 m-2' key={post.id}>
         <div className='ml-2 p-2' style={{'width':'25%'}}><Link to={`profile/${post.user._id}`}>
       <img src={roundPictureService(post.user.image)} alt={post.user.username} style={{'width':'40px'}}/>
@@ -90,10 +130,30 @@ scrollUp() {
       </Link>
       </div>
       </div>
-      )
+      : 
+
+      checkPostIsPodcast(post) ? 
+      <div className='d-flex card flex-row align-items-center justify-content-between p-2 m-2' key={post.id}>
+      <div className='ml-2 p-2' style={{'width':'25%'}}><Link to={`profile/${post.user._id}`}>
+      <img src={roundPictureService(post.user.image)} alt={post.user.username} style={{'width':'40px'}}/>
+      <br/>
+      {post.user.username}
+      </Link>
+      </div>
+      <div className='p-2' style={{'width':'50%'}}>{post.content}
+      <div className='small text-right'>On  {post.time.substr(0, 10)} at {post.time.substr(11, 5)}.</div>
+      </div>
+      <div className='mr-2 ml-2 p-2 text-center' style={{'width':'25%'}}><Link to={`/podcast/${post.title}`}>Check Post</Link></div>
+      </div>
+      :
+      <div></div>
       )}
+      {this.state.posts && this.hasLength(this.state.posts) && 
+      <div>
       <button onClick={this.onLoadMore} className="btn m-3 text-white p-2 w-20" style={{"backgroundColor":"#444A6C"}}>Load More</button>
       <button onClick={this.scrollUp} className="btn m-3 text-white p-2 w-20" style={{"backgroundColor":"#444A6C"}}>Go Up</button>
+      </div>
+      }
       </div>
     )
   }
