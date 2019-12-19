@@ -41,7 +41,7 @@ class Bookshelf extends Component {
    // console.log("C SPlIT", saved,reading,finished)
     return(
       <div className = "App-layers" style= {{color: "#3043C8"}}>
-      <h2>Bookshelf</h2>
+      <h2 className='text-dark'>Bookshelf</h2>
       <h5 className = "mt-4">Saved</h5>
       <div style= {{width: "40%"}} >
       {this.state.books && <BookCarousel data = {saved.reverse()} profile = {this.state.userId} />}
