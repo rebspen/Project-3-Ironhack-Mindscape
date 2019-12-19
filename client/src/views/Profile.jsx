@@ -129,7 +129,6 @@ class Profile extends Component {
     //the user from this profile
     const user = this.state.user;
 
-
     return (
       <div>
         <div
@@ -138,44 +137,42 @@ class Profile extends Component {
         >
           {this.state.loaderUserInfo && (
             <Fragment>
-              <div className="d-flex flex-row-reverse justify-content-around align-items-center w-100">
-
-                <div className="d-flex flex-column align-items-center">
-                  <h1 style={{ color: "black", textAlign: "center" }}>
-                    {isThisMyProfile && <Fragment>Welcome back</Fragment>}{" "}
-                    {user.username}{" "}
-                  </h1>
-                  <div className="border p-2 m-1 text-center btn" style={{backgroundColor: 'rgb(255, 255, 255, 0.2)'}}>
-                    <FaUserFriends />
-                    Followers {user.beingFollowedUsers.length}
-                  </div>
+              <div className="d-flex flex-column align-items-center">
+                <h3 style={{ color: "black", textAlign: "center" }}>
+                  {isThisMyProfile && <Fragment>Welcome back</Fragment>}{" "}
+                  {user.username}{" "}
+                </h3>
+                <div
+                  className="border p-2 m-1 text-center btn"
+                  style={{ backgroundColor: "rgb(255, 255, 255, 0.2)" }}
+                >
+                  <FaUserFriends />
+                  Followers {user.beingFollowedUsers.length}
                 </div>
-
-                <div className="d-flex flex-column align-items-center">
-                  <img
-                    src={roundPictureService(user.image)}
-                    alt={user.username}
-                    className="img-fluid"
-                    style={{
-                      width: "80%",
-                      border: "2px solid white",
-                      borderRadius: "180px"
-                    }}
-                  />
-                  {isThisMyProfile && (
-                    <Link to="/profile-edit" style={{ color: "#444A6C" }}>
-                      <small>
-                        <MdSettings /> Update Profile
-                      </small>
-                    </Link>
-                  )}
-                </div>
-             
               </div>
 
+              <div className="d-flex flex-column align-items-center">
+                <img
+                  src={roundPictureService(user.image)}
+                  alt={user.username}
+                  className="img-fluid"
+                  style={{
+                    width: "80%",
+                    border: "2px solid white",
+                    borderRadius: "180px"
+                  }}
+                />
+                {isThisMyProfile && (
+                  <Link to="/profile-edit" style={{ color: "#444A6C" }}>
+                    <small>
+                      <MdSettings /> Update Profile
+                    </small>
+                  </Link>
+                )}
+              </div>
 
               <div
-                className="container mt-2 p-3 d-flex flex-row justify-content-center align-items-center"
+                className="container mt-2 p-3 d-flex flex-row justify-content-around align-items-center"
                 style={{ backgroundColor: "#f0f0f2" }}
               >
                 <Link className="mr-3" to={`/bookshelf/${profileId}`}>
@@ -190,8 +187,8 @@ class Profile extends Component {
                 <div>
                   {!this.isFollowing() && (
                     <button
-                      className="btn w-80 mt-3"
-                      style={{ border: "2px solid #E3D353"}}
+                      className="btn w-80 mt-3 mb-2"
+                      style={{ border: "2px solid #E3D353" }}
                       onClick={this.handleFollowButton}
                     >
                       Follow
@@ -199,8 +196,8 @@ class Profile extends Component {
                   )}
                   {this.isFollowing() && (
                     <button
-                      className="btn w-80 mt-3 ml-2"
-                      style={{ border: "2px solid #E3D353"}}
+                      className="btn w-80 mt-3 ml-2 mb-2"
+                      style={{ border: "2px solid #E3D353" }}
                       onClick={this.handleUnfollowButton}
                     >
                       Unfollow
@@ -214,15 +211,17 @@ class Profile extends Component {
                   {isThisMyProfile && (
                     <div>
                       <IconContext.Provider
-                        value={{ color: "#E3D353", size: "5em" }}
+                        value={{ color: "#E3D353", size: "4em" }}
                       >
-                        <IoMdContacts />{" "}
+                        <IoMdContacts />
                       </IconContext.Provider>
-                      You are not following any friend's journey.
-                      <br />
-                      <Link to="/user-list">
-                        Click here to find your friends!
-                      </Link>
+                      <div>
+                        You are not following any friend's journey.
+                        <br />
+                        <Link to="/user-list">
+                          Click here to find your friends!
+                        </Link>
+                      </div>
                     </div>
                   )}
 
@@ -231,10 +230,12 @@ class Profile extends Component {
                       <IconContext.Provider
                         value={{ color: "#E3D353", size: "5em" }}
                       >
-                        <IoMdContacts />{" "}
+                        <IoMdContacts />
                       </IconContext.Provider>
-                      {this.state.user.username} is not following any friends'
-                      journey yet.
+                      <div>
+                        {this.state.user.username} is not following any friends'
+                        journey yet.
+                      </div>
                     </div>
                   )}
                 </div>
