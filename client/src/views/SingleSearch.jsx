@@ -54,7 +54,7 @@ function SingleSearch(props) {
     <div>
     {result.map(val => {
       return (
-        <Link to={`/book/${val.Name}`} key={Math.random()}>
+        <Link to={`/${val.Type}/${val.Name}`} key={Math.random()}>
         <div className="card mb-2 " style={{border: "#f0f0f2", backgroundColor: "#f0f0f2"}}>
         {" "}
         <div className="card-body p-1 d-flex flex-row">

@@ -38,6 +38,8 @@ class ThemeView extends Component {
     console.log('length', this.state.themes.length)
     const luckyNum = Math.floor(Math.random()* this.state.themes.length);
     return (
+      <div>
+         <div className="context" style ={{height: "100%"}}>
       <main className="App-layers justify-content-center align-items-center">
         <h1 className='' style= {{color: "black"}}>Themes</h1>
         <p className='m-1' style= {{textAlign: "center", color: "black"}}>Choose a theme and begin your literary Journey...</p>
@@ -51,8 +53,25 @@ class ThemeView extends Component {
             <img className = "theme-img" src= {val.imageURL} style={{"width":"90%", border: "2px solid white"}}/></Link>
           })}
           </div>
-        </div>  } 
+        </div> } 
       </main>
+      </div>
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+    </div>
+      
     );
   }
 }

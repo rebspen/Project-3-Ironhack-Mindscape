@@ -129,6 +129,7 @@ class Profile extends Component {
     //the user from this profile
     const user = this.state.user;
 
+
     return (
       <div>
         <div
