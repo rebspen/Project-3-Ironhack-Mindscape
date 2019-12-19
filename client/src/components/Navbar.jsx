@@ -55,7 +55,7 @@ class Navbar extends Component {
               <div className="nav-item">
                 <Link to="/" className="" style={{ color: "#E3D353" }}>
                   <strong>
-                    Mind <br /> Space
+                    Mind <br /> Scape
                   </strong>
                 </Link>
               </div>
@@ -89,7 +89,7 @@ class Navbar extends Component {
                   className="p-1 text-left"
                   style={{ color: "#E3D353" }}
                 >
-                  <strong>MindSpace</strong>
+                  <strong>MindScape</strong>
                 </Link>
               </div>
               <div className="d-flex flex-row justify-content-end">
