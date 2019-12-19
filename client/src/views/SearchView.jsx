@@ -83,6 +83,8 @@ function SearchView(props) {
   }, []);
   
   return (
+    <div>
+     <div className="context" style ={{height: "100%"}}>
     <main className="App-layers text-center">
     <img className = "theme-img" style={{width:"30%", border: "3px solid white", borderRadius: "12px"}}  src = {image} />
     {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
@@ -91,7 +93,7 @@ function SearchView(props) {
     {result.map(val => {
       return (
         <Link to={`/${val.Type}/${val.Name}`} key={Math.random()}>
-        <div className="card mb-2" style={{border: "#f0f0f2", backgroundColor: "#f0f0f2"}}>
+        <div className="card mb-2" style={{border: "#f0f0f2", backgroundColor: "Transparent"}}>
         {" "}
         <div className="card-body p-1 d-flex flex-row">
         <IconContext.Provider className=" m-0" value={{ style: { width: "5em", color: "#E3D353" } }}>
@@ -111,6 +113,22 @@ function SearchView(props) {
       })}
       </div>
       </main>
+      </div>
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+    </div>
       );
     }
 
