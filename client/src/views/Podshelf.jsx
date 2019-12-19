@@ -34,8 +34,9 @@ class Podshelf extends Component {
       <div className = "d-flex flex-column justify-content-center align-items-center" style= {{color: "#3043C8"}}>
       <h2>Podshelf</h2>
       <h5 className = "mt-4">Saved</h5>
-      <div className = "d-flex flex-column justify-content-center align-items-center" style= {{width: "70%"}} >
-      {this.state.podcasts && <PodCarousel data = {this.state.podcasts.reverse()} profile = {this.state.userId} />}
+      <div className = "theme" style= {{width: "100%"}} >
+      {this.state.podcasts && this.state.podcasts.reverse().map((val) => {
+       return  <PodCarousel data = {val} profile = {this.state.userId} />})}
       </div>
       </div>
       )

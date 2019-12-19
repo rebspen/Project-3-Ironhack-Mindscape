@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ReactLoading from 'react-loading';
+import { FaPodcast } from 'react-icons/fa';
+import { FaBookOpen } from 'react-icons/fa';
+import { IconContext } from "react-icons";
 
 
 import "./views.css";
@@ -39,11 +42,14 @@ function SearchView(props) {
     console.log("cat", category)
     const titles = category[0].titles
     const image = category[0].imageURL
+    const podcasts = category[0].podcasts
     console.log("pod", category[0].podcasts)
-    const podcast = category[0].podcasts[0]
-    const podcast2 = category[0].podcasts[1]
+    const podcastArr = shuffle(podcasts)
+    console.log("pod2", podcastArr)
     setImage(image)
     const bookArr = shuffle(titles);
+    const podcast = podcastArr[0]
+    console.log("pod3", podcast)
     const book1 = bookArr[0];
     const book2 = bookArr[1];
     axios
@@ -54,8 +60,6 @@ function SearchView(props) {
           book2 +
           "," +
           podcast +
-          "," +
-          podcast2 +
           "&k=351127-cheeta-8Z5VDMQU"
       )
       .then(data => {
@@ -63,9 +67,9 @@ function SearchView(props) {
         const final = data.data.Similar.Results;
         final.unshift(data.data.Similar.Info[2]);
         final.unshift(data.data.Similar.Info[0]);
-        final.unshift(data.data.Similar.Info[3]);
         final.unshift(data.data.Similar.Info[1]);
         const filteredpercentage = final.filter((val,index) => { if(!val.Name.includes("%")){ return val}})
+        console.log("%", filteredpercentage)
         const filtered = filteredpercentage.filter((val,index) => { if(val.Type === "book" || val.Type === "podcast"){ return val}})
         console.log("filtered", filtered)
         setResults(filtered);
@@ -77,28 +81,37 @@ function SearchView(props) {
   useEffect(() => {
     return handleSearchSubmission();
   }, []);
-
+  
   return (
     <main className="App-layers text-center">
-      <img style={{width:"30%"}}  src = {image} />
-      {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
-      <div>
-        {result.map(val => {
-          return (
-            <Link to={`/${val.Type}/${val.Name}`} key={Math.random()}>
-              <div class="card mb-2" style={{border: "#f0f0f2", backgroundColor: "#f0f0f2"}}>
-                {" "}
-                <div className="card-body p-1">
-                  <h6 className="m-0" style={{color: "#788FAD"}}>{val.Name}</h6>
-                  <p className="mt-1 mb-0" style={{color: "#444A6C"}}>{val.Type}</p>
-                </div>
-              </div>{" "}
-            </Link>
-          );
-        })}
+    <img className = "theme-img" style={{width:"30%"}}  src = {image} />
+    {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
+    <br></br>
+    <div>
+    {result.map(val => {
+      return (
+        <Link to={`/${val.Type}/${val.Name}`} key={Math.random()}>
+        <div class="card mb-2" style={{border: "#f0f0f2", backgroundColor: "#f0f0f2"}}>
+        {" "}
+        <div className="card-body p-1 d-flex flex-row">
+        <IconContext.Provider className=" m-0" value={{ style: { width: "5em", color: "#E3D353" } }}>
+        {val.Type === "podcast" &&  <div>
+        <FaPodcast/>
+        </div>}
+        {val.Type === "book" && <div>
+        <FaBookOpen/>
+        </div>}
+        </IconContext.Provider>
+        <h6 className="m-0" style={{color: "#788FAD", alignSelf: "center"}}>{val.Name}</h6>
+        </div>
+        </div>{" "}
+        <br></br>
+        </Link>
+        );
+      })}
       </div>
-    </main>
-  );
-}
+      </main>
+      );
+    }
 
 export default SearchView;

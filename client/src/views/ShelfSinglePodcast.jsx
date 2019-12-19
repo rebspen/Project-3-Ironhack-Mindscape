@@ -7,6 +7,8 @@ import { FaSearch } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 import YouTube from 'react-youtube';
 
+import "./views.css";
+
 class ShelfSingleBook extends Component {
   constructor(props) {
     super(props);
@@ -84,18 +86,23 @@ class ShelfSingleBook extends Component {
         {this.state.podcast && (
           <Fragment>
             <h2>{this.state.podcast.title}</h2>
-            <Link to={`/single/${this.state.podcast.title}`}>
+            <br></br>
+            <div className = "d-flex flex-column justify-content-center align-items-center">
+            <div style = {{width:"50%"}}>
             <YouTube
             videoId={this.state.podcast.yUrl.split("/")[4].trim()}
             opts={opts}
+            className ="youtube-shelf"
             />
+            </div>
+            <Link to={`/single/${this.state.podcast.title}`}>
             <IconContext.Provider value={{ color: "#E3D353" }}>
             <div>
-            <FaSearch/>
+            <FaSearch size ={30}/>
             </div>
             </IconContext.Provider>
             </Link>
-            <p>{this.state.podcast.description}</p>
+            <p style = {{textAlign: "center"}}>{this.state.podcast.description}</p>
             {isThisMyProfile && (
                 <button
                   className="btn m-1 mt-2 p-2"
@@ -109,6 +116,7 @@ class ShelfSingleBook extends Component {
                   Remove
                 </button>
             )}
+            </div>
 
             {!isThisMyProfile && (
               <button

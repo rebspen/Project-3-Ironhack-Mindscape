@@ -1,4 +1,17 @@
 .youtube-shelf{
-  width: 80%;
-  height: 30%;
+  width: 100%;
+  align-self: center;
+}
+
+.Pod-layers{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.pods{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

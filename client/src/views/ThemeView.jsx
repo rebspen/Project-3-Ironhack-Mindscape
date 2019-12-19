@@ -39,16 +39,16 @@ class ThemeView extends Component {
     const luckyNum = Math.floor(Math.random()* this.state.themes.length);
     return (
       <main className="App-layers justify-content-center align-items-center">
-        <h1 className='' style= {{color: "#3043C8"}}>Themes</h1>
-        <p className='m-1' style= {{textAlign: "center", color: "#3043C8"}}>Choose a theme and begin your literary Journey...</p>
+        <h1 className='' style= {{color: "black"}}>Themes</h1>
+        <p className='m-1' style= {{textAlign: "center", color: "black"}}>Choose a theme and begin your literary Journey...</p>
         {this.state.loadedPicture && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
        {this.state.themes.length && 
        <div className='text-center'>
-       <button className="btn w-80 mt-3 text-center" style ={{border: "2px solid #E3D353" }} ><Link to={`/search/${this.state.themes[luckyNum].id}`} className='lucky'>I feel lucky...</Link></button>
+       <button className="btn w-80 mt-3 text-center" style ={{border: "2px solid white", borderRadius: "90px", backgroundColor:"#E3D353" }} ><Link to={`/search/${this.state.themes[luckyNum].id}`} className='lucky' style = {{color:"white"}}>I feel lucky...</Link></button>
         <div className = "theme mt-3">
           {this.state.themes.map((val)=>{
             return <Link to={`/search/${val.id}`} key={Math.random()} style={{"width":"30%"}} >
-            <img className = "theme-img" src= {val.imageURL} style={{"width":"90%"}}/></Link>
+            <img className = "theme-img" src= {val.imageURL} style={{"width":"90%", border: "2px solid white"}}/></Link>
           })}
           </div>
         </div>  } 

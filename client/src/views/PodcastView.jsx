@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { networkInterfaces } from "os";
-import { runInNewContext } from "vm";
 import ReactLoading from 'react-loading';
 import YouTube from 'react-youtube';
 import {addPodcastToPodlist} from './../services/books'
+import { FaSearch } from 'react-icons/fa';
+import { IconContext } from "react-icons";
 
 import "./views.css";
 import themes from "./themes";
@@ -75,15 +75,27 @@ function PodcastView(props) {
   return (
     <main className="App-layers text-center">
       {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
-      <div>
+      <div className = "d-flex flex-column justify-content-center align-items-center">
         <h2>{result.Name}</h2>
-        <p>{result.Type}</p>
-        <p>{result.wTeaser}</p>
-        <p>{result.wUrl}</p>
+        <br></br>
+        <div style = {{width : "50%"}}>
         <YouTube
         videoId={video}
         opts={opts}
+        className = "youtube-shelf"
       />
+        </div>
+        <Link to={`/single/${result.Name}`}>
+            <IconContext.Provider value={{ color: "#E3D353" }}>
+            <div>
+            <FaSearch size ={30}/>
+            </div>
+            </IconContext.Provider>
+            </Link>
+        <br></br>
+        <div style = {{width : "70%"}}>
+        <p>{result.wTeaser}</p>
+        </div>
       </div>
       {user && <button className="btn m-1 mt-2 p-2" style={{"backgroundColor":"#f0f0f2", border: "2px solid #E3D353", color:"#E3D353"}} onClick={addPodcastToUsersProfile}>Add to your podlist!</button> }
       {!user && <span className='mt-5 text-right d-flex'><Link to='/login'>Log in</Link> or <Link to='/signup'>Sign Up</Link> to continue your journey!</span>}
