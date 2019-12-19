@@ -54,15 +54,15 @@ class EditProfile extends Component {
   render() {
     const user = this.props.user;
     return (
-      <div className="container box-shadow p-3">
+      <div className="container p-3">
         <h3>Update Your Profile</h3>
-        <div className=" d-flex justify-content-center align-items-center w-100">
-          <div className="w-50 d-flex flex-column ml-5 justify-content-center">
+        <div className=" d-flex justify-content-around align-items-center w-100">
+          <div className="d-flex flex-column justify-content-center">
             <img
               src={user.image}
               alt="profile picture"
-              className="w-80 img-fluid"
-              style={{ maxWidth: "80%" }}
+              className="img-fluid"
+              style={{ maxWidth: "80%", 'borderRadius':'5px' }}
             />
             <div className="custom-file mt-3 w-80 text-center">
               <label className="custom-file-label text-center" htmlFor="customFileLang">
@@ -78,7 +78,7 @@ class EditProfile extends Component {
             </div>
           </div>
 
-          <div className="w-50 mr-5">
+          <div className="w-50 mr-2">
             <form
               onSubmit={this.editSubmission}
               className="d-flex flex-column justify-content-center align-items-center"
