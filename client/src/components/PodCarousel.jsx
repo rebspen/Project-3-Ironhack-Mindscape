@@ -18,14 +18,14 @@ function PodCarousel (props) {
 
     console.log("CAROUSLE PROPS", props)
       return (
-        <div className = "m-2" style = {{width:"30%"}}>
+        <div className = "m-2 " style = {{width:"30%", border: "7px double white"}}>
         <Link to = {`/alone/${props.profile}/${props.data._id}`}>
-        <p style = {{textAlign:"center"}}>{props.data.title}</p>
+        <p style = {{textAlign:"center", color: "black"}}>{props.data.title}</p>
         </Link>
         <YouTube
         videoId={props.data.yUrl.split("/")[4].trim()}
         opts={opts}
-        className={"youtube-shelf"}
+        className={"youtube-view"}
         />
         </div>
       );

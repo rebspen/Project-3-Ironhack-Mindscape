@@ -1,6 +1,11 @@
-.youtube-shelf {
+.youtube-view {
   width: 100%;
-  align-self: center;
+  height: 10%
+}
+
+.youtube-single {
+  width: 100%;
+  height: 10%
 }
 
 .Pod-layers {

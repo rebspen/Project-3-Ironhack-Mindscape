@@ -93,9 +93,9 @@ function SingleView (props) {
       {result.volumeInfo.averageRating && <div >Rating: {result.volumeInfo.averageRating}/5</div>}
       {result.volumeInfo.description &&<div style= {{textAlign: "center"}} >Description: {(result.volumeInfo.description).substring(0, 250) + "..."}</div>}
       {result.saleInfo.buyLink && <div><a href = {result.saleInfo.buyLink} style= {{color:"#E3D353"}} >Read more</a> </div>}
-      {user && <button className="btn m-1 mt-2 p-2" style={{"backgroundColor":"#f0f0f2", border: "2px solid #E3D353", color:"#E3D353"}} onClick={addBookToUsersProfile}>Add to your bookshelf!</button> }
+      {user && <button className="btn m-1 mt-2 p-2" style={{"backgroundColor":"#E3D353", border: "2px solid white", color:"white"}} onClick={addBookToUsersProfile}>Add to your bookshelf!</button> }
       {!user &&
-       <div className='mt-5 text-right d-flex'><Link to='/login'>Log in</Link><span className='pr-1 pl-1'>or </span> <Link to='/signup'>Sign Up</Link> <span className='pl-1'>to continue your journey!</span></div>}
+       <div className='mt-1  d-flex flex-column align-items-center'><Link to='/login'>Log in</Link><span className='pr-1 pl-1'>or </span> <Link to='/signup'>Sign Up</Link> <span className='pl-1'>to continue your journey!</span></div>}
       </div>
       </Fragment>
     }

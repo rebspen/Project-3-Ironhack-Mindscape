@@ -48,7 +48,7 @@ function SingleSearch(props) {
 
   return (
     <main className="App-layers text-center">
-    <h2 style={{color: "#788FAD"}} > Search : {props.match.params.title}</h2>
+    <h2 style={{color: "black"}} > Search : {props.match.params.title}</h2>
     <br></br>
     {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
     <div>
@@ -66,7 +66,7 @@ function SingleSearch(props) {
         <FaBookOpen/>
         </div>}
         </IconContext.Provider>
-        <h6 className="m-0" style={{color: "#788FAD", alignSelf: "center"}}>{val.Name}</h6>
+        <h6 className="m-0" style={{color: "black", alignSelf: "center"}}>{val.Name}</h6>
         </div>
         </div>{" "}
         </Link>
