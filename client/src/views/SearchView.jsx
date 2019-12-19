@@ -34,7 +34,7 @@ function SearchView(props) {
 
   function handleSearchSubmission() {
     console.log("i am at the handle submission")
-    const id = Number(props.match.params.id);
+    const id = props.match.params.id
     const category = themes.filter((val) => { if(val.id === parseInt(id)) {return val}})
     console.log("cat", category)
     const titles = category[0].titles
@@ -59,17 +59,19 @@ function SearchView(props) {
           "&k=351127-cheeta-8Z5VDMQU"
       )
       .then(data => {
+        console.log("response", data.data.Similar.Results)
         const final = data.data.Similar.Results;
         final.unshift(data.data.Similar.Info[2]);
         final.unshift(data.data.Similar.Info[0]);
         final.unshift(data.data.Similar.Info[3]);
         final.unshift(data.data.Similar.Info[1]);
-        const filtered = final.filter((val,index) => { if(val.Type === "book" || val.Type === "podcast"){ return val}})
+        const filteredpercentage = final.filter((val,index) => { if(!val.Name.includes("%")){ return val}})
+        const filtered = filteredpercentage.filter((val,index) => { if(val.Type === "book" || val.Type === "podcast"){ return val}})
         console.log("filtered", filtered)
         setResults(filtered);
         setLoaded(false);
       })
-      .catch(err => {});
+      .catch(err => console.log(err));
   }
 
   useEffect(() => {
