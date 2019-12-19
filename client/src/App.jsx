@@ -65,7 +65,6 @@ class App extends Component {
             user={this.state.user}
             loadUserInformation={this.loadUserInformation}
             props={this.props}
-            style = {{zIndex: "2000"}}
           />
           {this.state.loaded && 
           <Switch>
