@@ -38,17 +38,6 @@ class Bookshelf extends Component {
       finished = this.state.books.filter((val) => {if(val.status === "Finished"){ return val}});
     }
 
-    if(saved.length < 2){
-      saved.unshift({ image : "../mindmap.png", _id: 0 })
-    }
-    if(reading.length < 2){
-      reading.unshift({ image : "../mindmap.png", _id: 0 })
-    }
-
-    if(finished.length < 2){
-      finished.unshift({ image : "../mindmap.png", _id: 0 })
-    }
-
    // console.log("C SPlIT", saved,reading,finished)
     return(
       <div className = "App-layers" style= {{color: "#3043C8"}}>

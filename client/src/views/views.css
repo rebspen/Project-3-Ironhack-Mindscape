@@ -6,8 +6,18 @@
   margin: 1em 2em;
 }
 
+/* *{
+  outline: 1px red solid;
+} */
+
 .lucky {
   color: #E3D353;
+}
+
+.blur {
+  box-shadow:
+    0 0 0 10px hsl(0, 0%, 80%),
+    0 0 0 15px hsl(0, 0%, 90%);
 }
 
 .theme-img{
@@ -23,6 +33,11 @@
 
 .box-shadow {
   box-shadow: 5px 5px 2.5px #f7f8fa;
+}
+
+.youtube-shelf{
+  width: 50%;
+  height: 30%;
 }
 
 

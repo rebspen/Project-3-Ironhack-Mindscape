@@ -18,17 +18,15 @@ function PodCarousel (props) {
 
     console.log("CAROUSLE PROPS", props)
       return (
-        <div className = "d-flex flex-column justify-content-center align-items-center">
-        {props.data.map((val)=>{
-          return <Link to = {`/alone/${props.profile}/${val._id}`}><div className = "d-flex flex-column justify-content-center align-items-center">
-        <h5>{val.title}</h5>
+        <div className = "m-2" style = {{width:"30%"}}>
+        <Link to = {`/alone/${props.profile}/${props.data._id}`}>
+        <p style = {{textAlign:"center"}}>{props.data.title}</p>
+        </Link>
         <YouTube
-        videoId={val.yUrl.split("/")[4].trim()}
+        videoId={props.data.yUrl.split("/")[4].trim()}
         opts={opts}
         className={"youtube-shelf"}
         />
-        </div></Link>
-        })}
         </div>
       );
 };
