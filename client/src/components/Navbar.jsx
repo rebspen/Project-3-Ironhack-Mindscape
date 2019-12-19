@@ -8,6 +8,8 @@ import { FaPortrait } from "react-icons/fa";
 import { FaRegTimesCircle } from "react-icons/fa";
 import { Redirect } from "react-router-dom";
 
+import "./style.css"
+
 class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -27,9 +29,9 @@ class Navbar extends Component {
   render() {
     const user = this.props.user;
     return (
-      <div>
+      <div style = {{zIndex: "2000"}}>
         {user && (
-          <div className="navbar mr-auto d-flex flex-row justify-content-around">
+          <div className="navbar mr-auto d-flex flex-row justify-content-around ">
           <Fragment>
             <div className="nav-item">
               <Link
