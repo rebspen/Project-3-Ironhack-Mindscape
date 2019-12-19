@@ -88,7 +88,7 @@ function PodcastView(props) {
         <Link to={`/single/${result.Name}`}>
             <IconContext.Provider value={{ color: "#E3D353" }}>
             <div>
-            <FaSearch size ={30}/>
+            <FaSearch/>
             </div>
             </IconContext.Provider>
             </Link>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import "./views.css"
+import "./particlesjs-config.json"
 
 // import { listUser as listUser } from './../services/authentication';
 
@@ -12,17 +13,6 @@ class HomeView extends Component {
       user: null
     };
   }
-
-  // async componentDidMount() {
-  //   try {
-  //     const user = await listUser();
-  //     this.setState({
-  //       user
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
 
   render() {
     return (

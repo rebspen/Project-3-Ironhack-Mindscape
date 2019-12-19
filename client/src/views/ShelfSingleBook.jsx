@@ -106,7 +106,7 @@ class ShelfSingleBook extends Component {
             <Link to={`/single/${this.state.book.title}`}>
             <IconContext.Provider value={{ color: "#E3D353" }}>
             <div>
-            <FaSearch size ={30}/>
+            <FaSearch/>
             </div>
             </IconContext.Provider>
             </Link>

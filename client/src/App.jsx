@@ -59,7 +59,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" style = {{width:"100%"}}>
         <BrowserRouter>
           <Navbar
             user={this.state.user}

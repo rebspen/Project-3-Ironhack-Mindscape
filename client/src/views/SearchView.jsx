@@ -84,7 +84,7 @@ function SearchView(props) {
   
   return (
     <main className="App-layers text-center">
-    <img className = "theme-img" style={{width:"30%"}}  src = {image} />
+    <img className = "theme-img" style={{width:"30%", border: "3px solid white", borderRadius: "12px"}}  src = {image} />
     {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
     <br></br>
     <div>

@@ -85,7 +85,7 @@ function SingleView (props) {
       <Link to={`/single/${id}`}>
       <IconContext.Provider value={{ style: { width: "5em", color: "#E3D353" } }}>
       <div>
-      <FaSearch size ={30}/>
+      <FaSearch/>
       </div>
       </IconContext.Provider>
       </Link>
