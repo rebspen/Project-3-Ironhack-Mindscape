@@ -56,12 +56,13 @@ postRouter.post("/get-posts", async (req, res, next) => {
   const userLoggedIn = req.body.followingUsers;
   //console.log(userLoggedIn);
 try {
-  await Post.find({'user': userLoggedIn[0]})
+  await Post.find({'user': {$in: userLoggedIn} })
   .populate('user followingUser')
   .sort({time: -1})
   .exec()
   .then(posts => {
    // console.log('We got the posts');
+   console.log('these are the posts!')
     res.json({posts});
   })
   .catch (error =>{
