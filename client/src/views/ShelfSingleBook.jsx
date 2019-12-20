@@ -96,11 +96,12 @@ class ShelfSingleBook extends Component {
     return (
       <main
         className="p-3 container d-flex flex-column justify-content-center align-items-center"
-        style={{ backgroundColor: "#f0f0f2", color: "#788FAD" }}
+        style={{ backgroundColor: "#f0f0f2", color: "black", textAlign:"center" }}
       >
         {this.state.book && (
           <Fragment>
             <h2>{this.state.book.title}</h2>
+            <br></br>
             <img src={this.state.book.image} alt="book cover" />
             <p>{this.state.book.author}</p>
             <Link to={`/single/${this.state.book.title}`}>
@@ -117,7 +118,7 @@ class ShelfSingleBook extends Component {
                   <button
                     onClick={this.handleSubmission}
                     className="btn w-80 mt-3"
-                    style={{ border: "2px solid #E3D353", color: "#E3D353" }}
+                    style={{ backgroundColor: "#E3D353", border: "2px solid white", color: "white" }}
                   >
                     Change to Reading
                   </button>
@@ -126,7 +127,7 @@ class ShelfSingleBook extends Component {
                   <button
                     onClick={this.handleSubmission}
                     className="btn w-80 mt-3"
-                    style={{ border: "2px solid #E3D353", color: "#E3D353" }}
+                    style={{ backgroundColor: "#E3D353", border: "2px solid white", color: "white" }}
                   >
                     Mark as Finished
                   </button>
@@ -135,9 +136,9 @@ class ShelfSingleBook extends Component {
                 <button
                   className="btn m-1 mt-2 p-2"
                   style={{
-                    backgroundColor: "#f0f0f2",
-                    border: "2px solid #E3D353",
-                    color: "#E3D353"
+                    backgroundColor: "#E3D353",
+                    border: "2px solid white",
+                    color: "white"
                   }}
                   onClick={this.removeThisBook}
                 >

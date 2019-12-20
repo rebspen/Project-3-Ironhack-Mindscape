@@ -70,9 +70,9 @@ class UserList extends Component {
   render() {
    // console.log("req user", this.props.user._id);
     return (
-      <div className='m-2'>
+      <div className='m-2 ml-5 mr-5 mt-4'>
         <div className="input-group md-form form-sm form-2 w-70 mb-2">
-          <div className="input-group-prepend w-10">
+          <div className="input-group-prepend w-10 mt-3">
             <span className="input-group-text lime lighten-2" id="basic-text1">
               <IconContext.Provider
                 value={{ style: { width: "3em", color: "#E3D353" } }}
@@ -83,15 +83,16 @@ class UserList extends Component {
           </div>
           <input
             type="search"
-            className=" my-0 py-1 form-control w-90"
+            className=" my-0 py-1 form-control w-90 mt-3"
            
             placeholder="Search by username "
             onChange={this.handleSearchChange}
+            style ={{background: "Transparent"}}
           />
         </div>
 
         <div className="table-responsive w-80">
-          <table className="table user-list" id="myTable">
+          <table className="table user-list" id="myTable" style ={{border: "Transparent"}}>
             <thead>
               <tr>
                 <th className='text-center'>

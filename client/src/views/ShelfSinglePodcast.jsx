@@ -86,7 +86,7 @@ console.log('heyyy');
     return (
       <main
         className="p-3 container d-flex flex-column justify-content-center align-items-center"
-        style={{ backgroundColor: "#f0f0f2", color: "#788FAD" }}
+        style={{ backgroundColor: "Transparent", color: "black" }}
       >
         {this.state.podcast && (
           <Fragment>
@@ -97,7 +97,7 @@ console.log('heyyy');
             <YouTube
             videoId={this.state.podcast.yUrl.split("/")[4].trim()}
             opts={opts}
-            className ="youtube-shelf"
+            className ="youtube-single"
             />
             </div>
             <Link to={`/single/${this.state.podcast.title}`}>
@@ -112,9 +112,9 @@ console.log('heyyy');
                 <button
                   className="btn m-1 mt-2 p-2"
                   style={{
-                    backgroundColor: "#f0f0f2",
-                    border: "2px solid #E3D353",
-                    color: "#E3D353"
+                    backgroundColor: "#E3D353",
+                    border: "2px solid white",
+                    color: "white"
                   }}
                   onClick={this.removeThisPodcast}
                 >

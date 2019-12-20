@@ -87,7 +87,7 @@ function PodcastView(props) {
         <YouTube
         videoId={video}
         opts={opts}
-        className = "youtube-shelf"
+        className = "youtube-single"
       />
         </div>
         <Link to={`/single/${result.Name}`}>
@@ -102,7 +102,7 @@ function PodcastView(props) {
         <p>{result.wTeaser}</p>
         </div>
       </div>
-      {user && <button className="btn m-1 mt-2 p-2" style={{"backgroundColor":"#f0f0f2", border: "2px solid #E3D353", color:"#E3D353"}} onClick={addPodcastToUsersProfile}>Add to your podlist!</button> }
+      {user && <button className="btn m-1 mt-2 p-2" style={{"backgroundColor":"#E3D353", border: "2px solid white", color:"white"}} onClick={addPodcastToUsersProfile}>Add to your podlist!</button> }
       {!user && <span className='mt-5 text-right d-flex'><Link to='/login'>Log in</Link> or <Link to='/signup'>Sign Up</Link> to continue your journey!</span>}
 
       <div id="alert" className="alert alert-success mt-0" role="alert">

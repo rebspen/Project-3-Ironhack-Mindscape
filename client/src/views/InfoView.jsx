@@ -8,17 +8,54 @@ import "./views.css";
 function InfoView () {
  
     return (
-    <div className= "App-layers p-3 container">
-    <h1 style= {{textAlign: "center", color: "#788FAD"}} >Our concept explained...</h1>
+        <div>
+        <div className="context" style ={{height: "100%"}}>
+    <div className= "container p-4 App-layers">
+    <h2 style= {{textAlign: "center", color:"black"}} >Our concept explained...</h2>
     <br></br>
-    <h5 style= {{textAlign: "center", color: "#788FAD"}} >We are bored of echo-chamber recommendation tools, so we decided to break the trend.</h5>
+    <h5 style= {{textAlign: "center", color:"black"}} >Bored of echo-chamber recommendation tools?</h5>
     <br></br>
-    <h5 style= {{textAlign: "center", color: "#788FAD"}} >Mindscape is designed to help you discover ideas, and encourage interdisciplinary thinking.</h5>
+    <h5 style= {{textAlign: "center", color:"black"}} >Mindscape is designed to help you discover new ideas, and encourage interdisciplinary thinking.</h5>
     <br></br>
-    <h5 style= {{textAlign: "center", color: "#788FAD"}} >We use leading cultural experts to curate thought provoking themes. So just kick back, pick a theme that catches your eye and start your adventure...</h5>
+    <h5 style= {{textAlign: "center", color:"black"}} >We use leading cultural experts to curate thought provoking themes. So just pick a one that catches your eye and start your adventure...</h5>
     <br></br>
-    <button type="button" className="btn m-3 text-white p-2 text-right" style={{ border: "2px solid #788FAD", backgroundColor: "#f0f0f2"}} ><Link to= "/themes" className='' style={{"color":"#788FAD"}}> Begin a new journey...</Link></button>
+    <button
+          type="button"
+          className="btn btn-light m-2 p-3 w-60 "
+          style={{
+            minHeight: "10%",
+            border: "10px double white",
+            backgroundColor: "Transparent",
+            borderRadius: "90px",
+            zIndex: "1000"
+          }}
+        >
+          <Link
+            to="/themes"
+            className="display-4"
+            style={{ color: "rgb(48, 67, 200)", textDecoration: "none" }}
+          >
+            {" "}
+            <h5>Begin a new journey</h5>
+          </Link>
+          </button>
     </div>
+    </div>
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+      </div>
     )
   
 }
