@@ -5,6 +5,11 @@ import { roundPicture as roundPictureService } from "./../services/PicturesCloud
 import ReactLoading from "react-loading";
 import { IoMdContacts } from "react-icons/io";
 import { IconContext } from "react-icons";
+import { FaBookOpen} from "react-icons/fa";
+import { FaHeadphones} from "react-icons/fa";
+
+
+
 
 //--------- conditional function to use in the render() of the class class -------//
 function checkPostIsFollow(post) {
@@ -86,7 +91,7 @@ class NewsFeed extends Component {
         {this.state.posts && !this.hasLength(this.state.posts) && (
           <div>
             <IconContext.Provider value={{ color: "#E3D353", size: "5em" }}>
-              <IoMdContacts />{" "}
+              <IoMdContacts />
             </IconContext.Provider>
             There are no news from your friends journey.
             <br />
@@ -109,11 +114,11 @@ class NewsFeed extends Component {
           this.state.posts.slice(0, this.state.limit).map(post =>
             checkPostIsBook(post) ? (
               <div
-                className="d-flex card flex-row align-items-center justify-content-between p-2 m-2"
+                className="d-flex card flex-row align-items-center justify-content-between m-2"
                 key={post.id}
                 style={{backgroundColor:"rgb(255, 255, 255, 0.5)", border: "1px solid #E3D353"}}
               >
-                <div className="ml-2 p-2 text-dark" style={{ width: "25%" }}>
+                <div className=" p-2 text-dark" style={{ width: "25%" }}>
                   <Link to={`profile/${post.user._id}`} className="text-dark">
                     <img
                       src={roundPictureService(post.user.image)}
@@ -127,6 +132,7 @@ class NewsFeed extends Component {
                 <div className="p-2" style={{ width: "50%" }}>
                   {post.content}
                   <div className="small text-right">
+                  <br/>
                     On {post.time.substr(0, 10)} at {post.time.substr(11, 5)}.
                   </div>
                 </div>
@@ -134,7 +140,9 @@ class NewsFeed extends Component {
                   className="mr-2 ml-2 p-2 text-center"
                   style={{ width: "25%" }}
                 >
-                  <Link to={`/book/${post.title}`} className="text-dark">Check Book</Link>
+                  <Link to={`/book/${post.title}`} className="text-dark">  <IconContext.Provider value={{ color: "#E3D353", size: "3em" }}>
+              <FaBookOpen />
+            </IconContext.Provider></Link>
                 </div>
               </div>
             ) : checkPostIsFollow(post) ? (
@@ -157,6 +165,7 @@ class NewsFeed extends Component {
                 <div className="p-2" style={{ width: "50%" }}>
                   {post.content}
                   <div className="small text-right">
+                  <br/>
                     On {post.time.substr(0, 10)} at {post.time.substr(11, 5)}.
                   </div>
                 </div>
@@ -192,6 +201,7 @@ class NewsFeed extends Component {
                 <div className="p-2" style={{ width: "50%" }}>
                   {post.content}
                   <div className="small text-right">
+                  <br/>
                     On {post.time.substr(0, 10)} at {post.time.substr(11, 5)}.
                   </div>
                 </div>
@@ -199,7 +209,9 @@ class NewsFeed extends Component {
                   className="mr-2 ml-2 p-2 text-center"
                   style={{ width: "25%" }}
                 >
-                  <Link to={`/podcast/${post.title}`} className="text-dark">Check Post</Link>
+                  <Link to={`/podcast/${post.title}`} className="text-dark"> <IconContext.Provider value={{ color: "#E3D353", size: "3em" }}>
+              <FaHeadphones />
+            </IconContext.Provider></Link>
                 </div>
               </div>
             ) : (
