@@ -131,19 +131,21 @@ class Profile extends Component {
 
     return (
       <div>
+    <div className="context" style ={{height: "100%"}}>
+      <div>
         <div
           className="container mt-2 p-3 d-flex flex-column justify-content-center align-items-center"
-          style={{ backgroundColor: "#f0f0f2" }}
+          style={{ backgroundColor: "Transparent" }}
         >
           {this.state.loaderUserInfo && (
             <Fragment>
               <div className="d-flex flex-column align-items-center">
-                <h3 style={{ color: "black", textAlign: "center" }}>
+                <h3 className="d-flex mt-4" style={{ color: "#787878", textAlign: "center" }}>
                   {isThisMyProfile && <Fragment>Welcome back</Fragment>}{" "}
                   {user.username}{" "}
                 </h3>
                 <div
-                  className="border py-2 pb-2 my-1 mb-2 text-center btn"
+                  className="border py-2 mt-2 pb-2 my-1 mb-3 text-center btn"
                   style={{ backgroundColor: "rgb(255, 255, 255, 0.2)" }}
                 >
                   <FaUserFriends />
@@ -163,7 +165,7 @@ class Profile extends Component {
                   }}
                 />
                 {isThisMyProfile && (
-                  <Link to="/profile-edit" style={{ color: "#444A6C" }}>
+                  <Link to="/profile-edit" style={{ color: "#787878" }}>
                     <small>
                       <MdSettings /> Update Profile
                     </small>
@@ -172,8 +174,8 @@ class Profile extends Component {
               </div>
 
               <div
-                className="container my-2 p-3 d-flex flex-row justify-content-around align-items-center"
-                style={{ backgroundColor: "#f0f0f2" }}
+                className="container my-2 mt-3 p-3 d-flex flex-row justify-content-around align-items-center"
+                style={{ backgroundColor: "Transparent" }}
               >
                 <Link className="text-center" to={`/bookshelf/${profileId}`}>
                   <img style={{ width: "55%" }} src="../bookshelf-color.png" />
@@ -245,7 +247,7 @@ class Profile extends Component {
               {this.hasLength(user.followingUsers) && (
                 <div
                   className="container my-3 p-3 d-flex flex-column justify-content-center align-items-center"
-                  style={{ backgroundColor: "#f0f0f2" }}
+                  style={{ backgroundColor: "Transparent", color:"#787878" }}
                 >
                   <h4>Following</h4>
                   <FollowedUsersCarousel
@@ -258,6 +260,22 @@ class Profile extends Component {
           )}
         </div>
       </div>
+      </div>
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+    </div> 
     );
   }
 }

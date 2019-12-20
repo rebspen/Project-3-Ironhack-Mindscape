@@ -74,17 +74,19 @@ function SingleView (props) {
   
   
   return (
-    <main className='p-3 container d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "#f0f0f2"}}>
-    <h2 style= {{color: "black", textAlign: "center"}}>{id}</h2>
+    <div>
+    <div className="context" style ={{height: "100%"}}>
+    <main className='p-3 mt-3 container d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "Transparent"}}>
+    <h2 style= {{color: "#787878", textAlign: "center"}}>{id}</h2>
     <br></br>
     {loadedPicture && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
     {loaded && 
       <Fragment>
-      <img src={result.volumeInfo.imageLinks.thumbnail} alt="test"/>
-      <div className='text-left App-layers p-auto mb-0' style= {{color: "black"}}>
+      <img style={{border: "7px double white"}} src={result.volumeInfo.imageLinks.thumbnail} alt="test"/>
+      <div className='text-left App-layers p-auto mb-0' style= {{color: "#787878"}}>
       <div >Author: {result.volumeInfo.authors.map(author => author + ',')}</div>
       <Link to={`/single/${id}`}>
-      <IconContext.Provider value={{ style: { width: "5em", color: "#E3D353" } }}>
+      <IconContext.Provider value={{ style: { width: "5em", color: "rgb(48, 67, 200)" } }}>
       <div>
       <FaSearch/>
       </div>
@@ -92,7 +94,7 @@ function SingleView (props) {
       </Link>
       {result.volumeInfo.averageRating && <div >Rating: {result.volumeInfo.averageRating}/5</div>}
       {result.volumeInfo.description &&<div style= {{textAlign: "center"}} >Description: {(result.volumeInfo.description).substring(0, 250) + "..."}</div>}
-      {result.saleInfo.buyLink && <div><a href = {result.saleInfo.buyLink} style= {{color:"#E3D353"}} >Read more</a> </div>}
+      {result.saleInfo.buyLink && <div><a href = {result.saleInfo.buyLink} style= {{color:"rgb(48, 67, 200)"}} >Read more</a> </div>}
       {user && <button className="btn m-1 mt-2 p-2" style={{"backgroundColor":"#E3D353", border: "2px solid white", color:"white"}} onClick={addBookToUsersProfile}>Add to your bookshelf!</button> }
       {!user &&
        <div className='mt-1  d-flex flex-column align-items-center'><Link to='/login'>Log in</Link><span className='pr-1 pl-1'>or </span> <Link to='/signup'>Sign Up</Link> <span className='pl-1'>to continue your journey!</span></div>}
@@ -102,8 +104,23 @@ function SingleView (props) {
     <div id="alert" className="alert alert-success mt-0" role="alert">
     Saved!
     </div>
-    
     </main>
+    </div>
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+    </div>
     );
   }
   

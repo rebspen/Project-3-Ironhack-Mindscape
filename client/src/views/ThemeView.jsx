@@ -42,8 +42,8 @@ class ThemeView extends Component {
       <div>
          <div className="context" style ={{height: "100%"}}>
       <main className="App-layers justify-content-center align-items-center">
-        <h1 className='' style= {{color: "black"}}>Themes</h1>
-        <p className='m-1' style= {{textAlign: "center", color: "black"}}>Choose a theme and begin your literary Journey...</p>
+        <h1 className='' style= {{color: "#787878"}}>Themes</h1>
+        <p className='m-1' style= {{textAlign: "center", color: "#787878"}}>Choose a theme and begin your Journey...</p>
         {this.state.loadedPicture && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
        {this.state.themes.length && 
        <div className='text-center'>

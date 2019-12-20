@@ -78,10 +78,12 @@ function PodcastView(props) {
   }
 
   return (
-    <main className="App-layers text-center">
+    <div>
+    <div className="context" style ={{height: "100%"}}>
+    <main className="App-layers text-center" style ={{color: "#787878"}}>
       {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
       <div className = "d-flex flex-column justify-content-center align-items-center">
-        <h2>{result.Name}</h2>
+        <h2 className="mt-3">{result.Name}</h2>
         <br></br>
         <div style = {{width : "50%"}}>
         <YouTube
@@ -91,7 +93,7 @@ function PodcastView(props) {
       />
         </div>
         <Link to={`/single/${result.Name}`}>
-            <IconContext.Provider value={{ color: "#E3D353" }}>
+            <IconContext.Provider value={{ color: "rgb(48, 67, 200)" }}>
             <div>
             <FaSearch/>
             </div>
@@ -110,6 +112,22 @@ function PodcastView(props) {
     </div>
 
     </main>
+    </div> 
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+    </div> 
   );
 
 }

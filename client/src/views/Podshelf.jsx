@@ -31,14 +31,32 @@ class Podshelf extends Component {
   render() {
    // console.log("props" , this.props.user._id)
     return(
-      <div className = "d-flex flex-column justify-content-center align-items-center" style= {{color: "#3043C8"}}>
-      <h2 className='text-dark'>Podshelf</h2>
+      <div>
+    <div className="context" style ={{height: "100%"}}>
+      <div className = "d-flex mt-5 flex-column justify-content-center align-items-center" style= {{color: "#787878"}}>
+      <h2 className=' mt-2'>Podshelf</h2>
       <h5 className = "mt-4">Saved</h5>
       <div className = "theme" style= {{width: "100%"}} >
       {this.state.podcasts && this.state.podcasts.reverse().map((val) => {
        return  <PodCarousel data = {val} profile = {this.state.userId} />})}
       </div>
       </div>
+      </div> 
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+    </div> 
       )
     }
   }

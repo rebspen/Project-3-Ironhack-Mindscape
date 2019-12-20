@@ -58,10 +58,12 @@ export class Login extends Component {
 
   render() {
     return (
+      <div>
+      <div className="context" style ={{height: "100%"}}>
       <div
-        className="container mt-5 p-3 box-shadow text-center border rounded-lg"
+        className="container mt-5 p-3 text-center"
         style={
-          ({ minHeight: "500px" }, { backgroundColor: "	rgb(255,255,255, 0.7)" })
+          ({ minHeight: "500px" }, { backgroundColor: "	Transparent" , border :"none"})
         }
       >
         <form
@@ -111,6 +113,22 @@ export class Login extends Component {
           </Link>
         </form>
       </div>
+      </div>
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+    </div> 
     );
   }
 }

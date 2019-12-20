@@ -20,7 +20,7 @@ function PodCarousel (props) {
       return (
         <div className = "m-2 " style = {{width:"30%", border: "7px double white"}}>
         <Link to = {`/alone/${props.profile}/${props.data._id}`}>
-        <p style = {{textAlign:"center", color: "black"}}>{props.data.title}</p>
+        <p style = {{textAlign:"center", color: "#787878"}}>{props.data.title}</p>
         </Link>
         <YouTube
         videoId={props.data.yUrl.split("/")[4].trim()}

@@ -85,15 +85,17 @@ class NewsFeed extends Component {
 
   render() {
     return (
-      <div className="my-3 text-center">
-        <h3>Check your friends' Journey</h3>
+      <div>
+    <div className="context" style ={{height: "100%"}}>
+      <div className="my-3 mt-3 text-center">
+        <h3 className="mt-5">Check your friends' Journey</h3>
 
         {this.state.posts && !this.hasLength(this.state.posts) && (
-          <div>
-            <IconContext.Provider value={{ color: "#E3D353", size: "5em" }}>
+          <div className="m-3 mt-3" >
+            <IconContext.Provider value={{ color: "#E3D353", size: "2em" }}>
               <IoMdContacts />
             </IconContext.Provider>
-            There are no news from your friends journey.
+            There is no news from your friends journey.
             <br />
             <Link to="/user-list">Click here to find more friends!</Link>
           </div>
@@ -118,8 +120,8 @@ class NewsFeed extends Component {
                 key={post.id}
                 style={{backgroundColor:"rgb(255, 255, 255, 0.5)", border: "1px solid #E3D353"}}
               >
-                <div className=" p-2 text-dark" style={{ width: "25%" }}>
-                  <Link to={`profile/${post.user._id}`} className="text-dark">
+                <div className=" p-2" style={{ width: "25%", color:"#787878" }}>
+                  <Link to={`profile/${post.user._id}`} >
                     <img
                       src={roundPictureService(post.user.image)}
                       alt={post.user.username}
@@ -129,7 +131,7 @@ class NewsFeed extends Component {
                     {post.user.username}
                   </Link>
                 </div>
-                <div className="p-2" style={{ width: "50%" }}>
+                <div className="p-2" style={{ width: "50%", color:"#787878"  }}>
                   {post.content}
                   <div className="small text-right">
                   <br/>
@@ -138,9 +140,9 @@ class NewsFeed extends Component {
                 </div>
                 <div
                   className="mr-2 ml-2 p-2 text-center"
-                  style={{ width: "25%" }}
+                  style={{ width: "25%", color:"#787878"  }}
                 >
-                  <Link to={`/book/${post.title}`} className="text-dark">  <IconContext.Provider value={{ color: "#E3D353", size: "3em" }}>
+                  <Link to={`/book/${post.title}`} >  <IconContext.Provider value={{ color: "#E3D353", size: "3em" }}>
               <FaBookOpen />
             </IconContext.Provider></Link>
                 </div>
@@ -152,7 +154,7 @@ class NewsFeed extends Component {
                 style={{backgroundColor:"rgb(255, 255, 255, 0.5)", border: "1px solid #E3D353"}}
               >
                 <div className="ml-2 p-2" style={{ width: "25%" }}>
-                  <Link to={`profile/${post.user._id}`} className='text-dark'>
+                  <Link to={`profile/${post.user._id}`} >
                     <img
                       src={roundPictureService(post.user.image)}
                       alt={post.user.username}
@@ -170,7 +172,7 @@ class NewsFeed extends Component {
                   </div>
                 </div>
                 <div className="mr-2 p-2 text-center" style={{ width: "25%" }}>
-                  <Link to={`profile/${post.followingUser._id}`} className="text-dark">
+                  <Link to={`profile/${post.followingUser._id}`}>
                     <img
                       src={roundPictureService(post.followingUser.image)}
                       alt={post.followingUser.username}
@@ -188,7 +190,7 @@ class NewsFeed extends Component {
                 style={{backgroundColor:"rgb(255, 255, 255, 0.5)", border: "1px solid #E3D353"}}
               >
                 <div className="ml-2 p-2" style={{ width: "25%" }}>
-                  <Link to={`profile/${post.user._id}`} className="text-dark">
+                  <Link to={`profile/${post.user._id}`}>
                     <img
                       src={roundPictureService(post.user.image)}
                       alt={post.user.username}
@@ -209,7 +211,7 @@ class NewsFeed extends Component {
                   className="mr-2 ml-2 p-2 text-center"
                   style={{ width: "25%" }}
                 >
-                  <Link to={`/podcast/${post.title}`} className="text-dark"> <IconContext.Provider value={{ color: "#E3D353", size: "3em" }}>
+                  <Link to={`/podcast/${post.title}`} > <IconContext.Provider value={{ color: "#E3D353", size: "3em" }}>
               <FaHeadphones />
             </IconContext.Provider></Link>
                 </div>
@@ -237,6 +239,22 @@ class NewsFeed extends Component {
           </div>
         )}
       </div>
+      </div> 
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+    </div> 
     );
   }
 }

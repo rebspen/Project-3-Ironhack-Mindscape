@@ -47,15 +47,17 @@ function SingleSearch(props) {
   }, []);
 
   return (
+    <div>
+    <div className="context" style ={{height: "100%"}}>
     <main className="App-layers text-center">
-    <h2 style={{color: "black"}} > Search : {props.match.params.title}</h2>
+    <h2 className = "mt-3" style={{color: "#787878"}} > Search : {props.match.params.title}</h2>
     <br></br>
     {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
     <div>
     {result.map(val => {
       return (
         <Link to={`/${val.Type}/${val.Name}`} key={Math.random()}>
-        <div className="card mb-2 " style={{border: "#f0f0f2", backgroundColor: "#f0f0f2"}}>
+        <div className="card mb-2 " style={{border: "#f0f0f2", backgroundColor: "Transparent"}}>
         {" "}
         <div className="card-body p-1 d-flex flex-row">
         <IconContext.Provider className=" m-0" value={{ style: { width: "5em", color: "#E3D353" } }}>
@@ -66,7 +68,7 @@ function SingleSearch(props) {
         <FaBookOpen/>
         </div>}
         </IconContext.Provider>
-        <h6 className="m-0" style={{color: "black", alignSelf: "center"}}>{val.Name}</h6>
+        <h6 className="m-0" style={{color: "#787878", alignSelf: "center"}}>{val.Name}</h6>
         </div>
         </div>{" "}
         </Link>
@@ -74,6 +76,22 @@ function SingleSearch(props) {
       })}
       </div>
       </main>
+      </div>
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+    </div> 
       );
     }
 
