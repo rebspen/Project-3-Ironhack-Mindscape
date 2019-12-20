@@ -90,7 +90,7 @@ function SearchView(props) {
     {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
     <br></br>
     <div>
-    {result.map(val => {
+    {result.slice(0,12).map(val => {
       return (
         <Link to={`/${val.Type}/${val.Name}`} key={Math.random()}>
         <div className="card mb-2" style={{border: "#f0f0f2", backgroundColor: "Transparent"}}>
