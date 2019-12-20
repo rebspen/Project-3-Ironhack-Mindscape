@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import themes from "./themes";
 import ReactLoading from 'react-loading';
 import "./views.css";
+import {Img} from 'react-image';
 
 class ThemeView extends Component {
   constructor(props) {
@@ -78,25 +79,3 @@ class ThemeView extends Component {
 
 export default ThemeView;
 
-
-/*
-// to shuffle the themes each time
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
-}
-
-const luckyNum = Math.floor(Math.random()* themes.length)
-
-// import { listUser as listUser } from './../services/authentication';
-*/
