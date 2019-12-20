@@ -42,8 +42,8 @@ class FollowedUsersCarousel extends Component {
       return (
         <Carousel className = "m-auto" centerMode = {true} emulateTouch = {true} centerSlidePercentage= {30} showStatus= {false} emulateTouch = {true} showIndicators = {false} showThumbs = {false} style = {{backgroundColor: "Transparent"}}>
         {usersArray && usersArray.map((val)=> {
-            return  <Link to = {`/profile/${val._id}`} onClick={rollUp()}><div style = {{backgroundColor: "#eef2f3", height:'100%'}} key={Math.random()}>
-                 <img src={roundPictureService(val.image)} style ={{ width: '70%', backgroundColor: "#eef2f3", borderRadius: "180px"}} />
+            return  <Link to = {`/profile/${val._id}`} onClick={rollUp()}><div style = {{backgroundColor: "#c4cdd4", height:'100%'}} key={Math.random()}>
+                 <img src={roundPictureService(val.image)} style ={{ width: '70%', backgroundColor: "#c4cdd4", borderRadius: "180px"}} />
               </div></Link>
           })}
           </Carousel>
