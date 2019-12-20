@@ -157,7 +157,7 @@ class Profile extends Component {
                   alt={user.username}
                   className="img-fluid"
                   style={{
-                    width: "70%",
+                    width: "",
                     border: "2px solid white",
                     borderRadius: "180px"
                   }}
@@ -172,15 +172,16 @@ class Profile extends Component {
               </div>
 
               <div
-                className="container mt-2 p-3 d-flex flex-row justify-content-around align-items-center"
+                className="container my-2 p-3 d-flex flex-row justify-content-around align-items-center"
                 style={{ backgroundColor: "#f0f0f2" }}
               >
-                <Link className="mr-3" to={`/bookshelf/${profileId}`}>
+                <Link className="text-center" to={`/bookshelf/${profileId}`}>
                   <img style={{ width: "55%" }} src="../bookshelf-color.png" />
                 </Link>
-                <Link className="ml-3" to={`/podshelf/${profileId}`}>
+                <Link className="text-center" to={`/podshelf/${profileId}`}>
                   <img style={{ width: "50%" }} src="../headphones.png" />
                 </Link>
+                
               </div>
 
               {!isThisMyProfile && (
@@ -243,7 +244,7 @@ class Profile extends Component {
 
               {this.hasLength(user.followingUsers) && (
                 <div
-                  className="container mt-2 p-3 d-flex flex-column justify-content-center align-items-center"
+                  className="container my-3 p-3 d-flex flex-column justify-content-center align-items-center"
                   style={{ backgroundColor: "#f0f0f2" }}
                 >
                   <h4>Following</h4>

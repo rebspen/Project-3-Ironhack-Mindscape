@@ -29,11 +29,11 @@ class UserList extends Component {
   async componentDidMount() {
     try {
       const usersList = await UserListService();
-     // console.log('user list in front end', usersList);
-     usersList.sort(function(a, b) {
-     // console.log('sorting', b.beingFollowedUsers.length);
-      return b.beingFollowedUsers.length - a.beingFollowedUsers.length;
-    });
+      // console.log('user list in front end', usersList);
+      usersList.sort(function(a, b) {
+        // console.log('sorting', b.beingFollowedUsers.length);
+        return b.beingFollowedUsers.length - a.beingFollowedUsers.length;
+      });
       this.setState({
         usersList,
         filteredList: usersList
@@ -49,13 +49,12 @@ class UserList extends Component {
     let newUsersList = [];
 
     if (event.target.value !== "") {
-      newUsersList = currentUsersList
-        .filter(item => {
-          const lc = item.username.toLowerCase();
-          const filter = event.target.value.toLowerCase();
+      newUsersList = currentUsersList.filter(item => {
+        const lc = item.username.toLowerCase();
+        const filter = event.target.value.toLowerCase();
 
-          return lc.includes(filter);
-        })
+        return lc.includes(filter);
+      });
     } else {
       newUsersList = currentUsersList;
     }
@@ -64,13 +63,13 @@ class UserList extends Component {
       filteredList: newUsersList
     });
 
-   // console.log("writing in search");
+    // console.log("writing in search");
   }
 
   render() {
-   // console.log("req user", this.props.user._id);
+    // console.log("req user", this.props.user._id);
     return (
-      <div className='m-2 ml-5 mr-5 mt-4'>
+      <div className="m-2 ml-5 mr-5 mt-4">
         <div className="input-group md-form form-sm form-2 w-70 mb-2">
           <div className="input-group-prepend w-10 mt-3">
             <span className="input-group-text lime lighten-2" id="basic-text1">
@@ -84,28 +83,31 @@ class UserList extends Component {
           <input
             type="search"
             className=" my-0 py-1 form-control w-90 mt-3"
-           
             placeholder="Search by username "
             onChange={this.handleSearchChange}
-            style ={{background: "Transparent"}}
+            style={{ background: "Transparent" }}
           />
         </div>
 
         <div className="table-responsive w-80">
-          <table className="table user-list" id="myTable" style ={{border: "Transparent"}}>
+          <table
+            className="table user-list"
+            id="myTable"
+            style={{ border: "Transparent" }}
+          >
             <thead>
               <tr>
-                <th className='text-center'>
-                   <IconContext.Provider
-                value={{ style: { width: "1em", color: "#E3D353" } }}
-              >
-                <MdFace />
-              </IconContext.Provider>
+                <th className="text-center">
+                  <IconContext.Provider
+                    value={{ style: { width: "1em", color: "#E3D353" } }}
+                  >
+                    <MdFace />
+                  </IconContext.Provider>
                 </th>
-                <th className='text-center'>
+                <th className="text-center">
                   <span>Username</span>
                 </th>
-                <th className='text-center'>
+                <th className="text-center">
                   <span>Followers</span>
                 </th>
               </tr>
@@ -115,22 +117,34 @@ class UserList extends Component {
                 this.state.filteredList.map(
                   user =>
                     !isTheSame(this.props.user, user) && (
-                      <tr key={user._id} >
-                        <td style={{ width: "20%" }} className='text-center'>
+                      <tr key={user._id}>
+                        <td style={{ width: "20%" }} className="text-center">
                           <img
                             src={roundPictureService(user.image)}
                             alt={user.username}
                             className="img-fluid"
-                            style={{ width: "50%" }}
+                            style={{
+                              width: "50%",
+                              border: "2px solid white",
+                              borderRadius: "180px"
+                            }}
                           />
                         </td>
-                        <td style={{ width: "30%" }} className="align-middle text-center">
-                          {" "}
-                          <Link to={`/profile/${user._id}`} className='text-center text-dark'>
+                        <td
+                          style={{ width: "30%" }}
+                          className="align-middle text-center"
+                        >
+                          <Link
+                            to={`/profile/${user._id}`}
+                            className="text-center text-dark"
+                          >
                             {user.username}
                           </Link>
                         </td>
-                        <td style={{ width: "30%" }} className="align-middle text-center">
+                        <td
+                          style={{ width: "30%" }}
+                          className="align-middle text-center"
+                        >
                           {user.beingFollowedUsers.length}
                         </td>
                       </tr>
