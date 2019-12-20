@@ -84,13 +84,15 @@ class ShelfSingleBook extends Component {
     };
 console.log('heyyy');
     return (
+      <div>
+    <div className="context" style ={{height: "100%"}}>
       <main
         className="p-3 container d-flex flex-column justify-content-center align-items-center"
-        style={{ backgroundColor: "Transparent", color: "black" }}
+        style={{ backgroundColor: "Transparent", color: "#787878" }}
       >
         {this.state.podcast && (
           <Fragment>
-            <h2>{this.state.podcast.title}</h2>
+            <h2 className="mt-4">{this.state.podcast.title}</h2>
             <br></br>
             <div className = "d-flex flex-column justify-content-center align-items-center">
             <div style = {{width:"50%"}}>
@@ -101,13 +103,13 @@ console.log('heyyy');
             />
             </div>
             <Link to={`/single/${this.state.podcast.title}`}>
-            <IconContext.Provider value={{ color: "#E3D353" }}>
+            <IconContext.Provider value={{ color: "rgb(48, 67, 200)" }}>
             <div>
             <FaSearch />
             </div>
             </IconContext.Provider>
             </Link>
-            <p style = {{textAlign: "center"}}>{this.state.podcast.description}</p>
+            <p className="m-3" style = {{textAlign: "center"}}>{this.state.podcast.description}</p>
             {isThisMyProfile && (
                 <button
                   className="btn m-1 mt-2 p-2"
@@ -143,6 +145,22 @@ console.log('heyyy');
           Saved!
         </div>
       </main>
+      </div>
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+    </div> 
     );
   }
 }

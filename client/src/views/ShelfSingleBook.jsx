@@ -94,24 +94,26 @@ class ShelfSingleBook extends Component {
     const isThisMyProfile = this.state.profile === this.state.viewerId;
 
     return (
+      <div>
+    <div className="context" style ={{height: "100%"}}>
       <main
-        className="p-3 container d-flex flex-column justify-content-center align-items-center"
-        style={{ backgroundColor: "#f0f0f2", color: "black", textAlign:"center" }}
+        className=" mt-3 p-3 container d-flex flex-column justify-content-center align-items-center"
+        style={{ backgroundColor: "Transparent", color: "#787878", textAlign:"center" }}
       >
         {this.state.book && (
           <Fragment>
             <h2>{this.state.book.title}</h2>
             <br></br>
             <img src={this.state.book.image} alt="book cover" />
-            <p>{this.state.book.author}</p>
+            <p className=" mt-1 mb-0 ">{this.state.book.author}</p>
             <Link to={`/single/${this.state.book.title}`}>
-            <IconContext.Provider value={{ color: "#E3D353" }}>
+            <IconContext.Provider value={{ color: "rgb(48, 67, 200)" }}>
             <div>
             <FaSearch/>
             </div>
             </IconContext.Provider>
             </Link>
-            <p>{this.state.book.description}</p>
+            <p className="m-3">{this.state.book.description}</p>
             {isThisMyProfile && (
               <div className = "App-layers">
                 {this.state.book.status === "Saved" ? (
@@ -167,6 +169,22 @@ class ShelfSingleBook extends Component {
           Saved!
         </div>
       </main>
+      </div>
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+    </div> 
     );
   }
 }

@@ -11,13 +11,13 @@ function InfoView () {
         <div>
         <div className="context" style ={{height: "100%"}}>
     <div className= "container p-4 App-layers">
-    <h2 style= {{textAlign: "center", color:"black"}} >Our concept explained...</h2>
+    <h2 style= {{textAlign: "center", color:"#787878"}} >Our concept explained...</h2>
     <br></br>
-    <h5 style= {{textAlign: "center", color:"black"}} >Bored of echo-chamber recommendation tools?</h5>
+    <p style= {{textAlign: "center", color:"#787878"}} >Bored of echo-chamber recommendation tools?</p>
     <br></br>
-    <h5 style= {{textAlign: "center", color:"black"}} >Mindscape is designed to help you discover new ideas, and encourage interdisciplinary thinking.</h5>
+    <p style= {{textAlign: "center", color:"#787878"}} >Mindscape is designed to help you discover new ideas, and encourage interdisciplinary thinking.</p>
     <br></br>
-    <h5 style= {{textAlign: "center", color:"black"}} >We use leading cultural experts to curate thought provoking themes. So just pick a one that catches your eye and start your adventure...</h5>
+    <p style= {{textAlign: "center", color:"#787878"}} >We use leading cultural experts to curate thought provoking themes. So just pick a one that catches your eye and start your adventure...</p>
     <br></br>
     <button
           type="button"

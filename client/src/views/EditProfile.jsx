@@ -54,15 +54,17 @@ class EditProfile extends Component {
   render() {
     const user = this.props.user;
     return (
-      <div className="container p-3">
-        <h3>Update Your Profile</h3>
-        <div className=" d-flex justify-content-around align-items-center w-100">
-          <div className="d-flex flex-column justify-content-center">
+      <div>
+    <div className="context" style ={{height: "100%"}}>
+      <div className="container p-3 mt-3" style={{color:"#787878"}}>
+        <h3 style ={{textAlign:"center"}}>Update Your Profile</h3>
+        <div className=" d-flex justify-content-around flex-column align-items-center w-100">
+          <div className="d-flex flex-column justify-content-center align-items-center">
             <img
               src={user.image}
               alt="profile picture"
               className="img-fluid"
-              style={{ maxWidth: "80%", 'borderRadius':'5px' }}
+              style={{ maxWidth: "50%", 'borderRadius':'5px' }}
             />
             <div className="custom-file mt-3 w-80 text-center">
               <label className="custom-file-label text-center" htmlFor="customFileLang">
@@ -103,13 +105,29 @@ class EditProfile extends Component {
               />
               <button
                 className="btn w-80 mt-3 ml-2"
-                style={{ border: "2px solid #E3D353" }}
+                style={{ border: "2px solid white", backgroundColor: "#E3D353", color:"white", borderRadius:"12px" }}
               >
                 Edit
               </button>
             </form>
           </div>
         </div>
+      </div>
+      </div>
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
       </div>
     );
   }

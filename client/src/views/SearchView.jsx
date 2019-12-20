@@ -104,7 +104,7 @@ function SearchView(props) {
         <FaBookOpen/>
         </div>}
         </IconContext.Provider>
-        <h6 className="m-0" style={{color: "white", alignSelf: "center"}}>{val.Name}</h6>
+        <h6 className="m-0" style={{color: "#787878"}}>{val.Name}</h6>
         </div>
         </div>{" "}
         <br></br>

@@ -69,7 +69,9 @@ class UserList extends Component {
   render() {
     // console.log("req user", this.props.user._id);
     return (
-      <div className="m-2 ml-5 mr-5 mt-4">
+    <div>
+    <div className="context" style ={{height: "100%"}}>
+      <div className="m-2 ml-5 mr-5 mt-4" style = {{color:"#787878"}}>
         <div className="input-group md-form form-sm form-2 w-70 mb-2">
           <div className="input-group-prepend w-10 mt-3">
             <span className="input-group-text lime lighten-2" id="basic-text1">
@@ -154,6 +156,22 @@ class UserList extends Component {
           </table>
         </div>
       </div>
+      </div> 
+      <div class="area" >
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+    </div> 
     );
   }
 }
