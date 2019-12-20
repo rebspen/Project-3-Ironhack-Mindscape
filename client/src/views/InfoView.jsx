@@ -8,7 +8,7 @@ import "./views.css";
 function InfoView () {
  
     return (
-    <div className= "container p-3 App-layers">
+    <div className= "App-layers p-3 container">
     <h1 style= {{textAlign: "center", color: "#788FAD"}} >Our concept explained...</h1>
     <br></br>
     <h5 style= {{textAlign: "center", color: "#788FAD"}} >We are bored of echo-chamber recommendation tools, so we decided to break the trend.</h5>

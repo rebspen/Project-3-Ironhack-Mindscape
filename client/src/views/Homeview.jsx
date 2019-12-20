@@ -61,7 +61,7 @@ class HomeView extends Component {
               src="../brain.png"
               style={{ width: "0.75em" }}
             />
-            <h6 style={{ color: "rgb(48, 67, 200)", textDecoration: "none" }}>What is MindSpace?</h6>
+            <h6 style={{ color: "rgb(48, 67, 200)", textDecoration: "none" }}>What is MindScape?</h6>
           </Link>
         </button>
       </main>
