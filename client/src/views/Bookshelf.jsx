@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { getUsersBooks as getUsersBooks } from './../services/books';
 import BookCarousel from '../components/Carousel';
+import { FaBookOpen} from "react-icons/fa";
+import { IconContext } from "react-icons";
 
 class Bookshelf extends Component {
   constructor(props) {
@@ -41,16 +43,20 @@ class Bookshelf extends Component {
    // console.log("C SPlIT", saved,reading,finished)
     return(
       <div className = "App-layers" style= {{color: "#3043C8"}}>
-      <h2 className='text-dark'>Bookshelf</h2>
-      <h5 className = "mt-4">Saved</h5>
-      <div style= {{width: "40%"}} >
+      <h2 className='text-dark my-4'>
+      <IconContext.Provider value={{ color: "#E3D353"}}>
+      <FaBookOpen/>
+      </IconContext.Provider>
+      <span className='pl-3'>Bookshelf</span></h2>
+      <h5 className = "mt-4 text-dark">Saved</h5>
+      <div className='text-center' style= {{width: "40%"}} >
       {this.state.books && <BookCarousel data = {saved.reverse()} profile = {this.state.userId} />}
       </div>
-      <h5 className = "mt-4">Reading</h5>
+      <h5 className = "mt-4 text-dark">Reading</h5>
       <div style= {{width: "40%"}}>
       {this.state.books && <BookCarousel data = {reading.reverse()} profile = {this.state.userId} />}
       </div>
-      <h5 className = "mt-4">Finished</h5>
+      <h5 className = "mt-4 text-dark">Finished</h5>
       <div style= {{width: "40%"}}>
       {this.state.books && <BookCarousel data = {finished.reverse()} profile = {this.state.userId} />}
       </div>
