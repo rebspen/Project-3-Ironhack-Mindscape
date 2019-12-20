@@ -43,6 +43,7 @@ function SingleSearch(props) {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     return handleSearchSubmission();
   }, []);
 

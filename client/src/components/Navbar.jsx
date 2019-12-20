@@ -53,10 +53,8 @@ class Navbar extends Component {
                 </Link>
               </div>
               <div className="nav-item">
-                <Link to="/" className="" style={{ color: "#E3D353" }}>
-                  <strong>
-                    Mind <br /> Scape
-                  </strong>
+                <Link to="/"  style={{ color: "#E3D353", width: "1em"}}>
+                 <img className ="logo" src = "../love.png"  alt="logo"/>
                 </Link>
               </div>
               <div className="nav-item">
@@ -89,7 +87,7 @@ class Navbar extends Component {
                   className="p-1 text-left"
                   style={{ color: "#E3D353" }}
                 >
-                  <strong>MindScape</strong>
+                  <img className ="logo" src = "../love.png"  alt="logo"/>ind scape
                 </Link>
               </div>
               <div className="d-flex flex-row justify-content-end">

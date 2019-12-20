@@ -145,11 +145,10 @@ class App extends Component {
                 verify={this.verifyAuthentication}
                 redirect="/"
                 />
-                <ProtectedRoute
+                <Route
                 path="/single/:title"
                 exact
                 render={props => <SingleSearch {...props} user={this.state.user} />}
-                verify={this.verifyAuthentication}
                 redirect="/"
                 />
                 <ProtectedRoute

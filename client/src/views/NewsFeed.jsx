@@ -87,8 +87,8 @@ class NewsFeed extends Component {
     return (
       <div>
     <div className="context" style ={{height: "100%"}}>
-      <div className="my-3 mt-3 text-center">
-        <h3 className="mt-5">Check your friends' Journey</h3>
+      <div className="mt-3 text-center m-3">
+        <h3 className="mt-5 mb-3" style ={{color: "#787878"}}>Followers feed...</h3>
 
         {this.state.posts && !this.hasLength(this.state.posts) && (
           <div className="m-3 mt-3" >
@@ -118,9 +118,9 @@ class NewsFeed extends Component {
               <div
                 className="d-flex card flex-row align-items-center justify-content-between m-2"
                 key={post.id}
-                style={{backgroundColor:"rgb(255, 255, 255, 0.5)", border: "1px solid #E3D353"}}
+                style={{backgroundColor:"Transparent", border: "7px double #E3D353", borderRadius: "12px" }}
               >
-                <div className=" p-2" style={{ width: "25%", color:"#787878" }}>
+                <div className=" p-2" style={{ width: "25%", color: "black" }}>
                   <Link to={`profile/${post.user._id}`} >
                     <img
                       src={roundPictureService(post.user.image)}
@@ -131,7 +131,7 @@ class NewsFeed extends Component {
                     {post.user.username}
                   </Link>
                 </div>
-                <div className="p-2" style={{ width: "50%", color:"#787878"  }}>
+                <div className="p-2" style={{ width: "50%", color:"black"  }}>
                   {post.content}
                   <div className="small text-right">
                   <br/>
@@ -140,7 +140,7 @@ class NewsFeed extends Component {
                 </div>
                 <div
                   className="mr-2 ml-2 p-2 text-center"
-                  style={{ width: "25%", color:"#787878"  }}
+                  style={{ width: "25%", color:"black"  }}
                 >
                   <Link to={`/book/${post.title}`} >  <IconContext.Provider value={{ color: "#E3D353", size: "3em" }}>
               <FaBookOpen />
@@ -151,7 +151,7 @@ class NewsFeed extends Component {
               <div
                 className="d-flex card flex-row align-items-center justify-content-between p-2 m-2"
                 key={post.id}
-                style={{backgroundColor:"rgb(255, 255, 255, 0.5)", border: "1px solid #E3D353"}}
+                style={{backgroundColor:"Transparent", border: "7px double #E3D353", borderRadius: "12px"}}
               >
                 <div className="ml-2 p-2" style={{ width: "25%" }}>
                   <Link to={`profile/${post.user._id}`} >
@@ -187,7 +187,7 @@ class NewsFeed extends Component {
               <div
                 className="d-flex card flex-row align-items-center justify-content-between p-2 m-2"
                 key={post.id}
-                style={{backgroundColor:"rgb(255, 255, 255, 0.5)", border: "1px solid #E3D353"}}
+                style={{backgroundColor:"Transparent", border: "7px double #E3D353", borderRadius: "12px"}}
               >
                 <div className="ml-2 p-2" style={{ width: "25%" }}>
                   <Link to={`profile/${post.user._id}`}>
