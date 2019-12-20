@@ -125,7 +125,7 @@ class NewsFeed extends Component {
                     <img
                       src={roundPictureService(post.user.image)}
                       alt={post.user.username}
-                      style={{ width: "40px" }}
+                      style={{ width: "40px", borderRadius:"180px" }}
                     />
                     <br />
                     {post.user.username}
@@ -158,7 +158,7 @@ class NewsFeed extends Component {
                     <img
                       src={roundPictureService(post.user.image)}
                       alt={post.user.username}
-                      style={{ width: "40px" }}
+                      style={{ width: "40px", borderRadius:"180px" }}
                     />
                     <br />
                     {post.user.username}
@@ -176,7 +176,7 @@ class NewsFeed extends Component {
                     <img
                       src={roundPictureService(post.followingUser.image)}
                       alt={post.followingUser.username}
-                      style={{ width: "40px" }}
+                      style={{ width: "40px", borderRadius:"180px" }}
                     />
                     <br />
                     {post.followingUser.username}
@@ -194,7 +194,7 @@ class NewsFeed extends Component {
                     <img
                       src={roundPictureService(post.user.image)}
                       alt={post.user.username}
-                      style={{ width: "40px" }}
+                      style={{ width: "40px", borderRadius:"180px" }}
                     />
                     <br />
                     {post.user.username}

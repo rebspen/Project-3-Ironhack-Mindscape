@@ -45,12 +45,12 @@ class Bookshelf extends Component {
       <div>
     <div className="context" style ={{height: "100%"}}>
       <div className = "App-layers" style= {{color: "#787878", zIndex:"1000"}}>
-      <h2 className='my-5'>
+      <h2 className='mt-5 mb-2'>
       <IconContext.Provider value={{ color: "#E3D353"}}>
       <FaBookOpen/>
       </IconContext.Provider>
       <span className='pl-3'>Bookshelf</span></h2>
-      <h5 className = "mt-4">Saved</h5>
+      <h5 className = "mt-1">Saved</h5>
       <div style= {{width: "40%", border: "7px double white"}} >
       {this.state.books && <BookCarousel data = {saved.reverse()} profile = {this.state.userId} />}
       </div>

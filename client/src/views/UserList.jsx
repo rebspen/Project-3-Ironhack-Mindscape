@@ -126,7 +126,7 @@ class UserList extends Component {
                             alt={user.username}
                             className="img-fluid"
                             style={{
-                              width: "50%",
+                              width: "40px",
                               border: "2px solid white",
                               borderRadius: "180px"
                             }}
