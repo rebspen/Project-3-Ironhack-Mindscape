@@ -42,7 +42,7 @@ class NewsFeed extends Component {
     super(props);
     this.state = {
       posts: null,
-      limit: 5,
+      limit: 4,
       notloaded: true
     };
     this.onLoadMore = this.onLoadMore.bind(this);
@@ -67,7 +67,7 @@ class NewsFeed extends Component {
 
   onLoadMore() {
     this.setState({
-      limit: this.state.limit + 5
+      limit: this.state.limit + 4
     });
   }
 

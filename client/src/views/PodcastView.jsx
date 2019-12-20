@@ -43,6 +43,7 @@ function PodcastView(props) {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const $alert = document.getElementById("alert")
     $alert.style.visibility = 'hidden'
     return handleSearchSubmission();
