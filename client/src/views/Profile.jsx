@@ -143,7 +143,7 @@ class Profile extends Component {
                   {user.username}{" "}
                 </h3>
                 <div
-                  className="border p-2 m-1 text-center btn"
+                  className="border py-2 pb-2 my-1 mb-2 text-center btn"
                   style={{ backgroundColor: "rgb(255, 255, 255, 0.2)" }}
                 >
                   <FaUserFriends />
@@ -157,7 +157,7 @@ class Profile extends Component {
                   alt={user.username}
                   className="img-fluid"
                   style={{
-                    width: "80%",
+                    width: "70%",
                     border: "2px solid white",
                     borderRadius: "180px"
                   }}
@@ -176,10 +176,10 @@ class Profile extends Component {
                 style={{ backgroundColor: "#f0f0f2" }}
               >
                 <Link className="mr-3" to={`/bookshelf/${profileId}`}>
-                  <img src="../bookshelf-color.png" />
+                  <img style={{ width: "55%" }} src="../bookshelf-color.png" />
                 </Link>
                 <Link className="ml-3" to={`/podshelf/${profileId}`}>
-                  <img style={{ width: "60%" }} src="../headphones.png" />
+                  <img style={{ width: "50%" }} src="../headphones.png" />
                 </Link>
               </div>
 
