@@ -79,8 +79,8 @@ function PodcastView(props) {
   }
 
   return (
-    <div>
-    <div className="context" style ={{height: "100%"}}>
+    // <div>
+    // <div className="context" style ={{height: "100%"}}>
     <main className="App-layers text-center" style ={{color: "#787878"}}>
       {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
       <div className = "d-flex flex-column justify-content-center align-items-center">
@@ -113,22 +113,22 @@ function PodcastView(props) {
     </div>
 
     </main>
-    </div> 
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div> 
+    // </div> 
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div> 
   );
 
 }

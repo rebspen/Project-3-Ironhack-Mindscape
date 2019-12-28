@@ -38,8 +38,8 @@ class ThemeView extends Component {
     console.log('length', this.state.themes.length)
     const luckyNum = Math.floor(Math.random()* this.state.themes.length);
     return (
-      <div>
-         <div className="context" style ={{height: "100%"}}>
+      // <div>
+      //    <div className="context" style ={{height: "100%"}}>
       <main className="App-layers justify-content-center align-items-center">
         <h1 className='mt-3' style= {{color: "#787878"}}>Themes</h1>
         <p className='m-1' style= {{textAlign: "center", color: "#787878"}}>Choose a theme and begin your Journey...</p>
@@ -50,27 +50,28 @@ class ThemeView extends Component {
         <div className = "theme mt-3">
           {this.state.themes.map((val)=>{
             return <Link to={`/search/${val.id}`} key={Math.random()} style={{"width":"30%"}} >
-            <img className = "theme-img" src= {val.imageURL} style={{"width":"90%", border: "2px solid white"}}/></Link>
+            <img className = "theme-img" src= {val.imageURL} style={{"width":"90%", border: "2px solid white", maxWidth: "200px"}}/></Link>
           })}
           </div>
         </div> } 
+        <br></br>
       </main>
-      </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div>
+    //   </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div>
       
     );
   }

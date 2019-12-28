@@ -84,8 +84,8 @@ class ShelfSingleBook extends Component {
     };
 console.log('heyyy');
     return (
-      <div>
-    <div className="context" style ={{height: "100%"}}>
+    //   <div>
+    // <div className="context" style ={{height: "100%"}}>
       <main
         className="p-3 container d-flex flex-column justify-content-center align-items-center"
         style={{ backgroundColor: "Transparent", color: "#787878" }}
@@ -145,22 +145,22 @@ console.log('heyyy');
           Saved!
         </div>
       </main>
-      </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div> 
+    //   </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div> 
     );
   }
 }

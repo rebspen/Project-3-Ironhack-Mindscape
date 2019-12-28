@@ -42,8 +42,8 @@ class Bookshelf extends Component {
 
    // console.log("C SPlIT", saved,reading,finished)
     return(
-      <div>
-    <div className="context" style ={{height: "100%"}}>
+    //   <div>
+    // <div className="context" style ={{height: "100%"}}>
       <div className = "App-layers" style= {{color: "#787878", zIndex:"1000"}}>
       <h2 className='mt-5 mb-2'>
       <IconContext.Provider value={{ color: "#E3D353"}}>
@@ -63,22 +63,22 @@ class Bookshelf extends Component {
       {this.state.books && <BookCarousel data = {finished.reverse()} profile = {this.state.userId} />}
       </div>
       </div>
-      </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div> 
+    //   </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div> 
       )
     }
   }

@@ -15,8 +15,8 @@ class HomeView extends Component {
 
   render() {
     return (
-      <div>
-      <div className="context" style ={{height: "100%"}}>
+      // <div>
+      // <div className="context" style ={{height: "100%"}}>
       <main
         className="d-flex flex-column justify-content-center align-items-center my-3 text-center w-100"
         style={{ height: "500px" }}
@@ -65,22 +65,22 @@ class HomeView extends Component {
           </Link>
         </button>
       </main>
-      </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-      </div>
+    //   </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    //   </div>
     );
   }
 }

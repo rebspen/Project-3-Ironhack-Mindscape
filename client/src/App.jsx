@@ -60,6 +60,7 @@ class App extends Component {
   render() {
     return (
       <div className="App" style = {{width:"100%"}}>
+        <div className="context" style ={{height: "100%"}}>
         <BrowserRouter>
           <Navbar
             user={this.state.user}
@@ -169,7 +170,25 @@ class App extends Component {
                 </Switch>
               }
         </BrowserRouter>
-      </div>
+        </div> 
+         <div class="area" >
+         <ul class="circles">
+                        <li></li>
+                       <li></li>
+                       <li></li>
+                        <li></li>
+                       <li></li>
+                       <li></li>
+                       <li></li>
+                       <li></li>
+                        <li></li>
+                       <li></li>
+                       <li></li>
+                       <li></li>
+               </ul>
+        </div >  
+        </div>
+
     );
   }
 }

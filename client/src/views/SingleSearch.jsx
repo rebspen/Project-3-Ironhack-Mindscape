@@ -48,8 +48,8 @@ function SingleSearch(props) {
   }, []);
 
   return (
-    <div>
-    <div className="context" style ={{height: "100%"}}>
+    // <div>
+    // <div className="context" style ={{height: "100%"}}>
     <main className="App-layers text-center">
     <h2 className = "mt-3" style={{color: "#787878"}} > Search : {props.match.params.title}</h2>
     <br></br>
@@ -77,22 +77,22 @@ function SingleSearch(props) {
       })}
       </div>
       </main>
-      </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div> 
+    //   </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div> 
       );
     }
 

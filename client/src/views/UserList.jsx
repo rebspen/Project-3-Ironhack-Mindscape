@@ -69,10 +69,10 @@ class UserList extends Component {
   render() {
     // console.log("req user", this.props.user._id);
     return (
-    <div>
-    <div className="context" style ={{height: "100%"}}>
-      <div className="m-2 ml-5 mr-5 mt-4" style = {{color:"#787878"}}>
-        <div className="input-group md-form form-sm form-2 w-70 mb-2">
+    // <div>
+    // <div className="context" style ={{height: "100%"}}>
+      <div className="mt-1 d-flex flex-column justify-content-center align-items-center" style = {{color:"#787878"}}>
+        <div className="input-group md-form form-sm form-2 w-50 mb-2">
           <div className="input-group-prepend w-10 mt-3">
             <span className="input-group-text lime lighten-2" id="basic-text1">
               <IconContext.Provider
@@ -85,13 +85,13 @@ class UserList extends Component {
           <input
             type="search"
             className=" my-0 py-1 form-control w-90 mt-3"
-            placeholder="Search by username "
+            placeholder="Search..."
             onChange={this.handleSearchChange}
             style={{ background: "Transparent" }}
           />
         </div>
 
-        <div className="table-responsive w-80">
+        <div className="table-responsive w-80 d-flex flex-column justify-content-center align-items-center">
           <table
             className="table user-list"
             id="myTable"
@@ -107,10 +107,10 @@ class UserList extends Component {
                   </IconContext.Provider>
                 </th>
                 <th className="text-center">
-                  <span>Username</span>
+                  <small>Username</small>
                 </th>
                 <th className="text-center">
-                  <span>Followers</span>
+                  <small>Followers</small>
                 </th>
               </tr>
             </thead>
@@ -119,8 +119,8 @@ class UserList extends Component {
                 this.state.filteredList.map(
                   user =>
                     !isTheSame(this.props.user, user) && (
-                      <tr key={user._id}>
-                        <td style={{ width: "20%" }} className="text-center">
+                      <tr key={user._id} style={{ border: "Transparent" }}>
+                        <td style={{ width: "20%" , border: "Transparent"}} className="text-center">
                           <img
                             src={roundPictureService(user.image)}
                             alt={user.username}
@@ -133,7 +133,7 @@ class UserList extends Component {
                           />
                         </td>
                         <td
-                          style={{ width: "30%" }}
+                          style={{ width: "30%", border: "Transparent" }}
                           className="align-middle text-center"
                         >
                           <Link
@@ -144,7 +144,7 @@ class UserList extends Component {
                           </Link>
                         </td>
                         <td
-                          style={{ width: "30%" }}
+                          style={{ width: "30%", border: "Transparent" }}
                           className="align-middle text-center"
                         >
                           {user.beingFollowedUsers.length}
@@ -156,22 +156,22 @@ class UserList extends Component {
           </table>
         </div>
       </div>
-      </div> 
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div> 
+    //   </div> 
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div> 
     );
   }
 }

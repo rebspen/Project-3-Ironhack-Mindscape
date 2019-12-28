@@ -84,10 +84,10 @@ function SearchView(props) {
   }, []);
   
   return (
-    <div>
-     <div className="context" style ={{height: "100%"}}>
+    // <div>
+    //  <div className="context" style ={{height: "100%"}}>
     <main className="App-layers text-center">
-    <img className = "theme-img" style={{width:"30%", border: "3px solid white", borderRadius: "12px"}}  src = {image} />
+    <img className = "theme-img" style={{width:"30%", border: "3px solid white", borderRadius: "12px", maxWidth: "200px"}}  src = {image} />
     {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
     <br></br>
     <div>
@@ -114,22 +114,22 @@ function SearchView(props) {
       })}
       </div>
       </main>
-      </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div>
+    //   </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div>
       );
     }
 

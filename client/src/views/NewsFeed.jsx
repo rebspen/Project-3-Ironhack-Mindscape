@@ -85,8 +85,8 @@ class NewsFeed extends Component {
 
   render() {
     return (
-      <div>
-    <div className="context" style ={{height: "100%"}}>
+    //   <div>
+    // <div className="context" style ={{height: "100%"}}>
       <div className="mt-3 text-center m-3">
         <h3 className="mt-5 mb-3" style ={{color: "#787878"}}>Followers feed...</h3>
 
@@ -239,22 +239,22 @@ class NewsFeed extends Component {
           </div>
         )}
       </div>
-      </div> 
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div> 
+    //   </div> 
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div> 
     );
   }
 }

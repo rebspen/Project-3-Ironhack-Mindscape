@@ -130,8 +130,8 @@ class Profile extends Component {
     const user = this.state.user;
 
     return (
-      <div>
-    <div className="context" style ={{height: "100%"}}>
+    // <div>
+    // <div className="context" style ={{height: "100%"}}>
       <div>
         <div
           className="container mt-2 p-3 d-flex flex-column justify-content-center align-items-center"
@@ -174,14 +174,14 @@ class Profile extends Component {
               </div>
 
               <div
-                className="container my-2 mt-3 p-3 d-flex flex-row justify-content-around align-items-center"
+                className="container my-2 mt-3 p-3 d-flex flex-row justify-content-center align-items-center"
                 style={{ backgroundColor: "Transparent" }}
               >
                 <Link className="text-center" to={`/bookshelf/${profileId}`}>
-                  <img style={{ width: "55%" }} src="../bookshelf-color.png" />
+                  <img className="shelf" style={{ width: "55%" }} src="../bookshelf-color.png" />
                 </Link>
                 <Link className="text-center" to={`/podshelf/${profileId}`}>
-                  <img style={{ width: "50%" }} src="../headphones.png" />
+                  <img className="shelf" style={{ width: "50%" }} src="../headphones.png" />
                 </Link>
                 
               </div>
@@ -260,22 +260,22 @@ class Profile extends Component {
           )}
         </div>
       </div>
-      </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div> 
+    //   </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div> 
     );
   }
 }
