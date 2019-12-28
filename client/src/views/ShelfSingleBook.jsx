@@ -29,6 +29,7 @@ class ShelfSingleBook extends Component {
     const $alert = document.getElementById("alert");
     $alert.style.visibility = "hidden";
     try {
+      window.scroll(0,0);
       const books = await getUsersBooks(this.state.profile);
       let book = [];
       for (let i = 0; i < books.length; i++) {
