@@ -16,6 +16,7 @@ function SingleSearch(props) {
   const [result, setResults] = useState([]);
   const [image, setImage] = useState([]);
   const [loaded, setLoaded] = useState(true);
+  const [noResult, noResults] = useState(false);
 
 
   function handleSearchSubmission() {
@@ -34,7 +35,7 @@ function SingleSearch(props) {
         const filteredpercentage = final.filter((val,index) => { if(!val.Name.includes("%")){ return val}})
         const filtered = filteredpercentage.filter((val,index) => { if(val.Type === "book" || val.Type === "podcast"){ return val}})
         if(filtered.length === 0){
-          filtered.push({Name: "Sorry no results - go back homie", Type: "..."})
+          noResults(true)
         }
         setResults(filtered);
         setLoaded(false);
@@ -55,7 +56,7 @@ function SingleSearch(props) {
     <br></br>
     {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
     <div>
-    {result.map(val => {
+    {result && (result.map(val => {
       return (
         <Link to={`/${val.Type}/${val.Name}`} key={Math.random()}>
         <div className="card mb-2 " style={{border: "#f0f0f2", backgroundColor: "Transparent"}}>
@@ -74,7 +75,8 @@ function SingleSearch(props) {
         </div>{" "}
         </Link>
         );
-      })}
+      }))}
+      { noResult && (<Link to={`/themes`}><p>Sorry no titles found - why not try try a new theme?</p></Link>)}
       </div>
       </main>
     //   </div>
