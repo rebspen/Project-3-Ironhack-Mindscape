@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import "./views.css";
-import "./Homeview.css";
 
 
 class HomeView extends Component {
@@ -23,7 +22,7 @@ class HomeView extends Component {
       >
         <button
           type="button"
-          className="btn btn-light m-2 p-3 w-60 "
+          className="btn btn-light m-2 p-3 w-60 box-shadow "
           style={{
             minHeight: "10%",
             border: "10px double white",

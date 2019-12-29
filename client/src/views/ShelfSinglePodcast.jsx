@@ -18,10 +18,14 @@ class ShelfSingleBook extends Component {
       podcast: null,
       id: this.props.match.params.id,
       profile: this.props.match.params.profile,
-      viewerId: this.props.user._id
+      viewerId: this.props.user._id,
+      longDes: false,
+      shortDes: true
     };
     this.addPodcastToViewersProfile = this.addPodcastToViewersProfile.bind(this);
     this.removeThisPodcast = this.removeThisPodcast.bind(this);
+    this.readLess = this.readLess.bind(this);
+    this.readMore = this.readMore.bind(this);
   }
 
   async componentDidMount() {
@@ -73,6 +77,22 @@ class ShelfSingleBook extends Component {
     }
   }
 
+  async readMore(event){
+    event.preventDefault();
+    this.setState({
+      longDes: true,
+      shortDes: false
+    });
+  }
+
+  async readLess(event){
+    event.preventDefault();
+    this.setState({
+      longDes: false,
+      shortDes: true
+    });
+  }
+
   render() {
     const isThisMyProfile = this.state.profile === this.state.viewerId;
     const opts = {
@@ -87,29 +107,30 @@ console.log('heyyy');
     //   <div>
     // <div className="context" style ={{height: "100%"}}>
       <main
-        className="p-3 container d-flex flex-column justify-content-center align-items-center"
+        className="p-3 App-layers"
         style={{ backgroundColor: "Transparent", color: "#787878" }}
       >
         {this.state.podcast && (
           <Fragment>
+            <div className = "d-flex flex-column justify-content-center align-items-center">
             <h2 className="mt-4">{this.state.podcast.title}</h2>
             <br></br>
-            <div className = "d-flex flex-column justify-content-center align-items-center">
-            <div style = {{width:"50%"}}>
+            <div className = "youdiv">
             <YouTube
             videoId={this.state.podcast.yUrl.split("/")[4].trim()}
             opts={opts}
-            className ="youtube-single"
+            className ="youtube-shelf"
             />
             </div>
             <Link to={`/single/${this.state.podcast.title}`}>
             <IconContext.Provider value={{ color: "rgb(48, 67, 200)" }}>
-            <div>
+            <div className ="mt-2">
             <FaSearch />
             </div>
             </IconContext.Provider>
             </Link>
-            <p className="m-3" style = {{textAlign: "center"}}>{this.state.podcast.description}</p>
+            {this.state.shortDes && (<p className="m-3" style = {{textAlign: "center"}}>{(this.state.podcast.description).substring(0, 250) + "..."} <button onClick={this.readMore} style={{"backgroundColor":"Transparent", border: "none"}}> <span style={{"color":"#E3D353"}}>read more</span></button></p>)}
+            {this.state.longDes && (<p className="m-3" style = {{textAlign: "center"}}>{this.state.podcast.description} <button onClick={this.readLess} style={{"backgroundColor":"Transparent", border: "none"}}> <span style={{"color":"#E3D353"}}>read less</span></button></p>)}
             {isThisMyProfile && (
                 <button
                   className="btn m-1 mt-2 p-2"

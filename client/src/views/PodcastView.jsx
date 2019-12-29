@@ -20,6 +20,8 @@ function PodcastView(props) {
   const [loaded, setLoaded] = useState(true);
   const [video, setVideo] = useState("");
   const user = props.user;
+  let [shortDescription, setShortDes]= useState(true);
+  let [longDescription, setLongDes]= useState(false);
 
   function handleSearchSubmission() {
     const title = props.match.params.id;
@@ -78,6 +80,20 @@ function PodcastView(props) {
     }
   }
 
+  async function readMore(event){
+    event.preventDefault();
+    console.log('clicked on read more');
+    setShortDes(false);
+    setLongDes(true);
+  }
+
+  async function readLess(event){
+    event.preventDefault();
+    console.log('clicked on read less');
+    setShortDes(true);
+    setLongDes(false);
+  }
+
   return (
     // <div>
     // <div className="context" style ={{height: "100%"}}>
@@ -86,11 +102,11 @@ function PodcastView(props) {
       <div className = "d-flex flex-column justify-content-center align-items-center">
         <h2 className="mt-3">{result.Name}</h2>
         <br></br>
-        <div style = {{width : "50%"}}>
+        <div>
         <YouTube
         videoId={video}
         opts={opts}
-        className = "youtube-single"
+        className = "youtube-shelf"
       />
         </div>
         <Link to={`/single/${result.Name}`}>
@@ -102,7 +118,8 @@ function PodcastView(props) {
             </Link>
         <br></br>
         <div style = {{width : "70%"}}>
-        <p>{result.wTeaser}</p>
+        {result.wTeaser && shortDescription && (<p>{(result.wTeaser).substring(0, 250) + "..."} <button onClick={readMore} style={{"backgroundColor":"Transparent", border: "none"}}> <span style={{"color":"#E3D353"}}>read more</span></button></p>)}
+        {result.wTeaser && longDescription && (<p>{result.wTeaser} <button onClick={readLess} style={{"backgroundColor":"Transparent", border: "none"}}><span style={{"color":"#E3D353"}}>read less</span></button></p>)}
         </div>
       </div>
       {user && <button className="btn m-1 mt-2 p-2" style={{"backgroundColor":"#E3D353", border: "2px solid white", color:"white"}} onClick={addPodcastToUsersProfile}>Add to your podlist!</button> }

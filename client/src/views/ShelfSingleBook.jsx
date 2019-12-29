@@ -17,11 +17,15 @@ class ShelfSingleBook extends Component {
       book: null,
       id: this.props.match.params.id,
       profile: this.props.match.params.profile,
-      viewerId: this.props.user._id
+      viewerId: this.props.user._id,
+      longDes: false,
+      shortDes: true
     };
     this.handleSubmission = this.handleSubmission.bind(this);
     this.addBookToViewersProfile = this.addBookToViewersProfile.bind(this);
     this.removeThisBook = this.removeThisBook.bind(this);
+    this.readLess = this.readLess.bind(this);
+    this.readMore = this.readMore.bind(this);
   }
 
   async componentDidMount() {
@@ -91,6 +95,22 @@ class ShelfSingleBook extends Component {
     }
   }
 
+  async readMore(event){
+    event.preventDefault();
+    this.setState({
+      longDes: true,
+      shortDes: false
+    });
+  }
+
+  async readLess(event){
+    event.preventDefault();
+    this.setState({
+      longDes: false,
+      shortDes: true
+    });
+  }
+
   render() {
     const isThisMyProfile = this.state.profile === this.state.viewerId;
 
@@ -114,7 +134,8 @@ class ShelfSingleBook extends Component {
             </div>
             </IconContext.Provider>
             </Link>
-            <p className="m-3">{this.state.book.description}</p>
+            {this.state.shortDes && (<p className="m-3">{(this.state.book.description).substring(0, 250) + "..."}<button onClick={this.readMore} style={{"backgroundColor":"Transparent", border: "none"}}> <span style={{"color":"#E3D353"}}>read more</span></button></p>)}
+            {this.state.longDes && (<p className="m-3">{this.state.book.description}<button onClick={this.readLess} style={{"backgroundColor":"Transparent", border: "none"}}> <span style={{"color":"#E3D353"}}>read less</span></button></p>)}
             {isThisMyProfile && (
               <div className = "App-layers">
                 {this.state.book.status === "Saved" ? (

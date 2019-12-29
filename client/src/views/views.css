@@ -29,12 +29,18 @@
 }
 
 .box-shadow {
-  box-shadow: 5px 5px 2.5px #f7f8fa;
+  box-shadow: 0px 0px 4px 7px rgba(0,0,0,0.17);
 }
 
 .youtube-shelf {
   width: 50%;
   height: 30%;
+}
+
+.youdiv div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .z{
