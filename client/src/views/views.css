@@ -22,6 +22,12 @@
   border-radius: 12px;
 }
 
+@media only screen and (max-width: 600px) {
+.themeWidth {
+    width: 30%
+  }
+}
+
 .theme {
   display: flex;
   flex-wrap: wrap;

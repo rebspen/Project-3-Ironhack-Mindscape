@@ -49,7 +49,7 @@ class ThemeView extends Component {
        <button className="btn w-80 mt-3 text-center" style ={{border: "2px solid white", borderRadius: "90px", backgroundColor:"#E3D353" }} ><Link to={`/search/${this.state.themes[luckyNum].id}`} className='lucky' style = {{color:"white"}}>I feel lucky...</Link></button>
         <div className = "theme mt-3">
           {this.state.themes.map((val)=>{
-            return <Link to={`/search/${val.id}`} key={Math.random()} style={{"width":"30%"}} >
+            return <Link className = "themeWidth" to={`/search/${val.id}`} key={Math.random()} >
             <img className = "theme-img" src= {val.imageURL} style={{"width":"90%", border: "2px solid white", maxWidth: "200px"}}/></Link>
           })}
           </div>
