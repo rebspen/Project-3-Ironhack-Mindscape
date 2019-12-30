@@ -5,6 +5,8 @@ import ReactLoading from 'react-loading';
 import { FaPodcast } from 'react-icons/fa';
 import { FaBookOpen } from 'react-icons/fa';
 import { IconContext } from "react-icons";
+import { MdRefresh } from 'react-icons/md';
+
 
 
 import "./views.css";
@@ -82,13 +84,25 @@ function SearchView(props) {
     window.scrollTo(0, 0);
     return handleSearchSubmission();
   }, []);
+
+  async function refresh(event){
+    event.preventDefault();
+    console.log('clicked refresh');
+    return handleSearchSubmission();
+  }
+
   
   return (
-    <div>
-     <div className="context" style ={{height: "100%"}}>
+    // <div>
+    //  <div className="context" style ={{height: "100%"}}>
     <main className="App-layers text-center">
-    <img className = "theme-img" style={{width:"30%", border: "3px solid white", borderRadius: "12px"}}  src = {image} />
+    <img className = "theme-img" style={{width:"30%", border: "3px solid white", borderRadius: "12px", maxWidth: "200px"}}  src = {image} />
     {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
+    {!loaded && (<button style ={{backgroundColor:"Transparent", border: "none"}} onClick = {refresh} ><IconContext.Provider value={{ style: { width: "5em", color: "#3042c8" } }}>
+    <div>
+    <MdRefresh/>
+    </div>
+    </IconContext.Provider></button>)}
     <br></br>
     <div>
     {result.slice(0,12).map(val => {
@@ -114,22 +128,22 @@ function SearchView(props) {
       })}
       </div>
       </main>
-      </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div>
+    //   </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div>
       );
     }
 

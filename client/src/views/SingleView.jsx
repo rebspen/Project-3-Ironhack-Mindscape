@@ -27,6 +27,8 @@ function SingleView (props) {
   const [result, setResults] = useState({});
   let [loaded, setLoad] = useState('');
   const [loadedPicture, setLoaded] = useState(true);
+  let [shortDescription, setShortDes]= useState(true);
+  let [longDescription, setLongDes]= useState(false);
 
   
   //Getting book details from Google Books API
@@ -70,12 +72,26 @@ function SingleView (props) {
       console.log(error);
     }
   }
+
+  async function readMore(event){
+    event.preventDefault();
+    console.log('clicked on read more');
+    setShortDes(false);
+    setLongDes(true);
+  }
+
+  async function readLess(event){
+    event.preventDefault();
+    console.log('clicked on read less');
+    setShortDes(true);
+    setLongDes(false);
+  }
   
   
   
   return (
-    <div>
-    <div className="context" style ={{height: "100%"}}>
+    // <div>
+    // <div className="context" style ={{height: "100%"}}>
     <main className='p-3 mt-3 container d-flex flex-column justify-content-center align-items-center' style={{backgroundColor: "Transparent"}}>
     <h2 style= {{color: "#787878", textAlign: "center"}}>{id}</h2>
     <br></br>
@@ -93,8 +109,9 @@ function SingleView (props) {
       </IconContext.Provider>
       </Link>
       {result.volumeInfo.averageRating && <div >Rating: {result.volumeInfo.averageRating}/5</div>}
-      {result.volumeInfo.description &&<div style= {{textAlign: "center"}} >Description: {(result.volumeInfo.description).substring(0, 250) + "..."}</div>}
-      {result.saleInfo.buyLink && <div><a href = {result.saleInfo.buyLink} style= {{color:"rgb(48, 67, 200)"}} >Read more</a> </div>}
+      {result.volumeInfo.description && shortDescription && <div style= {{textAlign: "center"}} >Description: {(result.volumeInfo.description).substring(0, 250) + "..."} <button onClick={readMore} style={{"backgroundColor":"Transparent", border: "none"}}> <span style={{"color":"#E3D353"}}>read more</span></button></div>}
+      {result.volumeInfo.description && longDescription && <div style= {{textAlign: "center"}} >Description: {result.volumeInfo.description} <button onClick={readLess} style={{"backgroundColor":"Transparent", border: "none"}}><span style={{"color":"#E3D353"}}>read less</span></button></div>}
+      {result.saleInfo.buyLink && <div><a href = {result.saleInfo.buyLink} style= {{color:"rgb(48, 67, 200)"}} >See more on Google books</a> </div>}
       <div className= "m-3"><a href = "https://book-celler.herokuapp.com/" style= {{color:"rgb(48, 67, 200)"}} >Buy second hand on The Book Cellar</a> </div>
       {user && <button className="btn m-1 mt-2 p-2" style={{"backgroundColor":"#E3D353", border: "2px solid white", color:"white"}} onClick={addBookToUsersProfile}>Add to your bookshelf!</button> }
       {!user &&
@@ -106,22 +123,22 @@ function SingleView (props) {
     Saved!
     </div>
     </main>
-    </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div>
+    // </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div>
     );
   }
   

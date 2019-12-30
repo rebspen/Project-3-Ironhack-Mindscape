@@ -42,7 +42,7 @@ class NewsFeed extends Component {
     super(props);
     this.state = {
       posts: null,
-      limit: 5,
+      limit: 4,
       notloaded: true
     };
     this.onLoadMore = this.onLoadMore.bind(this);
@@ -67,7 +67,7 @@ class NewsFeed extends Component {
 
   onLoadMore() {
     this.setState({
-      limit: this.state.limit + 5
+      limit: this.state.limit + 4
     });
   }
 
@@ -85,8 +85,8 @@ class NewsFeed extends Component {
 
   render() {
     return (
-      <div>
-    <div className="context" style ={{height: "100%"}}>
+    //   <div>
+    // <div className="context" style ={{height: "100%"}}>
       <div className="mt-3 text-center m-3">
         <h3 className="mt-5 mb-3" style ={{color: "#787878"}}>Followers feed...</h3>
 
@@ -125,7 +125,7 @@ class NewsFeed extends Component {
                     <img
                       src={roundPictureService(post.user.image)}
                       alt={post.user.username}
-                      style={{ width: "40px" }}
+                      style={{ width: "40px", borderRadius:"180px" }}
                     />
                     <br />
                     {post.user.username}
@@ -158,7 +158,7 @@ class NewsFeed extends Component {
                     <img
                       src={roundPictureService(post.user.image)}
                       alt={post.user.username}
-                      style={{ width: "40px" }}
+                      style={{ width: "40px", borderRadius:"180px" }}
                     />
                     <br />
                     {post.user.username}
@@ -176,7 +176,7 @@ class NewsFeed extends Component {
                     <img
                       src={roundPictureService(post.followingUser.image)}
                       alt={post.followingUser.username}
-                      style={{ width: "40px" }}
+                      style={{ width: "40px", borderRadius:"180px" }}
                     />
                     <br />
                     {post.followingUser.username}
@@ -194,7 +194,7 @@ class NewsFeed extends Component {
                     <img
                       src={roundPictureService(post.user.image)}
                       alt={post.user.username}
-                      style={{ width: "40px" }}
+                      style={{ width: "40px", borderRadius:"180px" }}
                     />
                     <br />
                     {post.user.username}
@@ -239,22 +239,22 @@ class NewsFeed extends Component {
           </div>
         )}
       </div>
-      </div> 
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div> 
+    //   </div> 
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div> 
     );
   }
 }

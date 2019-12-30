@@ -16,6 +16,7 @@ function SingleSearch(props) {
   const [result, setResults] = useState([]);
   const [image, setImage] = useState([]);
   const [loaded, setLoaded] = useState(true);
+  const [noResult, noResults] = useState(false);
 
 
   function handleSearchSubmission() {
@@ -34,7 +35,7 @@ function SingleSearch(props) {
         const filteredpercentage = final.filter((val,index) => { if(!val.Name.includes("%")){ return val}})
         const filtered = filteredpercentage.filter((val,index) => { if(val.Type === "book" || val.Type === "podcast"){ return val}})
         if(filtered.length === 0){
-          filtered.push({Name: "Sorry no results - go back homie", Type: "..."})
+          noResults(true)
         }
         setResults(filtered);
         setLoaded(false);
@@ -48,14 +49,14 @@ function SingleSearch(props) {
   }, []);
 
   return (
-    <div>
-    <div className="context" style ={{height: "100%"}}>
+    // <div>
+    // <div className="context" style ={{height: "100%"}}>
     <main className="App-layers text-center">
     <h2 className = "mt-3" style={{color: "#787878"}} > Search : {props.match.params.title}</h2>
     <br></br>
     {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
     <div>
-    {result.map(val => {
+    {result && (result.map(val => {
       return (
         <Link to={`/${val.Type}/${val.Name}`} key={Math.random()}>
         <div className="card mb-2 " style={{border: "#f0f0f2", backgroundColor: "Transparent"}}>
@@ -74,25 +75,26 @@ function SingleSearch(props) {
         </div>{" "}
         </Link>
         );
-      })}
+      }))}
+      { noResult && (<Link to={`/themes`}><p>Sorry no titles found - why not try try a new theme?</p></Link>)}
       </div>
       </main>
-      </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div> 
+    //   </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div> 
       );
     }
 

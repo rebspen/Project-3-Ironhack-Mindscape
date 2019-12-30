@@ -8,16 +8,17 @@ import "./views.css";
 function InfoView () {
  
     return (
-        <div>
-        <div className="context" style ={{height: "100%"}}>
+        // <div>
+        // <div className="context" style ={{height: "100%"}}>
     <div className= "container p-4 App-layers">
+    <br></br>
     <h2 style= {{textAlign: "center", color:"#787878"}} >Our concept explained...</h2>
-    <br></br>
+   <br></br>
     <p style= {{textAlign: "center", color:"#787878"}} >Bored of echo-chamber recommendation tools?</p>
-    <br></br>
-    <p style= {{textAlign: "center", color:"#787878"}} >Mindscape is designed to help you discover new ideas, and encourage interdisciplinary thinking.</p>
-    <br></br>
-    <p style= {{textAlign: "center", color:"#787878"}} >We use leading cultural experts to curate thought provoking themes. So just pick a one that catches your eye and start your adventure...</p>
+ 
+    <p style= {{textAlign: "center", color:"#787878"}} >Mindscape is designed to help to help you discover new books, podcasts and ideas, and encourage interdisciplinary thinking.</p>
+ 
+    <p style= {{textAlign: "center", color:"#787878"}} >We use leading cultural experts to curate broad themes like 'Wanderlust', ‘Enchantment for Disenchanted’ and ‘The City’, so you’re constantly encountering titles you might not have come across otherwise. Just pick one that catches your eye and start your adventure...</p>
     <br></br>
     <button
           type="button"
@@ -40,22 +41,22 @@ function InfoView () {
           </Link>
           </button>
     </div>
-    </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-      </div>
+    // </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    //   </div>
     )
   
 }

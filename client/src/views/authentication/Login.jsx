@@ -58,8 +58,8 @@ export class Login extends Component {
 
   render() {
     return (
-      <div>
-      <div className="context" style ={{height: "100%"}}>
+      // <div>
+      // <div className="context" style ={{height: "100%"}}>
       <div
         className="container mt-5 p-3 text-center"
         style={
@@ -113,22 +113,22 @@ export class Login extends Component {
           </Link>
         </form>
       </div>
-      </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div> 
+    //   </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div> 
     );
   }
 }

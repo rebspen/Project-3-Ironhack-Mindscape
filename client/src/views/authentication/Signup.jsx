@@ -54,8 +54,8 @@ class Signup extends Component {
 
   render() {
     return (
-      <div>
-      <div className="context" style ={{height: "100%"}}>
+      // <div>
+      // <div className="context" style ={{height: "100%"}}>
       <div className='container mt-5 p-3 text-center' style={{"minHeight": '500px'}, {"backgroundColor": 'Transparent'}}>
         <h3>Let's begin your journey</h3>
         <form onSubmit={this.handleSubmissionEvent} className='d-flex flex-column w-100 justify-content-center align-items-center'>
@@ -65,22 +65,22 @@ class Signup extends Component {
           <button className="btn m-3 text-white p-2 w-50" style ={{width: '30%', border: "2px solid white", borderRadius: "90px", backgroundColor:"#E3D353" }}>Sign up</button>
         </form>
       </div>
-      </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-    </div>
+    //   {/* </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    // </div> */}
      
     )
   }

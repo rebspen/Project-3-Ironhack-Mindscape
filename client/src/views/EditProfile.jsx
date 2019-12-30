@@ -54,8 +54,8 @@ class EditProfile extends Component {
   render() {
     const user = this.props.user;
     return (
-      <div>
-    <div className="context" style ={{height: "100%"}}>
+    //   <div>
+    // <div className="context" style ={{height: "100%"}}>
       <div className="container p-3 mt-3" style={{color:"#787878"}}>
         <h3 style ={{textAlign:"center"}}>Update Your Profile</h3>
         <div className=" d-flex justify-content-around flex-column align-items-center w-100">
@@ -113,22 +113,22 @@ class EditProfile extends Component {
           </div>
         </div>
       </div>
-      </div>
-      <div class="area" >
-      <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-      </div>
+    //   </div>
+    //   <div class="area" >
+    //   <ul class="circles">
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //                 <li></li>
+    //         </ul>
+    // </div >
+    //   </div>
     );
   }
 }
