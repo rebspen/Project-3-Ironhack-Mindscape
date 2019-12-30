@@ -1,6 +1,6 @@
-IronHack - Web Development Full-Time Bootcamp
+## Project #3: Full Stack MERN App
 
-Project #3: Full Stack MERN App
+IronHack - Web Development Full-Time Bootcamp
 
 Our Project:
 
