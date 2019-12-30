@@ -41,17 +41,17 @@ function SearchView(props) {
     console.log("i am at the handle submission")
     const id = props.match.params.id
     const category = themes.filter((val) => { if(val.id === parseInt(id)) {return val}})
-    console.log("cat", category)
+  //  console.log("cat", category)
     const titles = category[0].titles
     const image = category[0].imageURL
     const podcasts = category[0].podcasts
-    console.log("pod", category[0].podcasts)
+   // console.log("pod", category[0].podcasts)
     const podcastArr = shuffle(podcasts)
     console.log("pod2", podcastArr)
     setImage(image)
     const bookArr = shuffle(titles);
     const podcast = podcastArr[0]
-    console.log("pod3", podcast)
+   // console.log("pod3", podcast)
     const book1 = bookArr[0];
     const book2 = bookArr[1];
     axios
