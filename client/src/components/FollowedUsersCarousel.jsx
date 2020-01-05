@@ -37,7 +37,7 @@ class FollowedUsersCarousel extends Component {
   }
   
   render() {
-    console.log(this.state.array);
+    //console.log(this.state.array);
     const usersArray = this.state.array;
       return (
         <Carousel className = "m-auto" centerMode = {true} emulateTouch = {true} centerSlidePercentage= {30} showStatus= {false} emulateTouch = {true} showIndicators = {false} showThumbs = {false} style = {{backgroundColor: "Transparent"}}>

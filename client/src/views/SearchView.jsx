@@ -45,7 +45,7 @@ function SearchView(props) {
     const image = category[0].imageURL
     const podcasts = category[0].podcasts
    // console.log("pod", category[0].podcasts)
-   console.log('image url', image);
+  // console.log('image url', image);
     const podcastArr = shuffle(podcasts)
     //console.log("pod2", podcastArr)
     setImage(image)
