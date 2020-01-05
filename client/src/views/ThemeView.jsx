@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import themes from "./themes";
 import ReactLoading from 'react-loading';
 import "./views.css";
+import ReactImageAppear from 'react-image-appear'
 
 class ThemeView extends Component {
   constructor(props) {
@@ -50,7 +51,13 @@ class ThemeView extends Component {
         <div className = "theme mt-3">
           {this.state.themes.map((val)=>{
             return <Link className = "themeWidth" to={`/search/${val.id}`} key={Math.random()} >
-            <img className = "theme-img" src= {val.imageURL} style={{"width":"90%", border: "2px solid white", maxWidth: "200px"}}/></Link>
+              <ReactImageAppear
+              src= {val.imageURL}
+              className = "theme-img"
+              placeholder
+              animation="zoomIn"
+              animationDuration="1s" />            
+            </Link>
           })}
           </div>
         </div> } 
@@ -79,3 +86,5 @@ class ThemeView extends Component {
 
 export default ThemeView;
 
+
+//            <img className = "theme-img" src= {val.imageURL} style={{"width":"90%", border: "2px solid white", maxWidth: "200px"}}/>

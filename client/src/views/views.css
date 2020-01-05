@@ -20,6 +20,9 @@
 .theme-img {
   margin: 0.5em;
   border-radius: 12px;
+  width: 90%;
+  border: 2px solid white;
+  max-width: 200px
 }
 
 @media only screen and (max-width: 600px) {

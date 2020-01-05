@@ -8,7 +8,6 @@ import { IconContext } from "react-icons";
 import { MdRefresh } from 'react-icons/md';
 
 
-
 import "./views.css";
 import themes from "./themes";
 
@@ -46,6 +45,7 @@ function SearchView(props) {
     const image = category[0].imageURL
     const podcasts = category[0].podcasts
    // console.log("pod", category[0].podcasts)
+   console.log('image url', image);
     const podcastArr = shuffle(podcasts)
     //console.log("pod2", podcastArr)
     setImage(image)
@@ -95,7 +95,7 @@ function SearchView(props) {
   return (
     // <div>
     //  <div className="context" style ={{height: "100%"}}>
-    <main className="App-layers text-center">
+    <main className="App-layers text-center">         
     <img className = "theme-img" style={{width:"30%", border: "3px solid white", borderRadius: "12px", maxWidth: "200px"}}  src = {image} />
     {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
     {!loaded && (<button style ={{backgroundColor:"Transparent", border: "none"}} onClick = {refresh} ><IconContext.Provider value={{ style: { width: "5em", color: "#3042c8" } }}>
