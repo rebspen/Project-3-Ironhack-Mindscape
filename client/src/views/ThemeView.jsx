@@ -55,6 +55,7 @@ class ThemeView extends Component {
               src= {val.imageURL}
               className = "theme-img"
               placeholder="https://res.cloudinary.com/dgmvfq29c/image/upload/v1578215094/project-3-ironhack/love_ga8ltr.png"
+              placeholderStyle={{ border: "2px solid white", width:"90%", maxWidth: "200px", borderRadius:"12px", margin:"0.5em"}}
               animation="zoomIn"
               animationDuration="1s" />            
             </Link>
