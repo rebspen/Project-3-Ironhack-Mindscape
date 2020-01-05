@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { getPosts as getPostsService } from "./../services/posts";
 import { roundPicture as roundPictureService } from "./../services/PicturesCloudinary";
@@ -88,7 +88,7 @@ class NewsFeed extends Component {
     //   <div>
     // <div className="context" style ={{height: "100%"}}>
       <div className="mt-3 text-center m-3">
-        <h3 className="mt-5 mb-3" style ={{color: "#787878"}}>Followers feed...</h3>
+        <h3 className="mt-5 mb-3" style ={{color: "#787878"}}>Your News' Feed</h3>
 
         {this.state.posts && !this.hasLength(this.state.posts) && (
           <div className="m-3 mt-3" >
@@ -118,7 +118,7 @@ class NewsFeed extends Component {
               <div
                 className="d-flex card flex-row align-items-center justify-content-between m-2"
                 key={post.id}
-                style={{backgroundColor:"Transparent", border: "7px double #E3D353", borderRadius: "12px" }}
+                style={{backgroundColor:"Transparent", border: "7px double #bfbfbf", borderRadius: "12px" }}
               >
                 <div className=" p-2" style={{ width: "25%", color: "black" }}>
                   <Link to={`profile/${post.user._id}`} >
@@ -151,7 +151,7 @@ class NewsFeed extends Component {
               <div
                 className="d-flex card flex-row align-items-center justify-content-between p-2 m-2"
                 key={post.id}
-                style={{backgroundColor:"Transparent", border: "7px double #E3D353", borderRadius: "12px"}}
+                style={{backgroundColor:"Transparent", border: "7px double  #bfbfbf", borderRadius: "12px"}}
               >
                 <div className="ml-2 p-2" style={{ width: "25%" }}>
                   <Link to={`profile/${post.user._id}`} >
@@ -187,7 +187,7 @@ class NewsFeed extends Component {
               <div
                 className="d-flex card flex-row align-items-center justify-content-between p-2 m-2"
                 key={post.id}
-                style={{backgroundColor:"Transparent", border: "7px double #E3D353", borderRadius: "12px"}}
+                style={{backgroundColor:"Transparent", border: "7px double #bfbfbf", borderRadius: "12px"}}
               >
                 <div className="ml-2 p-2" style={{ width: "25%" }}>
                   <Link to={`profile/${post.user._id}`}>

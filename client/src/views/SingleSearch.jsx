@@ -9,12 +9,12 @@ import { IconContext } from "react-icons";
 
 import "./views.css";
 
-import themes from "./themes";
+//import themes from "./themes";
 
 function SingleSearch(props) {
   
   const [result, setResults] = useState([]);
-  const [image, setImage] = useState([]);
+ // const [image, setImage] = useState([]);
   const [loaded, setLoaded] = useState(true);
   const [noResult, noResults] = useState(false);
 

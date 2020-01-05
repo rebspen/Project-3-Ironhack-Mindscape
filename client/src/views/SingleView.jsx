@@ -45,7 +45,6 @@ function SingleView (props) {
   
   //Calls the axios function to get the API after this page was mounted
   useEffect(() => {
-    console.log('google key', process.env.REACT_APP_TESTING);
     const $alert = document.getElementById("alert")
     $alert.style.visibility = 'hidden'
     setBook(book = id);

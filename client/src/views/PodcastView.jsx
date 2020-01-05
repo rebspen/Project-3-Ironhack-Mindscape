@@ -9,7 +9,7 @@ import { FaSearch } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 
 import "./views.css";
-import themes from "./themes";
+//import themes from "./themes";
 
 //this shuffle is to make sure their is a new search if they look at themes more than once.
 

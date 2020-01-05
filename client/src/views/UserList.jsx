@@ -72,7 +72,7 @@ class UserList extends Component {
     // <div>
     // <div className="context" style ={{height: "100%"}}>
       <div className="mt-1 d-flex flex-column justify-content-center align-items-center" style = {{color:"#787878"}}>
-        <div className="input-group md-form form-sm form-2 w-50 mb-2">
+        <div className="input-group md-form form-sm form-2 w-70 mb-2">
           <div className="input-group-prepend w-10 mt-3">
             <span className="input-group-text lime lighten-2" id="basic-text1">
               <IconContext.Provider
@@ -91,9 +91,9 @@ class UserList extends Component {
           />
         </div>
 
-        <div className="table-responsive w-80 d-flex flex-column justify-content-center align-items-center">
+        <div className="table-responsive w-80 d-flex flex-column justify-content-center align-items-left">
           <table
-            className="table user-list"
+            className="table user-list w-100"
             id="myTable"
             style={{ border: "Transparent" }}
           >

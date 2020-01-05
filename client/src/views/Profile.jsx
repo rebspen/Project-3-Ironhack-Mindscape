@@ -178,10 +178,10 @@ class Profile extends Component {
                 style={{ backgroundColor: "Transparent" }}
               >
                 <Link className="text-center" to={`/bookshelf/${profileId}`}>
-                  <img className="shelf" style={{ width: "55%" }} src="../bookshelf-color.png" />
+                  <img className="shelf" style={{ width: "55%" }} src="../bookshelf-color.png" alt="bookshelf"/>
                 </Link>
                 <Link className="text-center" to={`/podshelf/${profileId}`}>
-                  <img className="shelf" style={{ width: "50%" }} src="../headphones.png" />
+                  <img className="shelf" style={{ width: "50%" }} src="../headphones.png" alt="headphones"/>
                 </Link>
                 
               </div>

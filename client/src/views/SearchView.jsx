@@ -38,7 +38,7 @@ function SearchView(props) {
   const [loaded, setLoaded] = useState(true);
 
   function handleSearchSubmission() {
-    console.log("i am at the handle submission")
+   // console.log("i am at the handle submission")
     const id = props.match.params.id
     const category = themes.filter((val) => { if(val.id === parseInt(id)) {return val}})
   //  console.log("cat", category)
@@ -47,7 +47,7 @@ function SearchView(props) {
     const podcasts = category[0].podcasts
    // console.log("pod", category[0].podcasts)
     const podcastArr = shuffle(podcasts)
-    console.log("pod2", podcastArr)
+    //console.log("pod2", podcastArr)
     setImage(image)
     const bookArr = shuffle(titles);
     const podcast = podcastArr[0]
@@ -65,15 +65,15 @@ function SearchView(props) {
           "&k=351127-cheeta-8Z5VDMQU"
       )
       .then(data => {
-        console.log("response", data.data.Similar.Results)
+       // console.log("response", data.data.Similar.Results)
         const final = data.data.Similar.Results;
         final.unshift(data.data.Similar.Info[2]);
         final.unshift(data.data.Similar.Info[0]);
         final.unshift(data.data.Similar.Info[1]);
         const filteredpercentage = final.filter((val,index) => { if(!val.Name.includes("%")){ return val}})
-        console.log("%", filteredpercentage)
+       // console.log("%", filteredpercentage)
         const filtered = filteredpercentage.filter((val,index) => { if(val.Type === "book" || val.Type === "podcast"){ return val}})
-        console.log("filtered", filtered)
+        //console.log("filtered", filtered)
         setResults(filtered);
         setLoaded(false);
       })
@@ -87,7 +87,7 @@ function SearchView(props) {
 
   async function refresh(event){
     event.preventDefault();
-    console.log('clicked refresh');
+   // console.log('clicked refresh');
     return handleSearchSubmission();
   }
 
@@ -109,7 +109,6 @@ function SearchView(props) {
       return (
         <Link to={`/${val.Type}/${val.Name}`} key={Math.random()}>
         <div className="card mb-2" style={{border: "#f0f0f2", backgroundColor: "Transparent"}}>
-        {" "}
         <div className="card-body p-1 d-flex flex-row">
         <IconContext.Provider className=" m-0" value={{ style: { width: "5em", color: "#E3D353" } }}>
         {val.Type === "podcast" &&  <div>
@@ -121,7 +120,7 @@ function SearchView(props) {
         </IconContext.Provider>
         <h6 className="m-0" style={{color: "#787878"}}>{val.Name}</h6>
         </div>
-        </div>{" "}
+        </div>
         <br></br>
         </Link>
         );

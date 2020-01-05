@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import themes from "./themes";
 import ReactLoading from 'react-loading';
 import "./views.css";
-import {Img} from 'react-image';
 
 class ThemeView extends Component {
   constructor(props) {
@@ -36,7 +35,7 @@ class ThemeView extends Component {
 
 
   render() {
-    console.log('length', this.state.themes.length)
+    //console.log('length', this.state.themes.length)
     const luckyNum = Math.floor(Math.random()* this.state.themes.length);
     return (
       // <div>

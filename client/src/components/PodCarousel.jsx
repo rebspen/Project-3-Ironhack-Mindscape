@@ -1,8 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
 import YouTube from 'react-youtube';
 import "./style.css";
 

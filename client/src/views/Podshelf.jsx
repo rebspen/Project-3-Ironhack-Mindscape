@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from 'react';
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
 import { getUsersPodcasts } from './../services/books';
 import PodCarousel from '../components/PodCarousel';
 

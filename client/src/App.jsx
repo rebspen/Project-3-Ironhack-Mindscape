@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component} from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 import Login from "./views/authentication/Login";
@@ -172,8 +172,8 @@ class App extends Component {
               }
         </BrowserRouter>
         </div> 
-         <div class="area" >
-         <ul class="circles">
+         <div className="area" >
+         <ul className="circles">
                         <li></li>
                        <li></li>
                        <li></li>
