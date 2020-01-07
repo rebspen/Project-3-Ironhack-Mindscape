@@ -55,7 +55,7 @@ class ThemeView extends Component {
             return <Link className = "themeWidth" to={`/search/${val.id}`} key={Math.random()} >
               <Img src= {val.imageURL} 
               className = "theme-img" 
-              loader= {<ReactLoading type={'spin'} color={'#E3D353'} height={100} width={100} />
+              loader= {<ReactLoading type={'spin'} color={'#E3D353'} height={100} width={100} className='loading-animation-style' />
 }/>        
             </Link>
           })}

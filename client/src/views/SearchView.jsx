@@ -99,7 +99,7 @@ function SearchView(props) {
     <main className="App-layers text-center">         
     <Img src= {image} 
               className = "theme-img" 
-              loader= {<div><img src="https://res.cloudinary.com/dgmvfq29c/image/upload/v1578266268/project-3-ironhack/background_pnvd6e.png"  style={{width:"30%", border: "3px solid white", borderRadius: "12px", maxWidth: "200px"}} alt="test"/></div>}/>
+              loader= {<ReactLoading type={'spin'} color={'#E3D353'} height={100} width={100} className='loading-animation-style'/>} />
     {loaded && <ReactLoading type={'balls'} color={'#E3D353'} height={100} width={100} />}
     {!loaded && (<button style ={{backgroundColor:"Transparent", border: "none"}} onClick = {refresh} ><IconContext.Provider value={{ style: { width: "5em", color: "#3042c8" } }}>
     <div>
