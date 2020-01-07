@@ -55,7 +55,8 @@ class ThemeView extends Component {
             return <Link className = "themeWidth" to={`/search/${val.id}`} key={Math.random()} >
               <Img src= {val.imageURL} 
               className = "theme-img" 
-              loader= {<div><img src="https://res.cloudinary.com/dgmvfq29c/image/upload/v1578266268/project-3-ironhack/background_pnvd6e.png" style={{ width:"90%", maxWidth: "200px", borderRadius:"12px", margin:"0.5em"}} alt="test"/></div>}/>        
+              loader= {<ReactLoading type={'spin'} color={'#E3D353'} height={100} width={100} />
+}/>        
             </Link>
           })}
           </div>
