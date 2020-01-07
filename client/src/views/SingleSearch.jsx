@@ -60,7 +60,6 @@ function SingleSearch(props) {
       return (
         <Link to={`/${val.Type}/${val.Name}`} key={Math.random()}>
         <div className="card mb-2 " style={{border: "#f0f0f2", backgroundColor: "Transparent"}}>
-        {" "}
         <div className="card-body p-1 d-flex flex-row">
         <IconContext.Provider className=" m-0" value={{ style: { width: "5em", color: "#E3D353" } }}>
         {val.Type === "podcast" &&  <div>

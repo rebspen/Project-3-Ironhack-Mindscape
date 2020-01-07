@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import themes from "./themes";
 import ReactLoading from 'react-loading';
 import "./views.css";
-import ReactImageAppear from 'react-image-appear';
 import Img from 'react-image';
 
 
@@ -38,11 +37,8 @@ class ThemeView extends Component {
 
 
   render() {
-    //console.log('length', this.state.themes.length)
     const luckyNum = Math.floor(Math.random()* this.state.themes.length);
     return (
-      // <div>
-      //    <div className="context" style ={{height: "100%"}}>
       <main className="App-layers justify-content-center align-items-center">
         <h1 className='mt-3' style= {{color: "#787878"}}>Themes</h1>
         <p className='m-1' style= {{textAlign: "center", color: "#787878"}}>Choose a theme and begin your Journey...</p>
@@ -55,7 +51,7 @@ class ThemeView extends Component {
             return <Link className = "themeWidth" to={`/search/${val.id}`} key={Math.random()} >
               <Img src= {val.imageURL} 
               className = "theme-img" 
-              loader= {<ReactLoading type={'spinningBubbles'} color={'#E3D353'} height={100} width={100} className='loading-animation-style' />
+              loader= {<ReactLoading type={'spin'} color={'#E3D353'} height={100} width={100} className='loading-animation-style' />
 }/>        
             </Link>
           })}
@@ -63,23 +59,6 @@ class ThemeView extends Component {
         </div> } 
         <br></br>
       </main>
-    //   </div>
-    //   <div class="area" >
-    //   <ul class="circles">
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //         </ul>
-    // </div >
-    // </div>
-      
     );
   }
 }
@@ -89,7 +68,8 @@ export default ThemeView;
 
 //            <img className = "theme-img" src= {val.imageURL} style={{"width":"90%", border: "2px solid white", maxWidth: "200px"}}/>
 
-/*
+/*        import ReactImageAppear from 'react-image-appear';
+
               <ReactImageAppear
               src= {val.imageURL}
               className = "theme-img"
