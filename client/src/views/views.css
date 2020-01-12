@@ -20,6 +20,9 @@
 .theme-img {
   margin: 0.5em;
   border-radius: 12px;
+  width: 90%;
+  border: 2px solid white;
+  max-width: 200px
 }
 
 @media only screen and (max-width: 600px) {
@@ -78,4 +81,9 @@
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+
+.loading-animation-stile {
+  padding: 2em;
+  margin: 4em;
 }

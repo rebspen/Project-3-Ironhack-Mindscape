@@ -110,7 +110,6 @@ function SingleView (props) {
       {result.volumeInfo.description && shortDescription && <div style= {{textAlign: "center"}} >Description: {(result.volumeInfo.description).substring(0, 250) + "..."} <button onClick={readMore} style={{"backgroundColor":"Transparent", border: "none"}}> <span style={{"color":"#E3D353"}}>read more</span></button></div>}
       {result.volumeInfo.description && longDescription && <div style= {{textAlign: "center"}} >Description: {result.volumeInfo.description} <button onClick={readLess} style={{"backgroundColor":"Transparent", border: "none"}}><span style={{"color":"#E3D353"}}>read less</span></button></div>}
       {result.saleInfo.buyLink && <div><a href = {result.saleInfo.buyLink} style= {{color:"rgb(48, 67, 200)"}} >See more on Google books</a> </div>}
-      <div className= "m-3"><a href = "https://book-celler.herokuapp.com/" style= {{color:"rgb(48, 67, 200)"}} >Buy second hand on The Book Cellar</a> </div>
       {user && <button className="btn m-1 mt-2 p-2" style={{"backgroundColor":"#E3D353", border: "2px solid white", color:"white"}} onClick={addBookToUsersProfile}>Add to your bookshelf!</button> }
       {!user &&
        <div className='mt-1  d-flex flex-column align-items-center'><Link to='/login'>Log in</Link><span className='pr-1 pl-1'>or </span> <Link to='/signup'>Sign Up</Link> <span className='pl-1'>to continue your journey!</span></div>}
@@ -143,3 +142,4 @@ function SingleView (props) {
   export default SingleView;
 
 // Book parameters in Google Books API: https://developers.google.com/books/docs/v1/reference/volumes
+// <div className= "m-3"><a href = "https://book-celler.herokuapp.com/" style= {{color:"rgb(48, 67, 200)"}} >Buy second hand on The Book Cellar</a> </div>

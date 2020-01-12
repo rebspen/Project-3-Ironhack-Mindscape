@@ -9,7 +9,7 @@ import { FaSearch } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 
 import "./views.css";
-import themes from "./themes";
+//import themes from "./themes";
 
 //this shuffle is to make sure their is a new search if they look at themes more than once.
 
@@ -123,7 +123,7 @@ function PodcastView(props) {
         </div>
       </div>
       {user && <button className="btn m-1 mt-2 p-2" style={{"backgroundColor":"#E3D353", border: "2px solid white", color:"white"}} onClick={addPodcastToUsersProfile}>Add to your podlist!</button> }
-      {!user && <span className='mt-5 text-right d-flex'><Link to='/login'>Log in</Link> or <Link to='/signup'>Sign Up</Link> to continue your journey!</span>}
+      {!user && <span className='mt-5 text-right d-flex flex-column align-items-center'><Link to='/login'>Log in</Link> <span className='pr-1 pl-1'>or </span> <Link to='/signup'>Sign Up</Link> to continue your journey!</span>}
 
       <div id="alert" className="alert alert-success mt-0" role="alert">
     Saved!

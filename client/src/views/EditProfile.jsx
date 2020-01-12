@@ -66,9 +66,9 @@ class EditProfile extends Component {
               className="img-fluid"
               style={{ maxWidth: "50%", 'borderRadius':'5px' }}
             />
-            <div className="custom-file mt-3 w-80 text-center">
-              <label className="custom-file-label text-center" htmlFor="customFileLang">
-               <small><AiOutlinePicture/> <span className='pl-2'>MindSpan</span></small> 
+            <div className="custom-file mt-3 text-center">
+              <label className="custom-file-label text-left" htmlFor="customFileLang">
+               <small> Select your picture </small> 
               </label>
               <input
                 type="file"

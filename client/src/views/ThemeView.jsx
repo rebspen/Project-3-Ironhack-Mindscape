@@ -1,9 +1,10 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import themes from "./themes";
 import ReactLoading from 'react-loading';
 import "./views.css";
-import {Img} from 'react-image';
+import Img from 'react-image';
+
 
 class ThemeView extends Component {
   constructor(props) {
@@ -36,11 +37,8 @@ class ThemeView extends Component {
 
 
   render() {
-    console.log('length', this.state.themes.length)
     const luckyNum = Math.floor(Math.random()* this.state.themes.length);
     return (
-      // <div>
-      //    <div className="context" style ={{height: "100%"}}>
       <main className="App-layers justify-content-center align-items-center">
         <h1 className='mt-3' style= {{color: "#787878"}}>Themes</h1>
         <p className='m-1' style= {{textAlign: "center", color: "#787878"}}>Choose a theme and begin your Journey...</p>
@@ -51,32 +49,32 @@ class ThemeView extends Component {
         <div className = "theme mt-3">
           {this.state.themes.map((val)=>{
             return <Link className = "themeWidth" to={`/search/${val.id}`} key={Math.random()} >
-            <img className = "theme-img" src= {val.imageURL} style={{"width":"90%", border: "2px solid white", maxWidth: "200px"}}/></Link>
+              <Img src= {val.imageURL} 
+              className = "theme-img" 
+              loader= {<ReactLoading type={'spin'} color={'#E3D353'} height={100} width={100} className='loading-animation-style' />
+}/>        
+            </Link>
           })}
           </div>
         </div> } 
         <br></br>
       </main>
-    //   </div>
-    //   <div class="area" >
-    //   <ul class="circles">
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //                 <li></li>
-    //         </ul>
-    // </div >
-    // </div>
-      
     );
   }
 }
 
 export default ThemeView;
 
+
+//            <img className = "theme-img" src= {val.imageURL} style={{"width":"90%", border: "2px solid white", maxWidth: "200px"}}/>
+
+/*        import ReactImageAppear from 'react-image-appear';
+
+              <ReactImageAppear
+              src= {val.imageURL}
+              className = "theme-img"
+              placeholder="https://res.cloudinary.com/dgmvfq29c/image/upload/v1578266268/project-3-ironhack/background_pnvd6e.png"
+              placeholderStyle={{ width:"90%", maxWidth: "200px", borderRadius:"12px", margin:"0.5em"}}
+              animation="zoomIn"
+              animationDuration="1s"
+              showLoader={false} />  */

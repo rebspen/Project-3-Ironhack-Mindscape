@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
@@ -10,7 +9,7 @@ function BookCarousel (props) {
           <Carousel className = "m-auto" showStatus= {false} emulateTouch = {true} showIndicators = {false} showThumbs = {false} style = {{backgroundColor: "#f0f0f2"}}>
           {props.data.map((val)=> {
             return  <Link to = {`/one/${props.profile}/${val._id}`}><div className = "" style = {{backgroundColor: "#DCE1EB", height : "107%"}}>
-                 <img src={val.image} style ={{ width: "60%"}} />
+                 <img src={val.image} style ={{ width: "60%"}} alt={val._id} />
               </div> </Link>
           })}
           </Carousel>
