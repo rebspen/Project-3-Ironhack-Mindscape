@@ -6,13 +6,11 @@ import { FaSearch } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 import ReactLoading from 'react-loading';
 import {addPost as addPostService} from './../services/posts'
+import {googleApiKey as googleKey} from './../App';
 
 
 import "./views.css";
 
-
-const googleKey = 'AIzaSyB-EK_PvmiBu1I5dfiocm49AvrnBJWphWM';
-//Please, put this key in .env.
 
 function SingleView (props) {
   
@@ -75,14 +73,14 @@ function SingleView (props) {
 
   async function readMore(event){
     event.preventDefault();
-    console.log('clicked on read more');
+   // console.log('clicked on read more');
     setShortDes(false);
     setLongDes(true);
   }
 
   async function readLess(event){
     event.preventDefault();
-    console.log('clicked on read less');
+   // console.log('clicked on read less');
     setShortDes(true);
     setLongDes(false);
   }

@@ -12,7 +12,6 @@ import SearchView from "./views/SearchView";
 import ThemeView from "./views/ThemeView";
 import UserList from "./views/UserList";
 import { loadUserInformation as loadUserInformationService } from "./services/authentication";
-
 import SingleView from "./views/SingleView";
 import PodcastView from "./views/PodcastView";
 import Bookshelf from "./views/Bookshelf";
@@ -22,6 +21,8 @@ import ShelfSinglePodcast from "./views/ShelfSinglePodcast";
 import InfoView from "./views/InfoView";
 import SingleSearch from "./views/SingleSearch";
 import NewsFeed from "./views/NewsFeed";
+export const googleApiKey = process.env.REACT_APP_GOOGLE_KEY;
+
 
 
 class App extends Component {
@@ -194,4 +195,5 @@ class App extends Component {
 }
 
 export default App;
+
 
