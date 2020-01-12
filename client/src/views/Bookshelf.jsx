@@ -60,7 +60,7 @@ class Bookshelf extends Component {
       {this.state.books && <BookCarousel data = {reading.reverse()} profile = {this.state.userId} />}
       </div>
       <h5 className = "mt-4">Finished</h5>
-      <div style= {{width: "90%", border: "2px solid white" }}>
+      <div style= {{width: "60%", border: "2px double white" }}>
       {this.state.books && <BookCarousel data = {finished.reverse()} profile = {this.state.userId} />}
       </div>
       </div>
