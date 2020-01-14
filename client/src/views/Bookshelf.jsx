@@ -59,10 +59,12 @@ class Bookshelf extends Component {
       <div style= {{width: "60%", border: "7px double white"}}>
       {this.state.books && <BookCarousel data = {reading.reverse()} profile = {this.state.userId} />}
       </div>
-      <h5 className = "ml-4">Finished</h5>
+      <h5 className = "mt-4">Finished</h5>
       <div style= {{width: "60%", border: "7px double white" }}>
       {this.state.books && <BookCarousel data = {finished.reverse()} profile = {this.state.userId} />}
       </div>
+      <br></br>
+      <br></br>
       </div>
       </div>
     //   <div class="area" >

@@ -175,9 +175,9 @@ class ShelfSingleBook extends Component {
               <button
                 className="btn m-1 mt-2 p-2"
                 style={{
-                  backgroundColor: "#f0f0f2",
+                  backgroundColor: "#E3D353",
                   border: "2px solid #E3D353",
-                  color: "#E3D353"
+                  color: "white"
                 }}
                 onClick={this.addBookToViewersProfile}
               >

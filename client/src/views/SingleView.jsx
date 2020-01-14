@@ -31,6 +31,7 @@ function SingleView (props) {
   
   //Getting book details from Google Books API
   function handleBookSearch () {
+    console.log("googleKey", googleKey);
     axios.get("https://www.googleapis.com/books/v1/volumes?q=intitle:" + book + "&key=" + googleKey + "&maxResults=40")
     .then(data => {
       const result = data.data.items[0];
