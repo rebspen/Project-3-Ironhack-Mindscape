@@ -50,7 +50,7 @@ class Bookshelf extends Component {
       <FaBookOpen/>
       </IconContext.Provider>
       <span className='pl-3'>Bookshelf</span></h2>
-      <div style= {{maxWidth: "500px"}} className = "App-layers">
+      <div style= {{minWidth: "500px"}} className = "App-layers">
       <h5 className = "mt-1">Saved</h5>
       <div style= {{width: "60%", border: "7px double white"}} >
       {this.state.books && <BookCarousel data = {saved.reverse()} profile = {this.state.userId} />}
