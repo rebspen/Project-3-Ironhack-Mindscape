@@ -82,14 +82,14 @@ function PodcastView(props) {
 
   async function readMore(event){
     event.preventDefault();
-    console.log('clicked on read more');
+    // console.log('clicked on read more');
     setShortDes(false);
     setLongDes(true);
   }
 
   async function readLess(event){
     event.preventDefault();
-    console.log('clicked on read less');
+    // console.log('clicked on read less');
     setShortDes(true);
     setLongDes(false);
   }

@@ -60,7 +60,7 @@ class NewsFeed extends Component {
         notloaded: false
       });
     } catch (error) {
-      console.log("We didnt get the posts", error);
+      // console.log("We didnt get the posts", error);
       throw error;
     }
   }

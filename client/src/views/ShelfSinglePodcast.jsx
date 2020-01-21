@@ -102,7 +102,7 @@ class ShelfSingleBook extends Component {
         autoplay: 0
       }
     };
-console.log('heyyy');
+// console.log('heyyy');
     return (
     //   <div>
     // <div className="context" style ={{height: "100%"}}>

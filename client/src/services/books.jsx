@@ -46,10 +46,10 @@ export const addBookToViewerShelf = async book => {
 };
 
 export const addPodcastToViewerShelf = async pod => {
-  console.log(
-    "I am at the post request for viewer to add a podcast",
-    pod,
-  );
+  // console.log(
+  //   "I am at the post request for viewer to add a podcast",
+  //   pod,
+  // );
   try {
     const response = await apiBookService.post(`/viewer-add-podcast`, pod);
     return response.data.pod;
@@ -59,10 +59,10 @@ export const addPodcastToViewerShelf = async pod => {
 };
 
 export const getUsersPodcasts = async (id) => {
-  console.log("I am at the podcast get request", id);
+  // console.log("I am at the podcast get request", id);
   try {
     const response = await apiBookService.post(`/get-podcasts/${id}`);
-    console.log(response.data.user.podcasts);
+    // console.log(response.data.user.podcasts);
     return response.data.user.podcasts;
   } catch (error) {
     throw error;

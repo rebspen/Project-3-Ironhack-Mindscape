@@ -14,7 +14,7 @@ export const addPost = async book => {
    // console.log('I added the post in service')
     return response.data.post;
   } catch (error) {
-    console.log('I didnt add the post in service due to', error)
+    // console.log('I didnt add the post in service due to', error)
     throw error;
   }
 };
@@ -31,7 +31,7 @@ export const addPostReading = async book => {
     //console.log('I added the post in service')
     return response.data.post;
   } catch (error) {
-    console.log('I didnt add the post in service due to', error)
+    // console.log('I didnt add the post in service due to', error)
     throw error;
   }
 };
@@ -46,7 +46,7 @@ export const addPostRemoved = async book => {
      //console.log('I added the post in service')
      return response.data.post;
    } catch (error) {
-     console.log('I didnt add the post in service due to', error)
+    //  console.log('I didnt add the post in service due to', error)
      throw error;
    }
  };
@@ -58,7 +58,7 @@ export const addPostRemoved = async book => {
      //console.log('I added the post in service')
      return response.data.posts;
    } catch (error) {
-     console.log('I didnt add the post in service due to', error)
+    //  console.log('I didnt add the post in service due to', error)
      throw error;
    }
  };
@@ -72,7 +72,7 @@ export const addPostRemoved = async book => {
     //console.log('I added the post in service')
     return response.data.post;
   } catch (error) {
-    console.log('I didnt add the post in service due to', error)
+    // console.log('I didnt add the post in service due to', error)
     throw error;
   }
 };
@@ -88,7 +88,7 @@ export const addPodcastPost = async data => {
    // console.log('I added the post in service')
     return response.data.post;
   } catch (error) {
-    console.log('I didnt add the post in service due to', error)
+    // console.log('I didnt add the post in service due to', error)
     throw error;
   }
 };

@@ -40,8 +40,8 @@ booksRouter.post("/add-book", async (req, res, next) => {
 //add podcast
 
 booksRouter.post("/add-podcast", async (req, res, next) => {
-  console.log("I am at the add podcast route");
-  console.log("req-body", req.body);
+  // console.log("I am at the add podcast route");
+  // console.log("req-body", req.body);
   const userId = req.session.user;
   try {
     const podcast = await Podcast.create({
@@ -144,8 +144,8 @@ booksRouter.post("/viewer-add-book", async (req, res, next) => {
 });
 
 booksRouter.post("/viewer-add-podcast", async (req, res, next) => {
-  console.log("I am at the add podcast route for viewer");
-  console.log("req-body", req.body);
+  // console.log("I am at the add podcast route for viewer");
+  // console.log("req-body", req.body);
   const userId = req.session.user;
   try {
     const podcast = await Podcast.create({

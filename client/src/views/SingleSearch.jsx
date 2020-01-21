@@ -31,7 +31,7 @@ function SingleSearch(props) {
       )
       .then(data => {
         const final = data.data.Similar.Results;
-        console.log(final)
+        // console.log(final)
         const filteredpercentage = final.filter((val,index) => { if(!val.Name.includes("%")){ return val}})
         const filtered = filteredpercentage.filter((val,index) => { if(val.Type === "book" || val.Type === "podcast"){ return val}})
         if(filtered.length === 0){

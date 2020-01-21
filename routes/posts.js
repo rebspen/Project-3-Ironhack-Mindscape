@@ -62,7 +62,7 @@ try {
   .exec()
   .then(posts => {
    // console.log('We got the posts');
-   console.log('these are the posts!')
+  //  console.log('these are the posts!')
     res.json({posts});
   })
   .catch (error =>{

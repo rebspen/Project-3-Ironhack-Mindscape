@@ -14,7 +14,7 @@ function PodCarousel (props) {
     }
   };
 
-    console.log("CAROUSLE PROPS", props)
+  
       return (
         <div className = "m-2 " style = {{width:"30%", border: "7px double white"}}>
         <Link to = {`/alone/${props.profile}/${props.data._id}`}>
